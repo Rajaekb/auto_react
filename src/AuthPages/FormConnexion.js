@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import './styleAuth.css';
 import { connect } from 'react-redux';
 import { loginUser } from './../redux/actions/authActionCreators';
-
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
+import FormInscription from './FormInscription';
 const FormConnexion = ({ dispatchLoginAction }) => {
 
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+    //const [openRegister, setOpenRegister] = React.useState(false);
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
@@ -39,7 +43,9 @@ const FormConnexion = ({ dispatchLoginAction }) => {
                  <button type="submit" className="btn btn-warning w-100">CONNEXION</button>
               
                  </form>
+                 
              </div>
+    
          </div>
 
         );

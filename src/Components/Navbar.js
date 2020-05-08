@@ -1,10 +1,19 @@
 import React from 'react';
 
 import logo from '../assets/img/logo.svg';
+
 import {Link} from "react-router-dom";
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
+import FormConnexion from '../AuthPages/FormConnexion';
+import FormInscription from '../AuthPages/FormInscription';
 
 
-function Navbar() {
+const Navbar = () => {
+
+    const [openLogin, setOpenLogin] = React.useState(false);
+    const [openRegister, setOpenRegister] = React.useState(false);
+  
     return (
         <div>
  
@@ -19,7 +28,7 @@ function Navbar() {
 			<div className="row justify-content-end">
                 <div className="col-md-2"></div>
 				<div className="col-2 col-md-2 col-sm-2 ">
-                <Link to="/login"><button type="button" className="btn btn-dark  btn-sm">CONNEXION</button></Link></div>
+                <button type="button" onClick={(e)=>setOpenLogin(true)} className="btn btn-dark  btn-sm">CONNEXION</button></div>
 				<div className="col-2 col-md-2 col-sm-2">
                 <Link to="/inscription"><button type="button" className="btn btn-warning  btn-sm">inscription</button></Link>
                 </div>
@@ -58,7 +67,24 @@ function Navbar() {
 </div>
         
       </div>
+    <Modal open={openLogin} onClose={() => setOpenLogin(false)} center>
 
+        <FormConnexion/>
+        <button type="button"
+         onClick={() => {
+            setOpenLogin(false);
+            setOpenRegister(true);
+         }
+            } 
+            className="btn btn-dark w-100 mt-2">INSCRIPTION</button>
+
+    </Modal>
+    <Modal open={openRegister} onClose={() => setOpenRegister(false)} center>
+
+        <FormInscription/>
+       
+
+    </Modal>
          
       </div>
   
