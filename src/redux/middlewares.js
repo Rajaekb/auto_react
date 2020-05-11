@@ -6,6 +6,7 @@ import * as constants from './constants';
 export const apiMiddleware = ({ dispatch, getState }) => next => action => {
     if (action.type !== constants.API) return next(action);
 
+    dispatch({ type: constants.TOGGLE_LOADER });
     
     const BASE_URL = 'http://localhost:8000';
     
@@ -16,11 +17,11 @@ export const apiMiddleware = ({ dispatch, getState }) => next => action => {
         url: BASE_URL + url,
         data: data ? data : null
     }).then((response) => {
-       
+        dispatch({ type: constants.TOGGLE_LOADER });
         if (success) dispatch(success(response.data));
         if (postProcessSuccess) postProcessSuccess(response.data);
     }).catch(err => {
-        
+        dispatch({ type: constants.TOGGLE_LOADER });
         if (!err.response) console.warn(err);
         else {
        

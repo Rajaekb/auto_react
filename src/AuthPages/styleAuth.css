@@ -3,7 +3,22 @@
     height: auto;
     text-align: center;
 }
-.loginForm span{
+ span{
    
     color:#eebb20;
 }
+.react-tabs__tab{
+    border: 0 !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    }
+  
+  .react-tabs__tab.react-tabs__tab--selected{
+    background-color: transparent;
+    border-bottom:2px solid black !important;
+    transition: all ease-in-out .2s;
+    }
+  
+  .react-tabs__tab-list{
+    border-bottom: none !important;
+  }

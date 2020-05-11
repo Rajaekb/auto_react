@@ -6,7 +6,11 @@ import { connect } from 'react-redux';
 import PageInscription from './AuthPages/PageInscription';
 import PageConnexion from './AuthPages/PageConnexion';
 import FormConnexion from './AuthPages/FormConnexion';
-import Navbar from './Components/Navbar';
+
+
+import Header from './Components/Header';
+import Annonces from './Pages/Annonces';
+import Spinner from './Components/spinner/spinner';
 
 
 const App = ({ user }) => {
@@ -14,15 +18,19 @@ const App = ({ user }) => {
     return (
 
     <div className="container">
-      <Navbar/>
+      <Spinner/>
+      <Header/>
+    
       {!user.isLoggedIn ?
           (<Switch>
            <Route path="/inscription" component={PageInscription} />
+         
            <Route path="/login" component={FormConnexion} />
             <Redirect to="/login" />
           </Switch>) :
           (<Switch>
-      
+              <Route exact path="/annonces" component={Annonces} />
+              <Redirect to="/annonces" />
           </Switch>)
         }
       

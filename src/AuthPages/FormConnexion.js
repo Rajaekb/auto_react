@@ -27,7 +27,7 @@ const FormConnexion = ({ dispatchLoginAction }) => {
             <form onSubmit={handleOnSubmit}>
                  <div className="form-group">
                      <input type="email" className="form-control" name="email"
-                     value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                     value={email} onChange={(e)=>setEmail(e.target.value)} />
                      
                  </div>
                  <div className="form-group">
