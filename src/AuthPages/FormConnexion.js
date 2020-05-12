@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './styleAuth.css';
+import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
 import { loginUser } from './../redux/actions/authActionCreators';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import FormInscription from './FormInscription';
-const FormConnexion = ({ dispatchLoginAction }) => {
+const FormConnexion = ({ dispatchLoginAction ,props}) => {
 
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
@@ -15,8 +16,9 @@ const FormConnexion = ({ dispatchLoginAction }) => {
         event.preventDefault();
       
         dispatchLoginAction(email, password,
-            () => console.log('login Successfully!'),
-            (message) =>console.log(`Error: ${message}`));
+            () => toast.success("Logged In Successfully!"),
+            (message) =>toast.error(`Error: ${message}`));
+           
     };
 
 

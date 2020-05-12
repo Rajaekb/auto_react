@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 import { registerUser } from './../redux/actions/authActionCreators';
 
 
@@ -24,8 +25,8 @@ const FormInscription = ({ dispatchRegisterAction }) =>{
         event.preventDefault();
       
          dispatchRegisterAction(nom, prenom,user_type, email, password,nom_société,tel,tel_whatsapp,
-            () => console.log('Account Created Successfully!'),
-            (message) =>console.log(`Error: ${message}`));
+            () => toast.success('Account Created Successfully!'),
+            (message) =>toast.error(`Error: ${message}`));
     };
        return(
             <div className="container">

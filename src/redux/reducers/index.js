@@ -4,6 +4,8 @@ import user from './userReducer';
 
 import loading from './loadingReducer'; 
 
-const rootReducer = combineReducers({ user , loading});
+import annonces from './annoncesReducer';
+
+const rootReducer = combineReducers({ user , loading , annonces});
 
 export default rootReducer;

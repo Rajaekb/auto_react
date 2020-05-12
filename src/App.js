@@ -3,23 +3,31 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import {Route ,Switch,Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, Slide } from 'react-toastify';
+
 import PageInscription from './AuthPages/PageInscription';
 import PageConnexion from './AuthPages/PageConnexion';
 import FormConnexion from './AuthPages/FormConnexion';
 
 
 import Header from './Components/Header';
-import Annonces from './Pages/Annonces';
+import AnnoncesPage from './Pages/AnnoncesPage';
 import Spinner from './Components/spinner/spinner';
+import { logoutUser } from './redux/actions/authActionCreators';
+import EditAnnoncePage from './Pages/EditAnnoncePage';
 
-
-const App = ({ user }) => {
+const App = ({ user , dispatchLogoutAction }) => {
  
     return (
 
     <div className="container">
+
+    <ToastContainer position="top-right" autoClose={2000}
+      hideProgressBar transition={Slide} />
       <Spinner/>
-      <Header/>
+      <Header isLoggedIn={user.isLoggedIn} userName={user.fullName}
+        onLogout={dispatchLogoutAction} />
     
       {!user.isLoggedIn ?
           (<Switch>
@@ -29,7 +37,8 @@ const App = ({ user }) => {
             <Redirect to="/login" />
           </Switch>) :
           (<Switch>
-              <Route exact path="/annonces" component={Annonces} />
+              <Route exact path="/annonces" component={AnnoncesPage} />
+              <Route exact path="/edit-annonce" component={EditAnnoncePage} />
               <Redirect to="/annonces" />
           </Switch>)
         }
@@ -41,5 +50,7 @@ const App = ({ user }) => {
 }
 
 const mapStateToProps = (state) => ({ user: state.user });
-
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => ({
+  dispatchLogoutAction: () => dispatch(logoutUser())
+});
+export default connect(mapStateToProps, mapDispatchToProps)(App);
