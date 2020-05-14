@@ -1,4 +1,5 @@
-import * as constants from './../constants'
+import * as constants from './../constants';
+//import jwt_decode from 'jwt-decode';
 
 export const registerUser = (data, onSuccess, onError) => ({
     type:constants.API,
@@ -32,6 +33,7 @@ export const logoutUser = () => {
 
 const setUserInfo = (data) => {
     const parsedToken = JSON.parse(atob(data.token.split('.')[1]));
+   //const parsedToken = jwt_decode(data.token);
     const userInfo = {
         userId:parsedToken.id,
         fullName:`${parsedToken.nom} ${parsedToken.prenom}`,

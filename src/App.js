@@ -17,11 +17,13 @@ import Spinner from './Components/spinner/spinner';
 import { logoutUser } from './redux/actions/authActionCreators';
 import EditAnnoncePage from './Pages/EditAnnoncePage';
 
+import Add from './Pages/addAnnonce/Index';
+
 const App = ({ user , dispatchLogoutAction }) => {
  
     return (
 
-    <div className="container">
+    <div>
 
     <ToastContainer position="top-right" autoClose={2000}
       hideProgressBar transition={Slide} />
@@ -32,14 +34,17 @@ const App = ({ user , dispatchLogoutAction }) => {
       {!user.isLoggedIn ?
           (<Switch>
            <Route path="/inscription" component={PageInscription} />
+   
+           <Route path="/add" component={Add} />
          
            <Route path="/login" component={FormConnexion} />
-            <Redirect to="/login" />
+            <Redirect to="/" />
           </Switch>) :
           (<Switch>
+            <Route path="/add" component={Add} />
               <Route exact path="/annonces" component={AnnoncesPage} />
               <Route exact path="/edit-annonce" component={EditAnnoncePage} />
-              <Redirect to="/annonces" />
+              <Redirect to="/" />
           </Switch>)
         }
       

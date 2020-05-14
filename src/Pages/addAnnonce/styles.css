@@ -1,0 +1,160 @@
+body {
+ 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+h5,p {
+  font-family: 'Roboto';
+  padding-top: 30px;
+  font-style: normal;
+  font-size: medium;
+  }
+
+
+
+
+
+
+label {
+  line-height: 2;
+  text-align: left;
+  display: block;
+  margin-bottom: 13px;
+  margin-top: 20px;
+ 
+  font-size: 14px;
+  font-weight: 200;
+}
+
+button[type="submit"],
+input[type="submit"] {
+  background: #eebb20;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 10px;
+}
+
+button[type="submit"]:hover,
+input[type="submit"]:hover {
+  background: #080708;
+}
+
+button[type="submit"]:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+  transition: 0.3s all;
+  transform: translateY(3px);
+  border: 1px solid transparent;
+  opacity: 0.8;
+}
+
+
+
+input[type="button"]:hover {
+  transition: 0.3s all;
+}
+
+button[type="submit"],
+input[type="button"],
+input[type="submit"] {
+  -webkit-appearance: none;
+}
+
+
+
+
+
+.steps {
+  
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  text-align: center;
+  padding: 19px;
+}
+
+.steps a {
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.steps div{
+  background:#F9F5FF;
+  text-align: center;
+  width: 40px !important;
+  height:40px !important;
+  padding: 4px;
+  font-size: 14px;
+  
+
+}
+.steps li{
+  text-align: center;
+  
+}
+
+.steps li:last-child {
+  border: none;
+}
+
+.active div {
+
+  background:#eebb20;
+}
+#div_box{
+  background:#F9F5FF;
+
+  
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+  background-color:#eebb20 !important;
+  border-color: #eebb20 !important;
+}
+.custom-control-input:active ~ .custom-control-label::before {
+  background-color:#eebb20 !important;
+}
+.custom-radio .custom-control-input:checked ~ .custom-control-label::after{
+
+}
+
+#selector{
+  background: transparent !important;
+  border: transparent;
+  padding-top: 5%;
+  height: auto;
+}
+#div-input{
+  background:#F9F5FF;
+}
+#div_range{
+  
+    align-items: center;
+    background-color:#F8F8F8;
+    height: auto;
+   width: 100% !important;
+    border:none;
+    
+    padding:4%;
+}
+#div_range select,#div_range input {
+ border-radius: 0%;
+ border:none;
+
+}
+.custom-switch{
+
+  padding-top: 20px;
+ 
+}
+.custom-control-input{
+  width: 2rem !important;
+}
