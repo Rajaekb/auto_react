@@ -35,7 +35,7 @@ const App = ({ user , dispatchLogoutAction }) => {
           (<Switch>
            <Route path="/inscription" component={PageInscription} />
    
-           <Route path="/add" component={Add} />
+          
          
            <Route path="/login" component={FormConnexion} />
             <Redirect to="/" />

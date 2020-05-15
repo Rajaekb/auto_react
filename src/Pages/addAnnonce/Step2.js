@@ -14,23 +14,118 @@ const Step2 = props => {
     action(data);
     push("/result");
   };
-
+  const userInfo=localStorage.getItem('USER_INFO');
+  const user=JSON.parse(userInfo);
   return (
+    <div className="container">
     <form onSubmit={handleSubmit(onSubmit)}>
       <h2>Step 2</h2>
-     
-      <label>
-      active
-        <input
-          name="active"
+      <h5>SPECIFICATION VOITURE</h5>
+    <div className="row" >
+    <div className="col-12 col-sm-4 form-group">
+    <label><h6>Carburant</h6></label>
     
-          ref={register({
-            required: "This is required",
-           
-          })}
-        />
-        <ErrorMessage errors={errors} name="active" as="p" />
-      </label>
+        <div id="div_range">
+          <input type="text" name="carburant" ref={register({ required: "This is required." })}
+          className="form-control" id="inputfo" placeholder="Diesel"/>
+           <ErrorMessage errors={errors} name="carburant" as="p" />
+        </div>
+        </div>
+        <div className=" col-12  col-sm-4 form-group">
+        <label><h6>Transmission</h6></label>
+        <div id="div_range">
+            <input type="text" name="transmission" ref={register({ required: "This is required." })}
+            className="form-control" id="inputfo" placeholder="Transmission"/>
+             <ErrorMessage errors={errors} name="transmission" as="p" />
+        </div>
+        </div>
+        <div className="col-12 col-sm-4 form-group">
+        <label><h6>Cylindrée</h6></label>
+        <div id="div_range">
+            <input type="number" name="cylindree" ref={register({ required: "This is required." })}
+            className="form-control" id="inputfo" placeholder="20"/>
+             <ErrorMessage errors={errors} name="cylindree" as="p" />
+        </div>
+        </div>
+                
+
+</div>
+    <div className="row" >
+    <div className=" col-12 col-sm-4 form-group">
+    <label><h6>Puissance Fiscale</h6></label>
+        <div id="div_range">
+          <input type="number" name="p_fiscal" ref={register({ required: "This is required." })}
+          className="form-control" id="inputfo" placeholder="20"/>
+           <ErrorMessage errors={errors} name="p_fiscal" as="p" />
+        </div>
+        </div>
+        <div className="col-12 col-sm-4 form-group">
+        <label><h6>Puissance chevaux</h6></label>
+        <div id="div_range">
+          <input type="number" name="p_chevaux" ref={register({ required: "This is required." })}
+           className="form-control" id="inputfo" placeholder="20"/>
+            <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+        </div>
+        </div>
+        <div className="col-12 col-sm-4 form-group">
+        <label><h6>Motorisation</h6></label>
+        <div id="div_range">
+            <input type="number" name="motorisation" ref={register({ required: "This is required." })}
+            className="form-control" id="inputfo" placeholder="20"/>
+             <ErrorMessage errors={errors} name="motorisation" as="p" />
+        </div>
+        </div>
+</div>
+
+  <div className="row" >
+    <div className=" col-12 col-sm-4 form-group">
+      <label><h6>Consommation</h6></label>
+        <div id="div_range">
+          <input type="number" name="consomation" ref={register({ required: "This is required." })}
+          className="form-control" id="inputfo" placeholder="20"/>
+           <ErrorMessage errors={errors} name="consomation" as="p" />
+        </div>
+        </div>
+        <div className="col-12 col-sm-4 form-group">
+        <label><h6>Frais de vignette</h6></label>
+        <div id="div_range">
+          <input type="number" name="frais_vignette" ref={register({ required: "This is required." })}
+          className="form-control" id="inputfo" placeholder="20"/>
+           <ErrorMessage errors={errors} name="frais_vignette" as="p" />
+        </div>
+        </div>
+        <div className="col-12 col-sm-4 form-group">
+        <label></label>
+</div></div>
+        <hr/>
+    <div className="row" >
+      <div className=" col-12 col-sm-4 form-group">
+        <label><h6>En etat de marche</h6></label>
+        <div id="div_range">
+          <select className="form-control ">
+            <option>Oui</option>
+            <option>Non</option>
+            
+           </select>
+        </div>
+        </div> 
+        <div className="col-12 col-sm-4 form-group">
+        <label><h6>Quand prévoyer-vous vendre ?</h6></label>
+        <div id="div_range">
+        <input type="text" className="form-control" id="inputfo" placeholder="Oui"/>
+        </div>
+        </div>
+        <div className="col-12 col-sm-4 form-group">
+        <label><h6>Ou aimer-vous vendre votre voiture</h6></label>
+        <div id="div_range">
+            <input type="text" className="form-control" id="inputfo" placeholder="Tanger"/>
+        </div>
+        </div>
+</div>
+ 
+
+<hr/>
+  
       <label>
       user_id
         <input
@@ -43,20 +138,10 @@ const Step2 = props => {
         />
         <ErrorMessage errors={errors} name="user_id" as="p" />
       </label>
-      <label>
-      nombre_de_vue
-        <input
-          name="nombre_de_vue"
-          type="number"
-          ref={register({
-            required: "This is required",
-           
-          })}
-        />
-        <ErrorMessage errors={errors} name="nombre_de_vue" as="p" />
-      </label>
+     
       <input type="submit" />
     </form>
+    </div>
   );
 };
 

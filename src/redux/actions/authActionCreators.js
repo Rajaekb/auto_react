@@ -32,14 +32,20 @@ export const logoutUser = () => {
 };
 
 const setUserInfo = (data) => {
-    const parsedToken = JSON.parse(atob(data.token.split('.')[1]));
+    //const parsedToken = JSON.parse(atob(data.token.split('.')[1]));
    //const parsedToken = jwt_decode(data.token);
-    const userInfo = {
+   /* const userInfo = {
         userId:parsedToken.id,
         fullName:`${parsedToken.nom} ${parsedToken.prenom}`,
         token: data.token,
         isLoggedIn:true
-        };
+        };*/
+        const userInfo = {
+            userId:data.data.id,
+            fullName:data.data.nom,
+            token: data.token,
+            isLoggedIn:true
+            };
     localStorage.setItem('USER_INFO',JSON.stringify(userInfo));
     return { type: constants.SET_USER_INFO, payload : userInfo};
 };

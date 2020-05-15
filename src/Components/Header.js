@@ -28,13 +28,17 @@ const Header = ({ userName, isLoggedIn, onLogout }) => {
                         <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                             Annoncer sur le plus grand marché automobile au maroc
                         </div>
-                        <div class="col-12 col-md-6 col-lg-6 col-xl-6">{!isLoggedIn &&   
-                            <Link to="/edit-annonce">
+                        <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                            {isLoggedIn &&   
+                            <Link to="/add">
                                 <button type="button" className="btn btn-dark  btn-sm w-50 float-right text-warning ">
                                 DEPOSER VOTRE ANNONCE
                                 </button>
                             </Link>
-                        }             
+                            
+                        }  
+
+                        {isLoggedIn &&  <h6 className="float-right pr-2 mt-1"> Welcome {userName} !</h6> }          
                         </div>
                     </div>
                 </div>

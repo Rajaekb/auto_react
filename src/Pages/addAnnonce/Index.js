@@ -14,30 +14,57 @@ import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
 import Result from "./Result";
+import { connect } from 'react-redux';
 
 import "./styles.css";
 
 createStore({
   yourDetails: {
-    title: "",
-    description: "",
-    type: "",
-    active: 0,
+    neuf: 0,
+    origine: "",
+    dedouanement: "",
+    marque: "",
+    modele: "",
+    finition: "",
+    année: "",
+    mois: "",
+    kilometrage: 0,
+    matricule: "",
+    edition_special:0,
+    type_vehicule: "",
+    nbr_portes:0,
+    nbr_sieges:0,
+    carburant: "",
+    transmission: "",
+    cylindree: "",
+    p_fiscal:0,
+    p_chevaux:0,
+    motorisation:0,
+    consomation:0,
+    frais_vignette:0,
+    
+
+
+
+
     user_id: 1,
-    nombre_de_vue: 0
-  }
+    
+  } 
 });
 
 const Pages = () => {
   const location = useLocation();
+
+  const user=localStorage.getItem('USER_INFO');
+  const u=JSON.parse(user);
   return (
     <>
      
       <nav className="container">
         <ul className="steps">
           <li className={location.pathname === "/add" ? "active" : ""}>
-            <Link to="/add"><div>1</div>
-              DONNEES DE VEHICULE</Link>
+            <Link to="/add"><div>1</div>    
+            DONNEES DE VEHICULE</Link>
           </li>
           <li className={location.pathname === "/step2" ? "active" : ""}>
             <Link to="/step2"><div>2</div>EQUIPEMENT</Link>
@@ -61,6 +88,8 @@ const Pages = () => {
     </>
   );
 };
+
+ 
 
 export default function App() {
   return (

@@ -30,14 +30,17 @@ label {
 button[type="submit"],
 input[type="submit"] {
   background: #eebb20;
+  width: 250px;
+  height: 50px;
   color: white;
   text-transform: uppercase;
   border: none;
   margin-top: 40px;
-  padding: 20px;
-  font-size: 16px;
+  float: right;
+  padding: 15px;
+  font-size: 20px;
   font-weight: 100;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
 }
 
 button[type="submit"]:hover,
@@ -129,20 +132,18 @@ input[type="submit"] {
 #selector{
   background: transparent !important;
   border: transparent;
-  padding-top: 5%;
+  padding-top: 6%;
   height: auto;
 }
 #div-input{
   background:#F9F5FF;
 }
 #div_range{
-  
     align-items: center;
     background-color:#F8F8F8;
     height: auto;
-   width: 100% !important;
+    width: 100% !important;
     border:none;
-    
     padding:4%;
 }
 #div_range select,#div_range input {
@@ -157,4 +158,10 @@ input[type="submit"] {
 }
 .custom-control-input{
   width: 2rem !important;
+}
+.btn-light{
+  width: 150px;
+  height: 50px;
+  margin-right: 6px;
+  border-radius: 0%;
 }
