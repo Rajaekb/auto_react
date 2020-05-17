@@ -10,12 +10,13 @@ const Step2 = props => {
     defaultValues: state.yourDetails
   });
   const { push } = useHistory();
-  const onSubmit = data => {
+  const onSubmit = (data, e) => {
     action(data);
     push("/result");
   };
   const userInfo=localStorage.getItem('USER_INFO');
   const user=JSON.parse(userInfo);
+  const userId=JSON.stringify(user.userId)
   return (
     <div className="container">
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -95,7 +96,10 @@ const Step2 = props => {
         </div>
         </div>
         <div className="col-12 col-sm-4 form-group">
-        <label></label>
+        <label><h6>Votre id</h6></label>
+        <div id="div_range">
+             <input type="text" className="border-0 bg-light" name="user_id" value={userId}  ref={register}/>
+        </div>
 </div></div>
         <hr/>
     <div className="row" >
@@ -125,21 +129,17 @@ const Step2 = props => {
  
 
 <hr/>
-  
-      <label>
-      user_id
-        <input
-          name="active"
-          type="number"
-          ref={register({
-            required: "This is required",
-           
-          })}
-        />
-        <ErrorMessage errors={errors} name="user_id" as="p" />
-      </label>
+      <div className="row">
+        <div className="col-sm-4">
+           <input type="reset" /> 
+        </div>
+        <div className="col-sm-4 offset-sm-4">
+           <input type="submit" className="float-right"/>
+        </div>
+        
+      </div>
      
-      <input type="submit" />
+      
     </form>
     </div>
   );

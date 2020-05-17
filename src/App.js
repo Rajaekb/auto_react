@@ -38,13 +38,13 @@ const App = ({ user , dispatchLogoutAction }) => {
           
          
            <Route path="/login" component={FormConnexion} />
-            <Redirect to="/" />
+            <Redirect to="" />
           </Switch>) :
           (<Switch>
-            <Route path="/add" component={Add} />
+            <Route exact path="/add" component={Add} />
               <Route exact path="/annonces" component={AnnoncesPage} />
               <Route exact path="/edit-annonce" component={EditAnnoncePage} />
-              <Redirect to="/" />
+             
           </Switch>)
         }
       

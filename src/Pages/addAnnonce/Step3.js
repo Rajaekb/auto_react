@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
 
-const Step3 = props => {
+const Step4 = props => {
   const { state, action } = useStateMachine(updateAction);
   const { handleSubmit, register, errors } = useForm({
     defaultValues: state.yourDetails
@@ -17,7 +17,7 @@ const Step3 = props => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h2>Step 3</h2>
+      <h2>Step 4</h2>
      
       <label>
       active
@@ -60,4 +60,4 @@ const Step3 = props => {
   );
 };
 
-export default Step3;
+export default Step4;

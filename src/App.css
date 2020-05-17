@@ -1,3 +1,11 @@
 body {
-    padding-top: 125px;
+  
   }
+
+  #result h5,h6{
+    padding: 0px 0px 0 0px;
+    font-weight: normal;
+}
+#result .row{
+    padding-left: 70px;
+}

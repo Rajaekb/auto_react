@@ -26,7 +26,7 @@ const Result = ({ props,history, dispatchCreateAnnonceAction })  => {
       <h2>Result</h2>
       <pre>{JSON.stringify(state.yourDetails)}</pre>
      
-      <button onClick={handleOnSubmit}>send</button>
+      <button  onClick={handleOnSubmit}>send</button>
     </div>
   );
 };

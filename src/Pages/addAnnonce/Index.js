@@ -12,11 +12,12 @@ import { DevTool } from "little-state-machine-devtools";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
-import Step4 from "./Step4";
+
 import Result from "./Result";
 import { connect } from 'react-redux';
 
 import "./styles.css";
+import AnnoncesPage from "../AnnoncesPage";
 
 createStore({
   yourDetails: {
@@ -47,7 +48,7 @@ createStore({
 
 
 
-    user_id: 1,
+    user_id: 0
     
   } 
 });
@@ -70,11 +71,9 @@ const Pages = () => {
             <Link to="/step2"><div>2</div>EQUIPEMENT</Link>
           </li>
           <li className={location.pathname === "/step3" ? "active" : ""}>
-            <Link to="/step3"><div>3</div>DETAILS</Link>
+            <Link to="/step2"><div>3</div>DETAILS</Link>
           </li>
-          <li className={location.pathname === "/step4" ? "active" : ""}>
-            <Link to="/step4"><div>4</div>CONTACT</Link>
-          </li>
+         
           <li className={location.pathname === "/result" ? "active" : ""}>
             <Link to="/result"><div>5</div>Result</Link>
           </li>
@@ -83,8 +82,9 @@ const Pages = () => {
       <Route exact path="/add" component={Step1} />
       <Route path="/step2" component={Step2} />
       <Route path="/step3" component={Step3} />
-      <Route path="/step4" component={Step4} />
+
       <Route path="/result" component={Result} />
+    
     </>
   );
 };
@@ -103,7 +103,7 @@ export default function App() {
         </div>
       <DevTool />
   
-        <Router>
+        <Router basename="/automobile">
           <Pages />
         </Router>
      

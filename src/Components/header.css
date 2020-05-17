@@ -37,3 +37,7 @@
   .navbar-collapse{
      
   }
+  .react-responsive-modal-modalCenter{
+    position: relative;
+    z-index: 999999 !important;
+  }

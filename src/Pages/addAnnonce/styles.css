@@ -28,7 +28,8 @@ label {
 }
 
 button[type="submit"],
-input[type="submit"] {
+input[type="submit"],
+input[type="reset"] {
   background: #eebb20;
   width: 250px;
   height: 50px;
@@ -36,20 +37,23 @@ input[type="submit"] {
   text-transform: uppercase;
   border: none;
   margin-top: 40px;
-  float: right;
-  padding: 15px;
+  margin-bottom:20px;
+  margin-left:3px;
+  
   font-size: 20px;
   font-weight: 100;
   letter-spacing: 5px;
 }
 
 button[type="submit"]:hover,
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+input[type="reset"] :hover {
   background: #080708;
 }
 
 button[type="submit"]:active,
 input[type="button"]:active,
+input[type="reset"]:active,
 input[type="submit"]:active {
   transition: 0.3s all;
   transform: translateY(3px);

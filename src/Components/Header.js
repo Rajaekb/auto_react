@@ -21,11 +21,11 @@ const Header = ({ userName, isLoggedIn, onLogout }) => {
 
   
     return (
-        <div className="fixed-top">
+        <div>
             <div id="topbar">
                 <div className="container">
                     <div className="row">
-                        <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                        <div className="col-12 col-md-6 col-lg-6 col-xl-6">
                             Annoncer sur le plus grand marché automobile au maroc
                         </div>
                         <div class="col-12 col-md-6 col-lg-6 col-xl-6">
@@ -55,28 +55,28 @@ const Header = ({ userName, isLoggedIn, onLogout }) => {
                         data-toggle="collapse" 
                         data-target="#micon"
                     >
-                            <span className="navbar-toggler-icon"/>
+                            <span className="navbar-toggler-icon"></span>
                             
                         </button>
                   
                     <div className="collapse navbar-collapse" id="micon">
                     <ul className="navbar-nav ml-auto mt-3">
                         <li  className="nav-item">
-                            <Link  className="nav-link" to="/automobile/Recherche">RECHERCHE</Link></li>
+                            <Link  className="nav-link" to="/Recherche">RECHERCHE</Link></li>
                         <li  className="nav-item">
                             <Link  className="nav-link" to="/vendre">VENDRE</Link></li>
                         <li  className="nav-item">
                             <Link  className="nav-link" to="/estimation">ESTIMATION</Link></li>
                         <li  className="nav-item">
-                            <Link  className="nav-link" to="/automobile">ACTUALITE</Link></li>
+                            <Link  className="nav-link" to="/">ACTUALITE</Link></li>
                         <li  className="nav-item">
-                            <Link  className="nav-link" to="/automobile"><span className="border-left border-dark pl-3">FR</span></Link></li>
-                         {isLoggedIn &&<li>
-                            <button type="button" onClick={onLogout} className="btn btn-outline-warning ">
+                            <Link  className="nav-link" to="/"><span className="border-left border-dark pl-3">FR</span></Link></li>
+                         {isLoggedIn &&<li className="nav-item">
+                            <button type="button" className="nav-link" onClick={onLogout} className="btn btn-outline-warning ">
                                 Logout 
                             </button></li>}
                                  {!isLoggedIn &&  
-                            <li><button type="button" onClick={(e)=>setOpenLogin(true)}
+                            <li className="nav-item"><button type="button" className="nav-link" onClick={(e)=>setOpenLogin(true)}
                             className="btn pt-0 pr-0"><FaUserAlt color="black" size="30"/><br/>CONNEXION</button></li>}
                     </ul>
                     </div>
@@ -85,8 +85,8 @@ const Header = ({ userName, isLoggedIn, onLogout }) => {
           
 
     
-    <Modal open={openLogin} onClose={() => setOpenLogin(false)} center>
-    <FormConnexion/>
+    <Modal id="modal" open={openLogin} onClose={() => setOpenLogin(false)} center>
+    <FormConnexion />
         <button type="button"
         onClick={() => {
             setOpenLogin(false);
