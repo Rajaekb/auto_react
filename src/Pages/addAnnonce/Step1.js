@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import { useForm, ErrorMessage } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
@@ -6,8 +6,8 @@ import updateAction from "./updateAction";
 
 const Step1 = props => {
   const { state, action } = useStateMachine(updateAction);
-  const { handleSubmit, errors, register } = useForm({
-    defaultValues: state.yourDetails
+  const { handleSubmit, errors, register,reset } = useForm({
+    defaultValues: {}
   });
   const { push } = useHistory();
   const onSubit = data => {
@@ -36,7 +36,7 @@ const Step1 = props => {
       </div>
      
       <div className="form-group col-sm">
-        <select name="origine" className="form-control" ref={register({ required: "This is required." })} id="selector">
+        <select placeholder="Origine" name="origine" className="form-control" ref={register({ required: "This is required." })} id="selector">
           <option>Origine</option>
           <option>Maroc</option>
           <option>France</option>
@@ -52,7 +52,7 @@ const Step1 = props => {
     <div className="form-group col-sm">
 
       <select name="dedouanement" ref={register({ required: "This is required." })} className="form-control " id="selector">
-        <option>Dedouanement</option>
+        <option>Douanement</option>
         <option>Oui</option>
         <option>Non</option>
      
@@ -106,6 +106,7 @@ const Step1 = props => {
         <label><h6>Finition</h6></label>
         <div id="div_range">
             <input type="text" name="finition"
+            
              className="form-control" id="inputfo" placeholder="Finition"
              ref={register({ required: "This is required." })}/>
              <ErrorMessage errors={errors} name="finition" as="p" />

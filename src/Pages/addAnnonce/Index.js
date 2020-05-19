@@ -82,7 +82,7 @@ const Pages = () => {
       <Route exact path="/add" component={Step1} />
       <Route path="/step2" component={Step2} />
       <Route path="/step3" component={Step3} />
-
+      <Route exact path="/annonces" component={AnnoncesPage} />
       <Route path="/result" component={Result} />
     
     </>

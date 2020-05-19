@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useForm, ErrorMessage } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
+import { resetWarningCache } from "prop-types";
 
 const Step2 = props => {
   const { state, action } = useStateMachine(updateAction);
-  const { handleSubmit, register, errors } = useForm({
-    defaultValues: state.yourDetails
+  const { handleSubmit, register, errors,reset } = useForm({
+    defaultValues: {}
   });
   const { push } = useHistory();
   const onSubmit = (data, e) => {
     action(data);
     push("/result");
   };
+
   const userInfo=localStorage.getItem('USER_INFO');
   const user=JSON.parse(userInfo);
   const userId=JSON.stringify(user.userId)

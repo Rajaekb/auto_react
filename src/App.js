@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
+
 import {Route ,Switch,Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,9 +15,13 @@ import Header from './Components/Header';
 import AnnoncesPage from './Pages/AnnoncesPage';
 import Spinner from './Components/spinner/spinner';
 import { logoutUser } from './redux/actions/authActionCreators';
-import EditAnnoncePage from './Pages/EditAnnoncePage';
+import './App.css';
+
 
 import Add from './Pages/addAnnonce/Index';
+import AccueilPage from './Pages/AccueilPage';
+import Footer from './Components/Footer';
+import Mobile from './Components/Mobile';
 
 const App = ({ user , dispatchLogoutAction }) => {
  
@@ -30,6 +34,10 @@ const App = ({ user , dispatchLogoutAction }) => {
       <Spinner/>
       <Header isLoggedIn={user.isLoggedIn} userName={user.fullName}
         onLogout={dispatchLogoutAction} />
+    <AccueilPage/>
+    <Mobile/>
+    <Footer/>
+   
     
       {!user.isLoggedIn ?
           (<Switch>
@@ -42,8 +50,8 @@ const App = ({ user , dispatchLogoutAction }) => {
           </Switch>) :
           (<Switch>
             <Route exact path="/add" component={Add} />
-              <Route exact path="/annonces" component={AnnoncesPage} />
-              <Route exact path="/edit-annonce" component={EditAnnoncePage} />
+            <Route  path="/annonces" component={AnnoncesPage} />
+      
              
           </Switch>)
         }

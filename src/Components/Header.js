@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import './header.css';
 import { toast } from 'react-toastify';
 import logo from '../assets/img/logo.svg';
-import Navbar from './Navbar';
 import {Link} from "react-router-dom";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import FormConnexion from '../AuthPages/FormConnexion';
 import FormInscription from '../AuthPages/FormInscription';
-import PageInscription from '../AuthPages/PageInscription';
-import { connect } from 'react-redux';
-import { loginUser } from '../redux/actions/authActionCreators';
+
+
 import { FaUserAlt } from 'react-icons/fa';
 
 
@@ -37,14 +35,14 @@ const Header = ({ userName, isLoggedIn, onLogout }) => {
                             </Link>
                             
                         }  
-
+                           
                         {isLoggedIn &&  <h6 className="float-right pr-2 mt-1"> Welcome {userName} !</h6> }          
                         </div>
                     </div>
                 </div>
             </div>
             <div>
-              <nav className="navbar   navbar-light navbar-expand-md navbar-expand-lg navbar-style justify-content-between ">
+              <nav className="navbar navbar-light navbar-expand-sm navbar-expand-md navbar-style justify-content-between ">
                 <div className="container">
                   
                     
@@ -86,15 +84,17 @@ const Header = ({ userName, isLoggedIn, onLogout }) => {
 
     
     <Modal id="modal" open={openLogin} onClose={() => setOpenLogin(false)} center>
+  
     <FormConnexion />
-        <button type="button"
+        <div className="container"><button type="button"
         onClick={() => {
             setOpenLogin(false);
             setOpenRegister(true)
                         }
                 } 
         className="btn btn-dark w-100 mt-2">INSCRIPTION</button>
-     
+        </div>
+   
 
     </Modal>
  

@@ -1,6 +1,3 @@
-body {
-  
-  }
 
   #result h5,h6{
     padding: 0px 0px 0 0px;
@@ -8,4 +5,73 @@ body {
 }
 #result .row{
     padding-left: 70px;
+}
+#footer{
+  width: 100%;
+  height: auto;
+  background-color: #252424;
+  color:white;
+}
+
+#footer ul{
+  list-style-type: none;
+
+}
+#footer ul li{
+  font-size: small;
+  padding-left: 15px;
+}
+
+#footer span{
+  color:#eebb20 ;
+}
+#footer p{
+  font-size: 10px;
+  text-align: justify;
+  padding-top: 1px;
+
+}
+#social-icons{
+  padding-left: 50px;
+}
+#social-icons img{
+  margin-right:10px;
+}
+
+#mobile{
+  padding-top: 20px;
+ margin-top: 50px;
+  background-color: #eebb20;
+  width: 100%;
+  height: auto;
+
+}
+#tel{
+margin-top: -145px;
+ 
+ 
+}
+
+#mobile h4 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  padding-top: 50px;
+}
+#mobile h4 span{
+  color: aliceblue;
+}
+p{
+  text-align: center;
+}
+
+
+@media (max-width : 992px) {
+  #tel{
+   display: none;
+   
+  }
+  .app{
+      margin-bottom: 10px;
+  }
 }

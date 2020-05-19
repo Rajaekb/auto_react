@@ -25,7 +25,7 @@ const FormInscription = ({ dispatchRegisterAction }) =>{
         event.preventDefault();
       
          dispatchRegisterAction(nom, prenom,user_type, email, password,nom_société,tel,tel_whatsapp,
-            () => toast.success('Account Created Successfully!'),
+            () => toast.warn('Inscription effectuée avec succès!'),
             (message) =>toast.error(`Error: ${message}`));
     };
        return(
@@ -42,6 +42,7 @@ const FormInscription = ({ dispatchRegisterAction }) =>{
                       //checked={this.state.selectedOption === "option1"}
                       className="form-check-input"
                       onClick={() => setShowClientForm(true)} 
+                      
             /> 
             Client
         
@@ -62,11 +63,7 @@ const FormInscription = ({ dispatchRegisterAction }) =>{
                     Revendeur Pro
              
             
-                </div>
-
-
-   
-           
+                </div> 
            
                 {showClientForm && <div>
             <div className="form-group">
@@ -75,21 +72,21 @@ const FormInscription = ({ dispatchRegisterAction }) =>{
                 </div>
                 <div className="form-group">
                      <input type="text" className="form-control" name="prenom" 
-                     placeholder="prenom" value={prenom} onChange={(e)=>setPrenom(e.target.value)}/>
+                     placeholder="Prénom" value={prenom} onChange={(e)=>setPrenom(e.target.value)}/>
                 </div>
                 </div>} 
                 {!showClientForm &&
             <div className="form-group">
                      <input type="text" className="form-control" name="Nom de sociéte" 
-                     placeholder="Nom de société" value={nom_société} onChange={(e)=>setSociete(e.target.value)}/>
+                     placeholder="Nom de votre société" value={nom_société} onChange={(e)=>setSociete(e.target.value)}/>
                 </div>}
                 <div className="form-group">
                      <input type="text" className="form-control" name="Tel" 
-                     placeholder="Tel" value={tel} onChange={(e)=>setTel(e.target.value)}/>
+                     placeholder="Numero de Tel" value={tel} onChange={(e)=>setTel(e.target.value)}/>
                 </div>
                 <div className="form-group">
                      <input type="text" className="form-control" name="Tel-whatapp" 
-                     placeholder="Num Whatsapp" value={tel_whatsapp} onChange={(e)=>setwhatsapp(e.target.value)}/>
+                     placeholder="Numero Whatsapp" value={tel_whatsapp} onChange={(e)=>setwhatsapp(e.target.value)}/>
                 </div>
                  <div className="form-group">
                      <input type="email" className="form-control" name="email" 
@@ -100,12 +97,7 @@ const FormInscription = ({ dispatchRegisterAction }) =>{
                      placeholder="Mot de passe" value={password} onChange={(e)=>setPassword(e.target.value)}/>
                  </div>
               
-                 <div className="form-group form-check">
-                     <input type="checkbox" className="form-check-input"/>
-                     <label className="form-check-label">
-                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                     </label>
-                 </div>
+                
                  <button type="submit" className="btn btn-warning w-100" >INSCRIPTION</button>
      
                  </form>

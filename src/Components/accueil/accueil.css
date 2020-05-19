@@ -1,0 +1,70 @@
+
+#headerAccueil{
+    background: #000000;
+    background-image: url('../../assets/img/header_img.svg');
+    background-repeat: no-repeat;
+    background-size: 100%; 
+    height:auto;
+    }
+    
+    #box{
+        width: 400px;
+        height: 430px;
+
+      }
+
+      .react-tabs__tab{
+        border: 0 !important;
+        margin-left: 10px;
+        margin-right: 10px;
+        }
+      
+      .react-tabs__tab.react-tabs__tab--selected{
+        background-color: transparent;
+        border-bottom:2px solid white !important;
+        transition: all ease-in-out .2s;
+        }
+      
+      .react-tabs__tab-list{
+        border-bottom: none !important;
+      }
+      
+      .form-group,.form-check{
+        margin-bottom:7px !important;
+      }
+      
+      .btn-rech{
+        width: 99%;
+        background-color:#eebb20 ;
+      }
+      .btn,input,select{
+    border-radius: 0% !important;
+}
+.input_checkbox input {
+    width: auto !important;
+  }
+  .form-check-label{
+      margin-top:2px;
+  }
+  label {
+    line-height: 0;
+    margin-top: 0px;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+
+  background: #eebb20;
+  cursor: pointer;
+ 
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+.rechdetail,.btn-warning{
+    font-weight: 59;
+    letter-spacing: 5px;
+    outline: none;
+}
+#bienvenu h2{
+  font-weight: 900 !important;
+  
+}

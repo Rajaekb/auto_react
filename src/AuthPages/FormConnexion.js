@@ -6,7 +6,7 @@ import { loginUser } from './../redux/actions/authActionCreators';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import FormInscription from './FormInscription';
-const FormConnexion = ({ dispatchLoginAction ,props}) => {
+const FormConnexion = ({ history,dispatchLoginAction ,props}) => {
 
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
@@ -16,8 +16,12 @@ const FormConnexion = ({ dispatchLoginAction ,props}) => {
         event.preventDefault();
       
         dispatchLoginAction(email, password,
-            () => toast.success("Logged In Successfully!"),
+            () => {toast.warn("Connexion effectuée avec succès!")
+           // history.push('/add');
+        },
             (message) =>toast.error(`Error: ${message}`));
+          
+             //window.$('#modal').modal('hide');
            
     };
 
@@ -25,23 +29,18 @@ const FormConnexion = ({ dispatchLoginAction ,props}) => {
         return(
             <div className="container">
             <div className="loginForm">
-                <h4 className="p-4"><span>CONN</span>EXION</h4>
+                <h4 className="p-4 font-weight-bold"><span>CONN</span>EXION</h4>
             <form onSubmit={handleOnSubmit}>
                  <div className="form-group">
-                     <input type="email" className="form-control" name="email"
+                     <input type="email" placeholder="Votre Email" className="form-control" name="email"
                      value={email} onChange={(e)=>setEmail(e.target.value)} />
                      
                  </div>
                  <div className="form-group">
-                     <input type="password" className="form-control" name="password"
+                     <input type="password" placeholder="Votre mot de passe" className="form-control" name="password"
                      value={password} onChange={(e)=>setPassword(e.target.value)}/>
                  </div>
-                 <div className="form-group form-check">
-                     <input type="checkbox" className="form-check-input"/>
-                     <label className="form-check-label">
-                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                     </label>
-                 </div>
+                 
                  <button type="submit" className="btn btn-warning w-100">CONNEXION</button>
               
                  </form>
