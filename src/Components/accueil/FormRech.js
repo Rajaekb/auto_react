@@ -31,19 +31,19 @@ export default class FormRech extends Component {
                     </select>
                 </div>
                 <div className="form-group">
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" className="form-control">
                         <option selected>Année</option>
                         <option>...</option>
                     </select>
                 </div>
                 <div className="form-group">
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" className="form-control">
                         <option selected>Carburant</option>
                         <option>...</option>
                     </select>
                 </div>
                 <div className="form-group">
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" className="form-control">
                         <option selected>Ville</option>
                         <option>...</option>
                     </select>
@@ -55,7 +55,7 @@ export default class FormRech extends Component {
                 <div className="form-group">
                     <button type="button" className="btn btn-warning btn-rech">RECHERCHE</button>
                 </div>
-                <div className="form-group text-center">
+                <div className="form-group text-center pb-3">
                     <a href="#" className="text-light rechdetail"><FaSearch className="mr-2"/>RECHERCHE DETAILLEE</a>
                 </div>
 

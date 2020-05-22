@@ -23,3 +23,7 @@
   .react-tabs__tab-list{
     border-bottom: none !important;
   }
+  .invalid-feedback{
+
+    padding-top:0px;
+  }

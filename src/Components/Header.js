@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './header.css';
 import { toast } from 'react-toastify';
 import logo from '../assets/img/logo.svg';
+import connexion from '../assets/img/Navbar/connexion.svg';
+import comparer from '../assets/img/Navbar/comparer.svg';
 import {Link} from "react-router-dom";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
@@ -9,7 +11,7 @@ import FormConnexion from '../AuthPages/FormConnexion';
 import FormInscription from '../AuthPages/FormInscription';
 
 
-import { FaUserAlt } from 'react-icons/fa';
+import { FaSignOutAlt } from 'react-icons/fa';
 
 
 const Header = ({ userName, isLoggedIn, onLogout }) => {
@@ -23,26 +25,64 @@ const Header = ({ userName, isLoggedIn, onLogout }) => {
             <div id="topbar">
                 <div className="container">
                     <div className="row">
-                        <div className="col-12 col-md-6 col-lg-6 col-xl-6">
-                            Annoncer sur le plus grand marché automobile au maroc
+                        <div className="col-12 col-sm-6 col-md-6 col-lg-6 ">
+                           <p> Annoncer sur le plus grand marché automobile au maroc</p>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                        <div className="col-12 col-sm-6 col-md-6 col-lg-6 ">
                             {isLoggedIn &&   
                             <Link to="/add">
-                                <button type="button" className="btn btn-dark  btn-sm w-50 float-right text-warning ">
+                                <button type="button" className="btn btn-dark  btn-sm w-80 h-100 float-right text-warning ">
                                 DEPOSER VOTRE ANNONCE
                                 </button>
                             </Link>
                             
                         }  
                            
-                        {isLoggedIn &&  <h6 className="float-right pr-2 mt-1"> Welcome {userName} !</h6> }          
+                        {isLoggedIn &&  <h6 className="float-right pr-3 mt-2"> Bienvenu {userName} !</h6> }          
                         </div>
                     </div>
                 </div>
             </div>
-            <div>
-              <nav className="navbar navbar-light navbar-expand-sm navbar-expand-md navbar-style justify-content-between ">
+            
+           
+        <div className="navbar container">
+        
+                <div className="logo">
+                <Link to="/accueil"> <img src={logo} alt="Logo"/></Link>
+                </div>
+                
+                <input type="checkbox" id="nav"/>
+                <label for="nav"></label>
+                
+                <ul className="ul-list">
+                    <li className="list-item"><a href="#">RECHERCHE</a></li>
+                    <li className="list-item"><a href="#">VENDRE</a></li>
+                    <li className="list-item"><a href="#">ESTIMATION</a></li>
+                    <li className="list-item"><a href="#">ACTUALITE</a></li>
+                    <li  className="list-item">
+                   <span className="border-left border-dark pl-3">FR</span></li>
+              
+                        
+ 
+                            <li className="list-item  text-center">
+                                <button type="button" className="btn conx text-center"><img className="mb-1" src={comparer} alt="comparer"/>
+                            <br/>COMPARER</button></li>
+                        {!isLoggedIn &&  
+                            <li className="list-item  text-center">
+                                <button type="button" onClick={(e)=>setOpenLogin(true)}
+                            className="btn conx text-center"><img className="mb-1"src={connexion} alt="Conx"/>
+                            <br/>CONNEXION</button></li>}
+                            {isLoggedIn &&<li className="list-item text-center">
+                            <button type="button" onClick={onLogout} className="btn  conx">
+                               <FaSignOutAlt size="30"/><br/>DECONNECTER 
+                            </button>
+                        </li>}
+                </ul>
+                
+            </div>
+            
+       
+              {/*<nav className="navbar navbar-expand-sm navbar-expand-md navbar-style justify-content-between ">
                 <div className="container">
                   
                     
@@ -79,7 +119,7 @@ const Header = ({ userName, isLoggedIn, onLogout }) => {
                     </ul>
                     </div>
                 </div>
-            </nav>
+                                 </nav>*/}
           
 
     
@@ -105,7 +145,7 @@ const Header = ({ userName, isLoggedIn, onLogout }) => {
     </Modal>
          
             </div>
-        </div>
+     
   
      
     )

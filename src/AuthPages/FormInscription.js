@@ -17,21 +17,36 @@ const FormInscription = ({ dispatchRegisterAction }) =>{
     const [tel_whatsapp,setwhatsapp] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+    const [comf_password,setComfPassword] = useState('');
     const [showClientForm, setShowClientForm] = useState(true);
-    
+    const [error, setError] = useState({ email: false, password: false });
 
   
     const handleOnSubmit = (event) => {
         event.preventDefault();
-      
-         dispatchRegisterAction(nom, prenom,user_type, email, password,nom_société,tel,tel_whatsapp,
+
+        if (isFormInvalid()) updateErrorFlags();
+        if (isComfirm())  toast.warn('le password eest different!');
+        
+        else 
+            dispatchRegisterAction(nom, prenom,user_type, email, password,nom_société,tel,tel_whatsapp,
             () => toast.warn('Inscription effectuée avec succès!'),
-            (message) =>toast.error(`Error: ${message}`));
+                        (message) =>toast.error(`Error: ${message}`))
+                    
     };
+    const isFormInvalid = () => ( !email || !password);
+    const isComfirm = () => ( comf_password !== password);
+    const updateErrorFlags = () => {
+        const errObj = {email: false, password: false };
+   
+        if (!email) errObj.email = true;
+        if (!password) errObj.password = true;
+        setError(errObj);
+    }; 
        return(
             <div className="container">
             <div className="loginForm">
-            <form   onSubmit={handleOnSubmit}>
+            <form  novalidate onSubmit={handleOnSubmit}>
             <div className="form-check form-check-inline ">   
          
             <input
@@ -89,14 +104,26 @@ const FormInscription = ({ dispatchRegisterAction }) =>{
                      placeholder="Numero Whatsapp" value={tel_whatsapp} onChange={(e)=>setwhatsapp(e.target.value)}/>
                 </div>
                  <div className="form-group">
-                     <input type="email" className="form-control" name="email" 
+                     <input type="email" 
+                     className={`form-control ${error.email ? 'is-invalid' : ''}`}
+                     name="email" 
                      placeholder="Adresse-mail" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                 <p className="invalid-feedback">Champs requis</p>
                 </div>
                  <div className="form-group">
-                     <input type="password" className="form-control" name="password" 
+                     <input type="password"
+                      className={`form-control ${error.password ? 'is-invalid' : ''}`}
+                       name="password" 
                      placeholder="Mot de passe" value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                  <p className="invalid-feedback">Champs requis</p>
                  </div>
-              
+                 <div className="form-group">
+                     <input type="password"
+                      className="form-control"
+                       name="comf_password" 
+                     placeholder="Comfirmer mot de pass" value={comf_password} onChange={(e)=>setComfPassword(e.target.value)}/>
+                  
+                 </div>
                 
                  <button type="submit" className="btn btn-warning w-100" >INSCRIPTION</button>
      

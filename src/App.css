@@ -1,5 +1,24 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif !important;
+}
+.btn-warning,.btn-dark{
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 5px !important;
+    outline: none;
+    margin-bottom:8px !important;
+   
+}
+.form-group,.form-check ,.form-control{
+  margin-bottom:8px !important;
+  border: 0px !important; 
+  margin-top:15px !important;
+  
+}
 
-  #result h5,h6{
+#result h5,h6{
     padding: 0px 0px 0 0px;
     font-weight: normal;
 }
@@ -9,7 +28,7 @@
 #footer{
   width: 100%;
   height: auto;
-  background-color: #252424;
+  background-color: black;
   color:white;
 }
 
@@ -31,47 +50,35 @@
   padding-top: 1px;
 
 }
-#social-icons{
-  padding-left: 50px;
+.footmenu ul{
+ margin-left: -12px !important;
 }
+
 #social-icons img{
   margin-right:10px;
 }
-
-#mobile{
-  padding-top: 20px;
- margin-top: 50px;
-  background-color: #eebb20;
-  width: 100%;
-  height: auto;
+.input-group{
+  width: 80% !important;
+}
+.input-group-append{
+  width: 10%;
+  height: 38px;
+  margin-top: 15px;
+}
+.footmenu {
+  font-weight: 300;
+  line-height: 29px;
 
 }
-#tel{
-margin-top: -145px;
- 
- 
+.footmenu p{
+  font-weight: 300;
+  line-height: 20px;
+
 }
 
-#mobile h4 {
-  text-align: center;
-  font-weight: bold;
-  font-size: 2rem;
-  padding-top: 50px;
-}
-#mobile h4 span{
-  color: aliceblue;
-}
-p{
-  text-align: center;
-}
-
-
-@media (max-width : 992px) {
-  #tel{
-   display: none;
+@media (max-width : 800px) {
+  .footmenu ul ,.footmenu h6{
+    margin-left: 10 !important;
+   }
    
-  }
-  .app{
-      margin-bottom: 10px;
-  }
 }

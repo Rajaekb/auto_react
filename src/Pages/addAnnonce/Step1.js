@@ -22,21 +22,20 @@ const Step1 = props => {
      
   <h5>VOITURES NEUVES OU D'OCCASION</h5>
     <div className="row" id="div_box">
-          <div className="custom-control custom-radio custom-control-inline col-sm pl-5">
+          <div className="custom-control custom-radio custom-control-inline col-sm pl-5 pt-3">
           <input  ref={register({ required: "This is required." })} type="radio" value="Neuf" 
           id="customRadioInline1" name="neuf" className="custom-control-input "/>
-          <label className="custom-control-label" for="customRadioInline1">Voiture Neuve</label>
+          <label className="custom-control-label pt-3" for="customRadioInline1">Voiture Neuve</label>
           <ErrorMessage errors={errors} name="neuf" as="p" />
       </div>
-      <div className="custom-control custom-radio custom-control-inline col-sm">
-        <input   ref={register({ required: "This is required." })} type="radio" value="Occasion" 
+      <div className="custom-control custom-radio custom-control-inline col-sm pt-3">        <input   ref={register({ required: "This is required." })} type="radio" value="Occasion" 
         id="customRadioInline2" name="neuf" className="custom-control-input"/>
-        <label className="custom-control-label" for="customRadioInline2">Voiture d'occasion</label>
+        <label className="custom-control-label pt-3" for="customRadioInline2">Voiture d'occasion</label>
         <ErrorMessage errors={errors} name="neuf" as="p" />
       </div>
      
-      <div className="form-group col-sm">
-        <select placeholder="Origine" name="origine" className="form-control" ref={register({ required: "This is required." })} id="selector">
+      <div className="form-group col-sm pt-0">
+        <select placeholder="Origine" name="origine"  ref={register({ required: "This is required." })} id="selector">
           <option>Origine</option>
           <option>Maroc</option>
           <option>France</option>
@@ -51,8 +50,8 @@ const Step1 = props => {
     </div>
     <div className="form-group col-sm">
 
-      <select name="dedouanement" ref={register({ required: "This is required." })} className="form-control " id="selector">
-        <option>Douanement</option>
+      <select name="dedouanement" ref={register({ required: "This is required." })}id="selector">
+        <option>Dedouanement</option>
         <option>Oui</option>
         <option>Non</option>
      
