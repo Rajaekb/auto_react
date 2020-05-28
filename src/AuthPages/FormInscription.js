@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 import { registerUser } from './../redux/actions/authActionCreators';
-
+import { useHistory } from "react-router-dom";
 
 const FormInscription = ({ dispatchRegisterAction }) =>{
 
@@ -20,17 +20,21 @@ const FormInscription = ({ dispatchRegisterAction }) =>{
     const [comf_password,setComfPassword] = useState('');
     const [showClientForm, setShowClientForm] = useState(true);
     const [error, setError] = useState({ email: false, password: false });
-
+    let history = useHistory();
   
     const handleOnSubmit = (event) => {
         event.preventDefault();
 
         if (isFormInvalid()) updateErrorFlags();
-        if (isComfirm())  toast.warn('le password eest different!');
+        if (isComfirm())  toast.warn('le mot de pass est incorrect!');
         
         else 
             dispatchRegisterAction(nom, prenom,user_type, email, password,nom_société,tel,tel_whatsapp,
-            () => toast.warn('Inscription effectuée avec succès!'),
+            () => {toast.warn('Inscription effectuée avec succès!');
+            history.replace("/client");
+            window.location.reload(true);
+        
+        },
                         (message) =>toast.error(`Error: ${message}`))
                     
     };
@@ -46,39 +50,31 @@ const FormInscription = ({ dispatchRegisterAction }) =>{
        return(
             <div className="container">
             <div className="loginForm">
-            <form  novalidate onSubmit={handleOnSubmit}>
-            <div className="form-check form-check-inline ">   
-         
-            <input
-                      type="radio"
-                      name="user_type"
-                      value="Client" 
-                      onChange={(e)=>setUserType(e.target.value)}
-                      //checked={this.state.selectedOption === "option1"}
-                      className="form-check-input"
-                      onClick={() => setShowClientForm(true)} 
-                      
-            /> 
-            Client
-        
-            
-            </div>
-            <div className="form-check form-check-inline">
-               
-                    <input
-                      type="radio"
-                      name="user_type"
+            <form  noValidate onSubmit={handleOnSubmit}>
+            <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                <label className="btn type_user active">
+                    <input 
+                    type="radio" 
+                    name="user_type"
+                    value="Client" 
+                    onChange={(e)=>setUserType(e.target.value)}
+                    onClick={() => setShowClientForm(true)} 
+                    checked/> Client
+                </label>
+                <label className="btn type_user">
+                    <input 
+                        type="radio" 
+                        name="user_type"
                       value="Revendeur Pro" 
-                      //checked={this.state.selectedOption === "option2"}
                       onChange={(e)=>setUserType(e.target.value)}
                       className="form-check-input"                    
-                        onClick={() =>setShowClientForm(false)}
-                    
-                    />
+                        onClick={() =>setShowClientForm(false)}/> 
                     Revendeur Pro
-             
-            
-                </div> 
+                </label>
+
+
+</div>
+           
            
                 {showClientForm && <div>
             <div className="form-group">

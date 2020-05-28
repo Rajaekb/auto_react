@@ -13,7 +13,7 @@ const Step2 = props => {
   const { push } = useHistory();
   const onSubmit = (data, e) => {
     action(data);
-    push("/result");
+    push("/step3");
   };
 
   const userInfo=localStorage.getItem('USER_INFO');
@@ -21,7 +21,7 @@ const Step2 = props => {
   const userId=JSON.stringify(user.userId)
   return (
     <div className="container">
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
       <h2>Step 2</h2>
       <h5>SPECIFICATION VOITURE</h5>
     <div className="row" >
@@ -29,7 +29,7 @@ const Step2 = props => {
     <label><h6>Carburant</h6></label>
     
         <div id="div_range">
-          <input type="text" name="carburant" ref={register({ required: "This is required." })}
+          <input type="text" name="carburant" ref={register}
           className="form-control" id="inputfo" placeholder="Diesel"/>
            <ErrorMessage errors={errors} name="carburant" as="p" />
         </div>
@@ -37,7 +37,7 @@ const Step2 = props => {
         <div className=" col-12  col-sm-4 form-group">
         <label><h6>Transmission</h6></label>
         <div id="div_range">
-            <input type="text" name="transmission" ref={register({ required: "This is required." })}
+            <input type="text" name="transmission" ref={register}
             className="form-control" id="inputfo" placeholder="Transmission"/>
              <ErrorMessage errors={errors} name="transmission" as="p" />
         </div>
@@ -45,7 +45,7 @@ const Step2 = props => {
         <div className="col-12 col-sm-4 form-group">
         <label><h6>Cylindrée</h6></label>
         <div id="div_range">
-            <input type="number" name="cylindree" ref={register({ required: "This is required." })}
+            <input type="number" name="cylindree" ref={register}
             className="form-control" id="inputfo" placeholder="20"/>
              <ErrorMessage errors={errors} name="cylindree" as="p" />
         </div>
@@ -57,7 +57,7 @@ const Step2 = props => {
     <div className=" col-12 col-sm-4 form-group">
     <label><h6>Puissance Fiscale</h6></label>
         <div id="div_range">
-          <input type="number" name="p_fiscal" ref={register({ required: "This is required." })}
+          <input type="number" name="p_fiscal" ref={register}
           className="form-control" id="inputfo" placeholder="20"/>
            <ErrorMessage errors={errors} name="p_fiscal" as="p" />
         </div>
@@ -65,7 +65,7 @@ const Step2 = props => {
         <div className="col-12 col-sm-4 form-group">
         <label><h6>Puissance chevaux</h6></label>
         <div id="div_range">
-          <input type="number" name="p_chevaux" ref={register({ required: "This is required." })}
+          <input type="number" name="p_chevaux" ref={register}
            className="form-control" id="inputfo" placeholder="20"/>
             <ErrorMessage errors={errors} name="p_chevaux" as="p" />
         </div>
@@ -73,7 +73,7 @@ const Step2 = props => {
         <div className="col-12 col-sm-4 form-group">
         <label><h6>Motorisation</h6></label>
         <div id="div_range">
-            <input type="number" name="motorisation" ref={register({ required: "This is required." })}
+            <input type="number" name="motorisation" ref={register}
             className="form-control" id="inputfo" placeholder="20"/>
              <ErrorMessage errors={errors} name="motorisation" as="p" />
         </div>
@@ -84,7 +84,7 @@ const Step2 = props => {
     <div className=" col-12 col-sm-4 form-group">
       <label><h6>Consommation</h6></label>
         <div id="div_range">
-          <input type="number" name="consomation" ref={register({ required: "This is required." })}
+          <input type="number" name="consomation" ref={register}
           className="form-control" id="inputfo" placeholder="20"/>
            <ErrorMessage errors={errors} name="consomation" as="p" />
         </div>
@@ -92,7 +92,7 @@ const Step2 = props => {
         <div className="col-12 col-sm-4 form-group">
         <label><h6>Frais de vignette</h6></label>
         <div id="div_range">
-          <input type="number" name="frais_vignette" ref={register({ required: "This is required." })}
+          <input type="number" name="frais_vignette" ref={register}
           className="form-control" id="inputfo" placeholder="20"/>
            <ErrorMessage errors={errors} name="frais_vignette" as="p" />
         </div>

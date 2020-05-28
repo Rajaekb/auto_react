@@ -9,23 +9,23 @@ export default class FormRech extends Component {
                     <div className="col-12">
                         <div className="form-check form-check-inline">
                             <input className="form-check-input" name="etat" type="checkbox" id="inlineCheckbox1" value="Neuf" />
-                            <label className="form-check-label text-light" for="inlineCheckbox1">Neuf</label>
+                            <label className="form-check-label text-light" htmlFor="inlineCheckbox1">Neuf</label>
                         </div>
                         <div className="form-check form-check-inline">
                             <input className="form-check-input" name="etat" type="checkbox" id="inlineCheckbox2" value="Occasion" />
-                            <label className="form-check-label text-light" for="inlineCheckbox2">Occasion</label>
+                            <label className="form-check-label text-light" htmlFor="inlineCheckbox2">Occasion</label>
                         </div>
                     </div>
                 </div>               
                 
                 <div className="form-group">
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" className="form-control">
                         <option selected>Marque</option>
                         <option>...</option>
                     </select>
                 </div>
                 <div className="form-group">
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" className="form-control">
                         <option selected>Modéle</option>
                         <option>...</option>
                     </select>
@@ -49,7 +49,7 @@ export default class FormRech extends Component {
                     </select>
                 </div>
                 <div className="form-group pt-0">
-                <label className="text-light" for="customRange3">Prix min</label>
+                <label className="text-light" htmlFor="customRange3">Prix min</label>
                 <input type="range" multiple className="custom-range" min="0" max="5" step="0.5" id="customRange3"/>
                 </div>
                 <div className="form-group">

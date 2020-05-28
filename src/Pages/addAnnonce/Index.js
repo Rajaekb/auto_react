@@ -20,7 +20,8 @@ import "./styles.css";
 import AnnoncesPage from "../AnnoncesPage";
 
 createStore({
-  yourDetails: {
+  data: {}
+/*yourDetails: {
     neuf: 0,
     origine: "",
     dedouanement: "",
@@ -33,6 +34,8 @@ createStore({
     matricule: "",
     edition_special:0,
     type_vehicule: "",
+    image :null,
+    images :[],
     nbr_portes:0,
     nbr_sieges:0,
     carburant: "",
@@ -44,13 +47,10 @@ createStore({
     consomation:0,
     frais_vignette:0,
     
-
-
-
-
+  
     user_id: 0
     
-  } 
+  }*/ 
 });
 
 const Pages = () => {
@@ -71,7 +71,7 @@ const Pages = () => {
             <Link to="/step2"><div>2</div>EQUIPEMENT</Link>
           </li>
           <li className={location.pathname === "/step3" ? "active" : ""}>
-            <Link to="/step2"><div>3</div>DETAILS</Link>
+            <Link to="/step3"><div>3</div>DETAILS</Link>
           </li>
          
           <li className={location.pathname === "/result" ? "active" : ""}>
@@ -82,7 +82,7 @@ const Pages = () => {
       <Route exact path="/add" component={Step1} />
       <Route path="/step2" component={Step2} />
       <Route path="/step3" component={Step3} />
-      <Route exact path="/annonces" component={AnnoncesPage} />
+     {/* <Route exact path="/annonces" component={AnnoncesPage} />*/}
       <Route path="/result" component={Result} />
     
     </>

@@ -17,25 +17,26 @@ const Step1 = props => {
 
   return (
     <div className="container">
-    <form novalidate onSubmit={handleSubmit(onSubit)}>
+    <form novalidate onSubmit={handleSubmit(onSubit)} encType="multipart/form-data">
    
      
   <h5>VOITURES NEUVES OU D'OCCASION</h5>
     <div className="row" id="div_box">
           <div className="custom-control custom-radio custom-control-inline col-sm pl-5 pt-3">
-          <input  ref={register({ required: "This is required." })} type="radio" value="Neuf" 
+          <input  ref={register} type="radio" value="Neuf" 
           id="customRadioInline1" name="neuf" className="custom-control-input "/>
           <label className="custom-control-label pt-3" for="customRadioInline1">Voiture Neuve</label>
           <ErrorMessage errors={errors} name="neuf" as="p" />
       </div>
-      <div className="custom-control custom-radio custom-control-inline col-sm pt-3">        <input   ref={register({ required: "This is required." })} type="radio" value="Occasion" 
+      <div className="custom-control custom-radio custom-control-inline col-sm pt-3">      
+        <input   ref={register} type="radio" value="Occasion" 
         id="customRadioInline2" name="neuf" className="custom-control-input"/>
         <label className="custom-control-label pt-3" for="customRadioInline2">Voiture d'occasion</label>
         <ErrorMessage errors={errors} name="neuf" as="p" />
       </div>
      
       <div className="form-group col-sm pt-0">
-        <select placeholder="Origine" name="origine"  ref={register({ required: "This is required." })} id="selector">
+        <select placeholder="Origine" name="origine"  ref={register} id="selector">
           <option>Origine</option>
           <option>Maroc</option>
           <option>France</option>
@@ -50,7 +51,7 @@ const Step1 = props => {
     </div>
     <div className="form-group col-sm">
 
-      <select name="dedouanement" ref={register({ required: "This is required." })}id="selector">
+      <select name="dedouanement" ref={register}id="selector">
         <option>Dedouanement</option>
         <option>Oui</option>
         <option>Non</option>
@@ -66,7 +67,7 @@ const Step1 = props => {
     <label><h6>Marque</h6></label>
         <div id="div_range">
           <select className="form-control "
-          name="marque"  ref={register({ required: "This is required." })}>
+          name="marque"  ref={register}>
             <option>Peugeot</option>
             <option>Renault</option>
             <option>Volkswagen</option>
@@ -84,7 +85,7 @@ const Step1 = props => {
         <label><h6>Model</h6></label>
         <div id="div_range">
           <select className="form-control " name="modele"
-          ref={register({ required: "This is required." })}>
+          ref={register}>
               <option>Aston Martin	</option>
               <option>Cadillac</option>
               <option>Dacia	</option>
@@ -107,7 +108,7 @@ const Step1 = props => {
             <input type="text" name="finition"
             
              className="form-control" id="inputfo" placeholder="Finition"
-             ref={register({ required: "This is required." })}/>
+             ref={register}/>
              <ErrorMessage errors={errors} name="finition" as="p" />
         </div>
         </div>
@@ -119,7 +120,7 @@ const Step1 = props => {
     <label><h6>Année</h6></label>
         <div id="div_range">
           <select className="form-control "
-          name="année"  ref={register({ required: "This is required." })}>
+          name="année"  ref={register}>
             <option>2020</option>
             <option>2019</option>
             <option>2018</option>
@@ -153,7 +154,7 @@ const Step1 = props => {
         <label><h6>Mois</h6></label>
         <div id="div_range">
           <select className="form-control "
-          name="mois"  ref={register({ required: "This is required." })}>
+          name="mois"  ref={register}>
               <option>janv</option>
               <option>fevr</option>
               <option>mars</option>
@@ -174,7 +175,7 @@ const Step1 = props => {
         <label><h6>Kilométrage</h6></label>
         <div id="div_range">
             <input type="number"
-            name="kilometrage"  ref={register({ required: "This is required." })}
+            name="kilometrage"  ref={register}
              className="form-control" id="inputfo" placeholder="Kilométrage"/>
              <ErrorMessage errors={errors} name="kilometrage" as="p" />
         </div>
@@ -186,7 +187,7 @@ const Step1 = props => {
       <label><h6>Matricule</h6></label>
         <div id="div_range">
           <select className="form-control "
-          name="matricule"  ref={register({ required: "This is required." })}>
+          name="matricule"  ref={register}>
             <option>Casa</option>
             <option>Tanger</option>
             <option>Rabat</option>
@@ -238,13 +239,13 @@ const Step1 = props => {
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
       <label class="btn btn-light active">
         <input type="radio" name="type_vehicule"  value="Citadine"
-        ref={register({ required: "This is required." })}
+        ref={register}
           checked/> CITADINE
          <ErrorMessage errors={errors} name="type_vehicule" as="p" />
       </label>
       <label class="btn btn-light">
         <input type="radio" name="type_vehicule" value="Berlin"
-        ref={register({ required: "This is required." })}
+        ref={register}
        /> BERLIN
          <ErrorMessage errors={errors} name="type_vehicule" as="p" />
       </label>
@@ -254,13 +255,13 @@ const Step1 = props => {
     <div className="btn-group btn-group-toggle" data-toggle="buttons">
      <label className="btn btn-light active">
        <input type="radio" name="nbr_portes" value="3" id="nbr_portes" 
-       ref={register({ required: "This is required." })}
+       ref={register}
        autocomplete="off" checked/> 2
        <ErrorMessage errors={errors} name="nbr_portes" as="p" />
      </label>
      <label className="btn btn-light">
        <input type="radio" name="nbr_portes"  value="4"  id="nbr_portes" 
-       ref={register({ required: "This is required." })}
+       ref={register}
        autocomplete="off"/> 4
        <ErrorMessage errors={errors} name="nbr_portes" as="p" />
       </label>
@@ -269,12 +270,12 @@ const Step1 = props => {
   <div className="col-sm" >
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
      <label class="btn btn-light active">
-      <input type="radio" name="nbr_sieges"  value="5" id="nbr_sieges" ref={register({ required: "This is required." })}
+      <input type="radio" name="nbr_sieges"  value="5" id="nbr_sieges" ref={register}
        autocomplete="off" checked/> 5
        <ErrorMessage errors={errors} name="nbr_sieges" as="p" />
     </label>
      <label class="btn btn-light">
-     <input type="radio" name="nbr_sieges"  value="4" id="nbr_sieges" ref={register({ required: "This is required." })}
+     <input type="radio" name="nbr_sieges"  value="4" id="nbr_sieges" ref={register}
       autocomplete="off"/> 4
       <ErrorMessage errors={errors} name="nbr_sieges" as="p" />
     </label>

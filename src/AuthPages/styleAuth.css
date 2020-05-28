@@ -27,3 +27,6 @@
 
     padding-top:0px;
   }
+  .type_user:focus{
+      border-bottom: 2px solid #eebb20 !important;
+  }

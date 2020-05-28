@@ -14,8 +14,38 @@ const Result = ({ props,history, dispatchCreateAnnonceAction })  => {
       //  const data = { state };
      
 
-      const data = (state.yourDetails) ;
-            dispatchCreateAnnonceAction(data, () => {
+      //const data = (state.yourDetails) ;
+      const fd = new FormData();
+      fd.append('neuf',state.yourDetails.neuf)
+      fd.append('origine',state.yourDetails.origine)
+      fd.append('dedouanement',state.yourDetails.dedouanement)
+      fd.append('marque',state.yourDetails.marque)
+      fd.append('modele',state.yourDetails.modele)
+      fd.append('finition',state.yourDetails.finition)
+      fd.append('année',state.yourDetails.année)
+      fd.append('mois',state.yourDetails.mois)
+      fd.append('kilometrage',state.yourDetails.kilometrage)
+      fd.append('matricule',state.yourDetails.matricule)
+      fd.append('edition_special',state.yourDetails.edition_special)
+      fd.append('type_vehicule',state.yourDetails.type_vehicule)
+      fd.append('image',state.yourDetails.image)
+      fd.append('nbr_portes',state.yourDetails.nbr_portes)
+      fd.append('nbr_sieges',state.yourDetails.nbr_sieges)
+      fd.append('carburant',state.yourDetails.carburant)
+      fd.append('transmission',state.yourDetails.transmission)
+      fd.append('cylindree',state.yourDetails.cylindree)
+      fd.append('p_fiscal',state.yourDetails.p_fiscal)
+      fd.append('p_chevaux',state.yourDetails.p_chevaux)
+      fd.append('motorisation',state.yourDetails.motorisation)
+      fd.append('consomation',state.yourDetails.consomation)
+      fd.append('frais_vignette',state.yourDetails.frais_vignette)
+     
+      fd.append('user_id',state.yourDetails.user_id)
+      const data = {fd} ;
+      
+
+
+            dispatchCreateAnnonceAction(fd, () => {
                 toast.warn('Annonce crée avec succée!');
                 history.replace('/annonces');
             }, (message) => toast.error(`Error: ${message}`));
@@ -43,7 +73,7 @@ const Result = ({ props,history, dispatchCreateAnnonceAction })  => {
     
 
 </ul></div>
-<div classNameName="col-sm-6">
+<div className="col-sm-6">
 <ul className="list-group list-group-flush">
 <li className="list-group-item">type de vehicule: {JSON.stringify(state.yourDetails.type_vehicule)}</li>
     <li className="list-group-item">nombre de portes:{JSON.stringify(state.yourDetails.nbr_portes)} </li>
@@ -56,6 +86,7 @@ const Result = ({ props,history, dispatchCreateAnnonceAction })  => {
     <li className="list-group-item">motorisation:{JSON.stringify(state.yourDetails.motorisation)} </li>
     <li className="list-group-item">consomation:{JSON.stringify(state.yourDetails.consomation)} </li>
     <li className="list-group-item">frais vignette:{JSON.stringify(state.yourDetails.frais_vignette)} </li>
+    <li className="list-group-item">image:{JSON.stringify(state.yourDetails.image)} </li>
 </ul>
      </div> 
 </div>

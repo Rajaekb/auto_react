@@ -36,7 +36,7 @@ import { deleteAnnonceById } from '../redux/actions/annoncesActionCreator';
                    annonces.map(item => (
                     <div key={item.id} className="row" id="result">
                     <div className="col-3">
-                    <img src={d_img} alt="image" id="tel" width="250" className="rounded" />
+                    <img src={'public/annonces_images/item.image'} alt="image" id="tel" width="250" className="rounded" />
                     </div>
                 
                     <div className="col-9">

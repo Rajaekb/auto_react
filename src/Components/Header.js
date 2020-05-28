@@ -52,7 +52,7 @@ const Header = ({ userName, isLoggedIn, onLogout }) => {
                 </div>
                 
                 <input type="checkbox" id="nav"/>
-                <label for="nav"></label>
+                <label htmlFor="nav"></label>
                 
                 <ul className="ul-list">
                     <li className="list-item"><a href="#">RECHERCHE</a></li>

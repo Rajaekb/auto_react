@@ -20,12 +20,10 @@ const FormConnexion = ({ dispatchLoginAction ,props}) => {
         if (isFormInvalid()) updateErrorFlags();
         else dispatchLoginAction(email, password,
             () => { toast.warn("Connexion effectuée avec succès!");
-           // window.location.reload(true);
-            history.push("/add");
+        
+            history.replace("/client");
             window.location.reload(true);
-        }
-          // return (<Redirect to={'/add'}/>)
-           
+        }    
         ,
             (message) =>toast.error(`Error: ${message}`));
           

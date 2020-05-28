@@ -16,6 +16,9 @@ export const createAnnonce = (data, onSuccess, onError) => ({
         url: '/api/annonces',
         data,
         success: (annonce) => (addAnnonce(annonce)),
+        headers:{
+            'Content-Type':'multipart/form-data'
+        },
         postProcessSuccess: onSuccess,
         postProcessError: onError
     }

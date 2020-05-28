@@ -22,6 +22,7 @@ import Add from './Pages/addAnnonce/Index';
 import AccueilPage from './Pages/AccueilPage';
 import Footer from './Components/Footer';
 import Actualite from './Components/Actualite';
+import Cli_TableauBord from './Pages/Cli_TableauBord';
 
 
 const App = ({ user , dispatchLogoutAction }) => {
@@ -41,13 +42,15 @@ const App = ({ user , dispatchLogoutAction }) => {
            <Route path="/inscription" component={PageInscription} />
            <Route path="/login" component={FormConnexion} />
            <Route path="/accueil" component={AccueilPage} />
+           <Route exact path="/add" component={Add} />
             <Redirect to="/accueil" />
           </Switch>) :
           (<Switch>
             <Route exact path="/add" component={Add} />
             <Route  exact path="/annonces" component={AnnoncesPage} />
             <Route exact path="/accueil" component={AccueilPage} />
-            <Redirect to="/add" />
+            <Route exact path="/client" component={Cli_TableauBord} />
+            <Redirect to="/client" />
 
       
              
