@@ -9,7 +9,7 @@ import "./styles.css";
 const Step3 = props => {
 
   const [files, setFiles] = useState([]);
-  const [imagesPreviewurls, setImagesPreviewUrls] = useState([]);
+  
   const { state, action } = useStateMachine(updateAction);
   const { handleSubmit, register, errors,setValue} = useForm({
     defaultValues: {}
