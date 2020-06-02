@@ -85,20 +85,14 @@ const Step3 = props => {
           }</div>
           </div>
         </div>
-       
 
-        
-   
       </label>
-      
-     
-
       <input type="submit" />
       </div>
 
       </div>
 
-  </form>
+       </form>
 
      </div>
   );
