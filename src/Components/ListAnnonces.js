@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 //import { deleteAnnonceById } from './redux/actions/annoncesActionCreators';
 import { FaWarehouse,FaTachometerAlt,FaCar,FaBatteryFull,
-    FaSwatchbook,FaSitemap,FaTrashAlt, FaGasPump, FaGripLines, FaStar, FaEye,FaMapMarkerAlt,FaStopCircle, FaParking} from 'react-icons/fa';
+    FaSwatchbook,FaSitemap,FaTrashAlt, FaGasPump, FaGripLines, FaStar,FaMapMarkerAlt,FaStopCircle, FaParking, FaEdit} from 'react-icons/fa';
 import { deleteAnnonceById } from '../redux/actions/annoncesActionCreator';
 
     const ListAnnonces = ({ annonces,dispatchDeleteAction }) => { 
@@ -21,8 +21,11 @@ import { deleteAnnonceById } from '../redux/actions/annoncesActionCreator';
     
         const handleOnDelete = () => {
             dispatchDeleteAction(selectedAnnonce, () => {
+                window.location.reload(true);
                 window.$('#confirmationModal').modal('hide');
+               
                 toast.success('Annonce deleted Successfully!');
+              
             }, (message) => {
                 window.$('#confirmationModal').modal('hide');
                 toast.error(`Error: ${message}`);
@@ -36,7 +39,7 @@ import { deleteAnnonceById } from '../redux/actions/annoncesActionCreator';
                    annonces.map(item => (
                     <div key={item.id} className="row" id="result">
                     <div className="col-3">
-                    <img src={'public/annonces_images/item.image'} alt="image" id="tel" width="250" className="rounded" />
+                    <img src={`http://127.0.0.1:8000${item.image}`}  alt="image"   className="rounded w-100" />
                     </div>
                 
                     <div className="col-9">
@@ -107,7 +110,11 @@ import { deleteAnnonceById } from '../redux/actions/annoncesActionCreator';
                     <button type="button" className="btn btn-dark">
                     <FaParking className="mr-1" align="center"/>
                     </button>
-                    <button type="button" className="btn btn-dark">a</button>
+                    <Link to={`/add/${item.id}`}>
+                    <button type="button" className="btn btn-dark">
+                    <FaEdit className="mr-1" align="center"/>
+                    </button>
+                    </Link>
 
                     </div>
 
@@ -144,7 +151,7 @@ import { deleteAnnonceById } from '../redux/actions/annoncesActionCreator';
                         <button type="button" data-dismiss="modal" className="btn btn-secondary">
                             Non
                         </button>
-                        <button type="button" data-dismiss="modal" onClick={handleOnDelete} className="btn btn-primary">
+                        <button type="button" data-dismiss="modal" onClick={handleOnDelete} className="btn btn-warning">
                             Oui
                         </button>
                     </div>

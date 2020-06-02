@@ -31,6 +31,7 @@ export const logoutUser = () => {
     return { type: constants.RESET_USER_INFO };
 };
 
+
 const setUserInfo = (data) => {
     //const parsedToken = JSON.parse(atob(data.token.split('.')[1]));
    //const parsedToken = jwt_decode(data.token);
@@ -42,7 +43,11 @@ const setUserInfo = (data) => {
         };*/
         const userInfo = {
             userId:data.data.id,
-            fullName:data.data.nom,
+            nom:data.data.nom,
+            prenom:data.data.prenom,
+            tel:data.data.tel,
+            adresse:data.data.adresse,
+            ville:data.data.ville,
             token: data.token,
             isLoggedIn:true
             };

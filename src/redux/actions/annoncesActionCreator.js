@@ -24,6 +24,29 @@ export const createAnnonce = (data, onSuccess, onError) => ({
     }
 });
 
+export const  getAnnonceById=(annonceId,onSuccess)=>({
+    type:constants.API,
+    payload:{
+        method:'GET',
+        url:`/api/annonces/${annonceId}`,
+        postProcessSuccess:onSuccess
+
+    }
+});
+
+export const updateAnnonceById = (annonceId,data,onSuccess,onError) => ({
+    type:constants.API,
+    payload: {
+        method:'PUT',
+        url:`/api/annonces/${annonceId}`,
+        data,
+        success:(annonceId,data) => (updateAnnonce(annonceId,data)),
+        postProcessSuccess : onSuccess,
+        postProcessError: onError
+    }
+
+});
+
 export const deleteAnnonceById = (annonceId, onSuccess, onError) => ({
     type: constants.API,
     payload: {
@@ -43,6 +66,11 @@ const addAnnonce = (annonce) => ({
 const setAllAnnonces = (data) => ({
     type: constants.SET_ALL_ANNONCES,
     payload: data
+});
+
+const updateAnnonce = (annonceId,data) => ({
+    type : constants.UPDATE_ANNONCE,
+    payload:{annonceId,data}
 });
 
 const removeAnnonce = (annonceId) => ({

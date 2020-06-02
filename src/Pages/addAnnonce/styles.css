@@ -163,3 +163,17 @@ input[type="submit"] {
   font-weight: 500;
   
 }
+.upload_container{
+  border: 2px solid #dddddd;
+  background: #dadada;
+  width: 100%;
+  height: 200px;
+}
+.preview{
+
+  background: #dadada;
+  width: 100%;
+  height: 100px;
+  background: url('../../assets/img/Navbar/open.png') no-repeat ;
+  background-size: cover;
+}

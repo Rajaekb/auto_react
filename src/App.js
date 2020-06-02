@@ -23,6 +23,11 @@ import AccueilPage from './Pages/AccueilPage';
 import Footer from './Components/Footer';
 import Actualite from './Components/Actualite';
 import Cli_TableauBord from './Pages/Cli_TableauBord';
+import MyDropZone from './Components/MyDropZone';
+import MultipleUpload from './Pages/MultipleUpload';
+import Step2 from './Pages/addAnnonce/Step2';
+import Step3 from './Pages/addAnnonce/Step3';
+import Step4 from './Pages/addAnnonce/Step4';
 
 
 const App = ({ user , dispatchLogoutAction }) => {
@@ -42,7 +47,8 @@ const App = ({ user , dispatchLogoutAction }) => {
            <Route path="/inscription" component={PageInscription} />
            <Route path="/login" component={FormConnexion} />
            <Route path="/accueil" component={AccueilPage} />
-           <Route exact path="/add" component={Add} />
+           <Route path="/mu" component={MultipleUpload} />
+      
             <Redirect to="/accueil" />
           </Switch>) :
           (<Switch>
@@ -50,7 +56,14 @@ const App = ({ user , dispatchLogoutAction }) => {
             <Route  exact path="/annonces" component={AnnoncesPage} />
             <Route exact path="/accueil" component={AccueilPage} />
             <Route exact path="/client" component={Cli_TableauBord} />
-            <Redirect to="/client" />
+            <Route exact path="/add/:annonceId" component={Add} />
+            <Route exact path="/dz" component={MyDropZone} />
+            <Route path="/step2" component={Step2} />
+     <Route path="/step3" component={Step3} />
+      <Route path="/step4" component={Step4} />
+            
+
+           { /*<Redirect to="/client" />*/}
 
       
              

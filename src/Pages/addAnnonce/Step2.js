@@ -3,7 +3,7 @@ import { useForm, ErrorMessage } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
-import { resetWarningCache } from "prop-types";
+
 
 const Step2 = props => {
   const { state, action } = useStateMachine(updateAction);
@@ -18,7 +18,8 @@ const Step2 = props => {
 
   const userInfo=localStorage.getItem('USER_INFO');
   const user=JSON.parse(userInfo);
-  const userId=JSON.stringify(user.userId)
+  const userId=JSON.stringify(user.userId);
+
   return (
     <div className="container">
     <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">

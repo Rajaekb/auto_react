@@ -8,6 +8,11 @@ import updateAction from "./updateAction";
 const Result = ({ props,history, dispatchCreateAnnonceAction })  => {
   const { state } = useStateMachine(updateAction);
 
+  const testsubmit = e =>{
+    console.log(state.yourDetails.images[0].name);
+    console.log(state.yourDetails.images[1].name);
+    console.log(state.yourDetails.images[2].name);
+  }
   const handleOnSubmit = event => {
     event.preventDefault();
       //  const data = { title, description, type, active ,user_id ,nombre_de_vue};
@@ -28,7 +33,20 @@ const Result = ({ props,history, dispatchCreateAnnonceAction })  => {
       fd.append('matricule',state.yourDetails.matricule)
       fd.append('edition_special',state.yourDetails.edition_special)
       fd.append('type_vehicule',state.yourDetails.type_vehicule)
-      fd.append('image',state.yourDetails.image)
+      /*let files=state.yourDetails.images;
+      for (let i=0 ;i<files.length; i++){
+        fd.append(`images[${i}]`,files[i])
+
+      }*/
+     // fd.append('image',state.yourDetails.images[0].name)
+      //let files=state.yourDetails.images;
+      fd.append('images[]',state.yourDetails.images[0],state.yourDetails.images[0].name)
+      fd.append('images[]',state.yourDetails.images[1],state.yourDetails.images[1].name)
+    fd.append('images[]',state.yourDetails.images[2],state.yourDetails.images[2].name)
+    fd.append('images[]',state.yourDetails.images[3],state.yourDetails.images[3].name)
+    fd.append('images[]',state.yourDetails.images[4],state.yourDetails.images[4].name)
+   
+   
       fd.append('nbr_portes',state.yourDetails.nbr_portes)
       fd.append('nbr_sieges',state.yourDetails.nbr_sieges)
       fd.append('carburant',state.yourDetails.carburant)
@@ -41,6 +59,13 @@ const Result = ({ props,history, dispatchCreateAnnonceAction })  => {
       fd.append('frais_vignette',state.yourDetails.frais_vignette)
      
       fd.append('user_id',state.yourDetails.user_id)
+      fd.append('nom',state.yourDetails.nom)
+      fd.append('prenom',state.yourDetails.prenom)
+      fd.append('titre_civilité',state.yourDetails.titre_civilité)
+      fd.append('tel',state.yourDetails.tel)
+      fd.append('adresse',state.yourDetails.adresse)
+      fd.append('ville',state.yourDetails.ville)
+    
       const data = {fd} ;
       
 
@@ -50,7 +75,7 @@ const Result = ({ props,history, dispatchCreateAnnonceAction })  => {
                 history.replace('/annonces');
             }, (message) => toast.error(`Error: ${message}`));
         }
-        const res=JSON.stringify(state.yourDetails);
+        //const res=JSON.stringify(state.yourDetails);
   return (
     <div className="container">
       <h2>Veuillez confirmer votre formulaire</h2>
@@ -86,7 +111,9 @@ const Result = ({ props,history, dispatchCreateAnnonceAction })  => {
     <li className="list-group-item">motorisation:{JSON.stringify(state.yourDetails.motorisation)} </li>
     <li className="list-group-item">consomation:{JSON.stringify(state.yourDetails.consomation)} </li>
     <li className="list-group-item">frais vignette:{JSON.stringify(state.yourDetails.frais_vignette)} </li>
-    <li className="list-group-item">image:{JSON.stringify(state.yourDetails.image)} </li>
+    <li className="list-group-item">adresse:{JSON.stringify(state.yourDetails.adresse)} </li>
+    <li className="list-group-item">ville:{JSON.stringify(state.yourDetails.ville)} </li>
+
 </ul>
      </div> 
 </div>

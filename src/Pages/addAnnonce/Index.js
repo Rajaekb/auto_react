@@ -18,10 +18,11 @@ import { connect } from 'react-redux';
 
 import "./styles.css";
 import AnnoncesPage from "../AnnoncesPage";
+import Step4 from "./Step4";
 
 createStore({
-  data: {}
-/*yourDetails: {
+  //data: {}
+yourDetails: {
     neuf: 0,
     origine: "",
     dedouanement: "",
@@ -34,7 +35,6 @@ createStore({
     matricule: "",
     edition_special:0,
     type_vehicule: "",
-    image :null,
     images :[],
     nbr_portes:0,
     nbr_sieges:0,
@@ -50,7 +50,7 @@ createStore({
   
     user_id: 0
     
-  }*/ 
+  }
 });
 
 const Pages = () => {
@@ -73,6 +73,9 @@ const Pages = () => {
           <li className={location.pathname === "/step3" ? "active" : ""}>
             <Link to="/step3"><div>3</div>DETAILS</Link>
           </li>
+          <li className={location.pathname === "/step4" ? "active" : ""}>
+            <Link to="/step4"><div>4</div>Contact</Link>
+          </li>
          
           <li className={location.pathname === "/result" ? "active" : ""}>
             <Link to="/result"><div>5</div>Result</Link>
@@ -81,7 +84,8 @@ const Pages = () => {
       </nav>
       <Route exact path="/add" component={Step1} />
       <Route path="/step2" component={Step2} />
-      <Route path="/step3" component={Step3} />
+     <Route path="/step3" component={Step3} />
+      <Route path="/step4" component={Step4} />
      {/* <Route exact path="/annonces" component={AnnoncesPage} />*/}
       <Route path="/result" component={Result} />
     

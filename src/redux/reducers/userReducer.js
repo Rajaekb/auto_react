@@ -2,7 +2,12 @@ import * as constants from './../constants';
 
 const defaultState = {
     userId: null,
-    fullName: null,
+    titre_civilité:null,
+    nom:null,
+    prenom:null,
+    tel:null,
+    adresse:null,
+    ville:null,
     token: null,
     isLoggedIn: false
 };
