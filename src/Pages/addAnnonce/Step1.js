@@ -1,16 +1,19 @@
 import React, { useState,useEffect } from "react";
-import { useForm, ErrorMessage } from "react-hook-form";
+import { useForm, ErrorMessage,Controller } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
+import {FaCalendarAlt} from 'react-icons/fa';
+
 
 const Step1 = props => {
   const { state, action } = useStateMachine(updateAction);
-  const { handleSubmit, errors, register,reset } = useForm({
+  const { handleSubmit, errors, register,reset,control } = useForm({
     defaultValues: {}
   });
   const { push } = useHistory();
   const onSubit = data => {
+    console.log(data);
     action(data);
     push("/step2");
   };
@@ -228,55 +231,111 @@ const Step1 = props => {
  </div>
 </div>
 <hr></hr>
+
+  {/*Type de vehicule*/} 
+
 <div className="row">
   <div className="col-sm-4"><h6>Type de vehicule</h6></div>
-  <div className="col-sm-4"><h6>Nombre de portes</h6></div>
-  <div className="col-sm-4"><h6>Nombre de sieges</h6></div>
 </div>
-
 <div className="row">
   <div className="col-sm" >
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
       <label class="btn btn-light active">
         <input type="radio" name="type_vehicule"  value="Citadine"
         ref={register}
-          checked/> CITADINE
+          checked/> Cabrio/Roadster
          <ErrorMessage errors={errors} name="type_vehicule" as="p" />
       </label>
       <label class="btn btn-light">
         <input type="radio" name="type_vehicule" value="Berlin"
         ref={register}
-       /> BERLIN
+       /> Petite Voiture
+         <ErrorMessage errors={errors} name="type_vehicule" as="p" />
+      </label>
+      
+      <label class="btn btn-light">
+        <input type="radio" name="type_vehicule" value="Berlin"
+        ref={register}
+       /> Break
+         <ErrorMessage errors={errors} name="type_vehicule" as="p" />
+      </label>
+      
+      <label class="btn btn-light">
+        <input type="radio" name="type_vehicule" value="Berlin"
+        ref={register}
+       /> Voiture de Sport
+         <ErrorMessage errors={errors} name="type_vehicule" as="p" />
+      </label>
+      
+      <label class="btn btn-light">
+        <input type="radio" name="type_vehicule" value="Berlin"
+        ref={register}
+       /> SUV/Pick-up
+         <ErrorMessage errors={errors} name="type_vehicule" as="p" />
+      </label>
+      
+      <label class="btn btn-light">
+        <input type="radio" name="type_vehicule" value="Berlin"
+        ref={register}
+       /> Van/Minibus
+         <ErrorMessage errors={errors} name="type_vehicule" as="p" />
+      </label>
+      
+      <label class="btn btn-light">
+        <input type="radio" name="type_vehicule" value="Berlin"
+        ref={register}
+       /> Autre
          <ErrorMessage errors={errors} name="type_vehicule" as="p" />
       </label>
     </div>
   </div>
-  <div className="col-sm" >
+</div>
+<hr></hr>
+
+  {/*Nombre portes et sieges*/} 
+  <div className="row">
+   <div className="col-sm"><h6>Nombre de portes</h6></div>
+  <div className="col-sm"><h6>Nombre de sieges</h6></div>
+</div>
+<div className="row">
+   <div className="col-sm" >
     <div className="btn-group btn-group-toggle" data-toggle="buttons">
      <label className="btn btn-light active">
        <input type="radio" name="nbr_portes" value="3" id="nbr_portes" 
        ref={register}
-       autocomplete="off" checked/> 2
+       autocomplete="off" checked/> 2/3
        <ErrorMessage errors={errors} name="nbr_portes" as="p" />
      </label>
      <label className="btn btn-light">
        <input type="radio" name="nbr_portes"  value="4"  id="nbr_portes" 
        ref={register}
-       autocomplete="off"/> 4
+       autocomplete="off"/> 4/5
        <ErrorMessage errors={errors} name="nbr_portes" as="p" />
       </label>
+      <label className="btn btn-light">
+       <input type="radio" name="nbr_portes"  value="4"  id="nbr_portes" 
+       ref={register}
+       autocomplete="off"/> 6/7
+       <ErrorMessage errors={errors} name="nbr_portes" as="p" />
+      </label>
+    
     </div>
 </div>
   <div className="col-sm" >
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
      <label class="btn btn-light active">
       <input type="radio" name="nbr_sieges"  value="5" id="nbr_sieges" ref={register}
-       autocomplete="off" checked/> 5
+       autocomplete="off" checked/> 2/3
        <ErrorMessage errors={errors} name="nbr_sieges" as="p" />
     </label>
      <label class="btn btn-light">
      <input type="radio" name="nbr_sieges"  value="4" id="nbr_sieges" ref={register}
-      autocomplete="off"/> 4
+      autocomplete="off"/> 4/5
+      <ErrorMessage errors={errors} name="nbr_sieges" as="p" />
+    </label>
+    <label class="btn btn-light">
+     <input type="radio" name="nbr_sieges"  value="4" id="nbr_sieges" ref={register}
+      autocomplete="off"/> 6/7
       <ErrorMessage errors={errors} name="nbr_sieges" as="p" />
     </label>
   </div>
@@ -285,7 +344,107 @@ const Step1 = props => {
 </div>
 <hr/>
 
-    <div className="row">
+<div className="row" >
+    <div className="col-12 col-sm-4 form-group">
+    <label><h6>Carburant</h6></label>
+    
+        <div id="div_range">
+          <input type="text" name="carburant" ref={register}
+          className="form-control" id="inputfo" placeholder="Diesel"/>
+           <ErrorMessage errors={errors} name="carburant" as="p" />
+        </div>
+        </div>
+        <div className=" col-12  col-sm-4 form-group">
+        <label><h6>Transmission</h6></label>
+        <div id="div_range">
+            <input type="text" name="transmission" ref={register}
+            className="form-control" id="inputfo" placeholder="Transmission"/>
+             <ErrorMessage errors={errors} name="transmission" as="p" />
+        </div>
+        </div>
+        <div className="col-12 col-sm-4 form-group">
+        <label><h6>Cylindrée</h6></label>
+        <div id="div_range">
+            <input type="number" name="cylindree" ref={register}
+            className="form-control" id="inputfo" placeholder="20"/>
+             <ErrorMessage errors={errors} name="cylindree" as="p" />
+        </div>
+        </div>
+                
+
+</div>
+    <div className="row" >
+    <div className=" col-12 col-sm-4 form-group">
+    <label><h6>Puissance Fiscale</h6></label>
+        <div id="div_range">
+          <input type="number" name="p_fiscal" ref={register}
+          className="form-control" id="inputfo" placeholder="20"/>
+           <ErrorMessage errors={errors} name="p_fiscal" as="p" />
+        </div>
+        </div>
+        <div className="col-12 col-sm-4 form-group">
+        <label><h6>Puissance chevaux</h6></label>
+        <div id="div_range">
+          <input type="number" name="p_chevaux" ref={register}
+           className="form-control" id="inputfo" placeholder="20"/>
+            <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+        </div>
+        </div>
+        <div className="col-12 col-sm-4 form-group">
+        <label><h6>Motorisation</h6></label>
+        <div id="div_range">
+            <input type="number" name="motorisation" ref={register}
+            className="form-control" id="inputfo" placeholder="20"/>
+             <ErrorMessage errors={errors} name="motorisation" as="p" />
+        </div>
+        </div>
+</div>
+
+  <div className="row" >
+    <div className=" col-12 col-sm-4 form-group">
+      <label><h6>Consommation</h6></label>
+        <div id="div_range">
+          <input type="number" name="consomation" ref={register}
+          className="form-control" id="inputfo" placeholder="20"/>
+           <ErrorMessage errors={errors} name="consomation" as="p" />
+        </div>
+        </div>
+        <div className="col-12 col-sm-4 form-group">
+        <label><h6>Frais de vignette</h6></label>
+        <div id="div_range">
+          <input type="number" name="frais_vignette" ref={register}
+          className="form-control" id="inputfo" placeholder="20"/>
+           <ErrorMessage errors={errors} name="frais_vignette" as="p" />
+        </div>
+        </div>
+        </div>
+        <hr/>
+    <div className="row" >
+      <div className=" col-12 col-sm-4 form-group">
+        <label><h6>En etat de marche</h6></label>
+        <div id="div_range">
+          <select className="form-control " ref={register}>
+            <option>Oui</option>
+            <option>Non</option>
+            
+           </select>
+        </div>
+        </div> 
+        <div className="col-12 col-sm-4 form-group">
+        <label><h6>Quand prévoyer-vous vendre ?</h6></label>
+        <div id="div_range">
+       <input type="date" className="form-control" name="date_vente" ref={register} placeholder="Selectioner la Date"/>
+        </div>
+        </div>
+        <div className="col-12 col-sm-4 form-group">
+        <label><h6>Ou aimer-vous vendre votre voiture</h6></label>
+        <div id="div_range">
+            <input type="text" className="form-control" id="inputfo" ref={register} placeholder="Tanger"/>
+        </div>
+        </div>
+</div>
+<hr/>
+   <div className="row">
         <div className="col-sm-4">
            <input type="reset" /> 
         </div>

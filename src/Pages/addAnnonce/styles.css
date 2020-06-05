@@ -20,6 +20,16 @@ label {
   font-size: 14px;
   font-weight: 200;
 }
+#div-title{
+  border-bottom: 2px solid #eebb20 ;
+  margin-bottom: 20px;
+  
+}
+#div-title h5{
+  padding-left: 5px;
+  font-style: normal;
+  font-weight: bold;
+}
 
 
 input[type="submit"],
@@ -177,3 +187,63 @@ input[type="submit"] {
   background: url('../../assets/img/Navbar/open.png') no-repeat ;
   background-size: cover;
 }
+#Calendar-icon{
+  float: right;
+  margin-right: 20px;  
+  position: relative;
+  color:#eebb20 ;
+  width: 20px;
+  height: 20px;
+}
+/*colors select*/
+            .noir{
+            background-image: url('../../assets/img/colors/black.png');
+             }
+            .bege{
+              background-color: beige;
+            }
+            .rouge{
+              background-color:red ;
+            }
+            .bleu{
+              background-color: blue;
+            }
+            .blanc{
+              background-color:white ;
+            }
+            .jaune{
+              background-color: yellow;
+            }
+            .vert{
+              background-color: green;
+            }
+            .grix_fonce{
+              background-color:darkgrey
+            }
+            .grix_claire{
+              background-color: lightgray;
+            }
+            .blanc_casse{
+              background-color: whitesmoke ;
+            }
+            .marron{
+              background-color:brown ;
+            }
+
+.form-check-label,.form-control{
+  font-size: x-small !important;
+  font-weight: 500;
+  line-height: 10px;
+}
+#div_check_inline{
+  align-items: center;
+  justify-content: center;
+  background-color:#F8F8F8;
+ height: 40px;
+ width: 100% !important;
+  border:none;
+  padding:3%;
+  
+
+ 
+}         

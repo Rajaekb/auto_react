@@ -48,8 +48,11 @@ const App = ({ user , dispatchLogoutAction }) => {
            <Route path="/login" component={FormConnexion} />
            <Route path="/accueil" component={AccueilPage} />
            <Route path="/mu" component={MultipleUpload} />
+           <Route exact path="/add" component={Add} />
+           <Route path="/step2" component={Step2} />
+           <Route path="/step3" component={Step3} />
       
-            <Redirect to="/accueil" />
+           { /* <Redirect to="/accueil" />*/}
           </Switch>) :
           (<Switch>
             <Route exact path="/add" component={Add} />

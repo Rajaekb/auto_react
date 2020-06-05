@@ -9,7 +9,6 @@ import "./styles.css";
 const Step3 = props => {
 
   const [files, setFiles] = useState([]);
-  const [imagesPreviewurls, setImagesPreviewUrls] = useState([]);
   const { state, action } = useStateMachine(updateAction);
   const { handleSubmit, register, errors,setValue} = useForm({
     defaultValues: {}
@@ -84,15 +83,8 @@ const Step3 = props => {
        )
           }</div>
           </div>
-        </div>
-       
-
-        
-   
-      </label>
-      
-     
-
+        </div>  
+     </label>
       <input type="submit" />
       </div>
 
