@@ -32,10 +32,7 @@ const Step2 = props => {
     defaultValues: {}
   });
   const { push } = useHistory();
-
   const onSubmit = (data, e) => {
-
-    
     console.log(data);
     action(data);
     push("/step3");
@@ -73,15 +70,15 @@ return (
             
            </select>
         
-          <ErrorMessage errors={errors} name="carburant" as="p" />
+          <ErrorMessage errors={errors} name="couleur_interieur" as="p" />
         </div>
         </div>
         <div className=" col-12  col-sm-4 form-group">
         <label><h6>Design Intérieur</h6></label>
         <div id="div_range">
-            <input type="text" name="transmission" ref={register}
-            className="form-control" id="inputfo" placeholder="Transmission"/>
-             <ErrorMessage errors={errors} name="transmission" as="p" />
+            <input type="text" name="design_interieur" ref={register}
+            className="form-control" id="inputfo"/>
+             <ErrorMessage errors={errors} name="design_interieur" as="p" />
         </div>
         </div>
         <div className="col-12 col-sm-4 form-group">
@@ -102,8 +99,8 @@ return (
 
 </div>
 <div className="form-check ">
-      <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"  ref={register} />
-      <label className="form-check-label" for="inlineCheckbox1">Metalisé</label>
+      <input className="form-check-input" type="checkbox" name="metalisee" value="option1"  ref={register} />
+      <label className="form-check-label">Metalisé</label>
   </div>
   </section>
 {/*END SECTION PERSONALISATION */}
@@ -140,19 +137,19 @@ return (
     <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3" id="div_range">
              <select className="form-control "  name="airbags" ref={register}>
             <option>Airbags Conducteur</option>            
-           </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
+           </select> <ErrorMessage errors={errors} name="airbags" as="p" />
      </div>
    
     <div className="col-sm-4 mt-3 pt-3 pb-5 ml-2" id="div_check_inline">
-        <input type="checkbox" name="p_chevaux" ref={register}
+        <input type="checkbox" name="airbags" ref={register}
          className="form-check-input"/>
-            <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+            <ErrorMessage errors={errors} name="airbags" as="p" />
             <label className="form-check-label">Isofix (point d'ancrage pour siége enfant)</label>
             </div>
     <div className="col-sm-4 mt-3 pt-3 pb-5" id="div_check_inline">
-            <input type="checkbox" name="p_chevaux" ref={register}
+            <input type="checkbox" name="airbags" ref={register}
              className="form-check-input"/>
-                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+                <ErrorMessage errors={errors} name="airbags" as="p" />
                 <label className="form-check-label">Siège passager point isofix</label>
                 </div>
         </div>
@@ -162,14 +159,14 @@ return (
     <label><h6>Type de phare</h6></label>
     <div className="row flex-nowrap" >
     <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3" id="div_range">
-        <select className="form-control "  name="airbags" ref={register}>
+        <select className="form-control "  name="type_de_phare" ref={register}>
             <option>Phare laser</option>            
-           </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
+           </select> <ErrorMessage errors={errors} name="type_de_phare" as="p" />
       </div>
     <div className="col-sm-8 mt-3 pt-3 pb-5 ml-2" id="div_check_inline">
-        <input type="checkbox" name="p_chevaux" ref={register}
+        <input type="checkbox" name="type_de_phare" ref={register}
          className="form-check-input"/>
-            <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+            <ErrorMessage errors={errors} name="type_de_phare" as="p" />
             <label className="form-check-label">Systéme de lave phare</label>
     </div>
 </div>
@@ -182,23 +179,23 @@ return (
     <div className="row flex-nowrap">
       
     <div className="col-sm-4 form-check-inline mr-0 pl-0" id="div_check_inline">
-        <input type="checkbox" name="p_chevaux" ref={register}
+        <input type="checkbox" name="faisceau_complet" ref={register}
          className="form-check-input"/>
-            <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+            <ErrorMessage errors={errors} name="faisceau_complet" as="p" />
             <label className="form-check-label">Phare de route sans éblouissement</label>
             </div>
     <div className="col-sm-4 form-check-inline pl-0" id="div_check_inline">
-            <input type="checkbox" name="p_chevaux" ref={register}
+            <input type="checkbox" name="faisceau_complet" ref={register}
              className="form-check-input"/>
-                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+                <ErrorMessage errors={errors} name="faisceau_complet" as="p" />
                 <label className="form-check-label">Assistance aux feux de route</label>
                 </div>
          
   
     <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3 mt-0"  id="div_range">
-       <select className="form-control "  name="airbags" ref={register}>
+       <select className="form-control "  name="lumiere_allumees" ref={register}>
         <option>Lumiére allumées toute la journée</option>            
-        </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
+        </select> <ErrorMessage errors={errors} name="lumiere_allumees" as="p" />
   
      </div>
         </div>
@@ -206,14 +203,14 @@ return (
         <label><h6>Eclairage adaptatif</h6></label>
     <div className="row flex-nowrap" >
     <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3" id="div_range">
-        <select className="form-control"  name="airbags" ref={register}>
+        <select className="form-control"  name="eclairage_adaptatif" ref={register}>
             <option>Faux de vitrage adaptatif</option>            
-           </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
+           </select> <ErrorMessage errors={errors} name="eclairage_adaptatif" as="p" />
       </div>
     <div className="col-sm-8 mt-3 pt-3 pb-5 ml-2" id="div_check_inline">
-        <input type="checkbox" name="p_chevaux" ref={register}
+        <input type="checkbox" name="eclairage_adaptatif" ref={register}
          className="form-check-input"/>
-            <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+            <ErrorMessage errors={errors} name="eclairage_adaptatif" as="p" />
             <label className="form-check-label">Feu de bouillard</label>
     </div>
 </div><br/>
@@ -512,7 +509,7 @@ return (
         </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
   
      </div>
-        </div>{/*End services de depanage */}
+        </div>{/*End services de depannage */}
         <br/>
 <label><h6>Particularité </h6></label>
     <div className="row" id="div_range">
@@ -531,12 +528,63 @@ return (
                 </div>
             ))}
     </div>{/*END particularité */}
-    
     <br/>
+<label><h6>Attelage de remorque  </h6></label>
+<div className="row">
+<div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3 mt-0"  id="div_range">
+       <select className="form-control "  name="airbags" ref={register}>
+        <option>Veuillez sélectionner</option>            
+        </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
+  
+     </div>
+        </div>{/*End Attelage de remorque  */}
+        <br/>
+        <div className="row flex-nowrap">
+        <div className="col-sm-8"><label><h6>Historique de vehicule</h6></label></div>
+ 
+    </div>
+    <div className="row flex-nowrap">
+      <div className ="d-flex justify-content-around mr-2" id="div_check_inline">
+    <div className="form-check-inline ">
+      <input type="checkbox" name="p_chevaux" ref={register}
+        className="form-check-input"/>
+          <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <label className="form-check-label">Carnet d'entretien</label>
+    </div>
+    <div className="form-check-inline">
+      <input type="checkbox" name="p_chevaux" ref={register}
+        className="form-check-input"/>
+          <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <label className="form-check-label">Garantie</label>
+    </div>
+    <div className="form-check-inline ">
+      <input type="checkbox" name="p_chevaux" ref={register}
+        className="form-check-input"/>
+          <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <label className="form-check-label">Véhicule non-fumeur </label>
+    </div>
+    </div>
+  
+    <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3 mt-0"  id="div_range">
+       <select className="form-control "  name="airbags" ref={register}>
+        <option>Nombre d'anciens propriétaire</option>            
+        </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
+  
+     </div>
+        </div>{/*End historique de vehicule */}
+        <br/>
+<label><h6>TVA </h6></label>
+<div className="row">
+<div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3 mt-0"  id="div_range">
+       <select className="form-control "  name="TVA" ref={register}>
+        <option>Recuperable</option>            
+        <option>Non</option>            
+        </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
+  
+     </div>
+        </div>{/*End  TVA */}
 
-
-</section>
-{/*END SECTION SUPLEMENTS */}
+</section>{/*END SECTION SUPLEMENTS */}
 
 <hr/>
       <div className="row">
