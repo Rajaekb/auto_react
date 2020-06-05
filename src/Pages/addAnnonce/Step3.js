@@ -90,7 +90,7 @@ const Step3 = props => {
 
       </div>
 
-  </form>
+       </form>
 
      </div>
   );

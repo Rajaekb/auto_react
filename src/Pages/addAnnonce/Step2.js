@@ -13,7 +13,18 @@ const system_assistance=["4x4","ABS","Alert de franchisement","Antidémarrage",
                         "Controle de traction (ASR)","Systeme d'assistance au angles",
                         "Assistance au changement de voie","Autom rétroviseur intérieur occultant",
                         "Rennaissances des panneaux de signalisation","Assistance au démarrage en cote",
-                        "Systeme de controle de limite de vitesse","Systeme d'avertissement de distance"]
+                        "Systeme de controle de limite de vitesse","Systeme d'avertissement de distance"];
+const autre_caractérique=["Siéges sport","Accoudoir","Support lambaire","Siéges de massage","Ventillation de siége","Siége passager rabattable à plat"]
+const autre_equipement=["Fenétre electrique","Hayon electrique","Verrouillage central sans clé","Capteur de pluie",
+                        "Eclairage ambiant","Rétroviseur latéral electrique","Verrouillage centralisé","Capteur de lumiére",
+                        "Direction assistée","Volant en cuir"];
+const multimedia=["Turner / Radio","Radio DAB","Lecteur CD","Télé","Systémes audio","Systéme de navigation"];
+const manipul_control=["Ecran tactile","Commande vocale","Volant multifonction","Kits mains libre"];
+const connectivité_interfaces=["Port USB","Bluetooth","Appple Car Play","Android audio","Point d’accés WLAN/WIFI",
+                              "Streaming de musique intégré","Charge par induction pour smartphones"];
+const pneus=["Pneus en alliage","Pneus d’été","Pneus d’hiver","Pneus toutes saisons","Surveillange de la pression des pneus"]
+const particularité=["Pack d’hiver","Pack fumeur","Pack sport","Suspension sport","Suspention pneumatique","Barre toit",
+                      "Taxi","Toit ouvrant","Gallerie de toit","Accessible aux handicapés","Toit panoramique"]
 
 const Step2 = props => {
   const { state, action } = useStateMachine(updateAction);
@@ -75,7 +86,7 @@ return (
         </div>
         <div className="col-12 col-sm-4 form-group">
         <label><h6>Couleur de l'interieur</h6></label>
-        <div id="div_range">
+        <div id="div_range" className="mb-0">
         <select className="form-control "  name="couleur_interieur" ref={register}>
             <option>Noir</option>
             <option>Bège</option>
@@ -121,10 +132,11 @@ return (
                 </div>
             ))}
     </div>
-
+    <br/>
     <h6>Protection des occupants</h6>
+    <br/>
     <label><h6>Airbags</h6></label>
-    <div className="row" >
+    <div className="row flex-nowrap" >
     <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3" id="div_range">
              <select className="form-control "  name="airbags" ref={register}>
             <option>Airbags Conducteur</option>            
@@ -137,7 +149,7 @@ return (
             <ErrorMessage errors={errors} name="p_chevaux" as="p" />
             <label className="form-check-label">Isofix (point d'ancrage pour siége enfant)</label>
             </div>
-    <div className="col-sm-3 mt-3 pt-3 pb-5" id="div_check_inline">
+    <div className="col-sm-4 mt-3 pt-3 pb-5" id="div_check_inline">
             <input type="checkbox" name="p_chevaux" ref={register}
              className="form-check-input"/>
                 <ErrorMessage errors={errors} name="p_chevaux" as="p" />
@@ -145,29 +157,29 @@ return (
                 </div>
         </div>
 
-
-<h6>Lumiére et vue</h6>
+        <br/>
+<h6>Lumiére et vue</h6><br/>
     <label><h6>Type de phare</h6></label>
-    <div className="row" >
+    <div className="row flex-nowrap" >
     <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3" id="div_range">
         <select className="form-control "  name="airbags" ref={register}>
             <option>Phare laser</option>            
            </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
       </div>
-    <div className="col-sm-7 mt-3 pt-3 pb-5 ml-2" id="div_check_inline">
+    <div className="col-sm-8 mt-3 pt-3 pb-5 ml-2" id="div_check_inline">
         <input type="checkbox" name="p_chevaux" ref={register}
          className="form-check-input"/>
             <ErrorMessage errors={errors} name="p_chevaux" as="p" />
             <label className="form-check-label">Systéme de lave phare</label>
     </div>
 </div>
+<br/>
 
-
-    <div className="row">
-        <div className="col-sm-7"><label><h6>Faisceau complet</h6></label></div>
-        <div className="col-sm-5"><label><h6>Lumiére allumées toute la journée</h6></label></div>
+    <div className="row flex-nowrap">
+        <div className="col-sm-8"><label><h6>Faisceau complet</h6></label></div>
+        <div className="col-sm-4"><label><h6>Lumiére allumées toute la journée</h6></label></div>
     </div>
-    <div className="row">
+    <div className="row flex-nowrap">
       
     <div className="col-sm-4 form-check-inline mr-0 pl-0" id="div_check_inline">
         <input type="checkbox" name="p_chevaux" ref={register}
@@ -175,7 +187,7 @@ return (
             <ErrorMessage errors={errors} name="p_chevaux" as="p" />
             <label className="form-check-label">Phare de route sans éblouissement</label>
             </div>
-    <div className="col-sm-3 form-check-inline pl-0" id="div_check_inline">
+    <div className="col-sm-4 form-check-inline pl-0" id="div_check_inline">
             <input type="checkbox" name="p_chevaux" ref={register}
              className="form-check-input"/>
                 <ErrorMessage errors={errors} name="p_chevaux" as="p" />
@@ -190,21 +202,21 @@ return (
   
      </div>
         </div>
-
+        <br/>
         <label><h6>Eclairage adaptatif</h6></label>
-    <div className="row" >
+    <div className="row flex-nowrap" >
     <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3" id="div_range">
         <select className="form-control"  name="airbags" ref={register}>
             <option>Faux de vitrage adaptatif</option>            
            </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
       </div>
-    <div className="col-sm-7 mt-3 pt-3 pb-5 ml-2" id="div_check_inline">
+    <div className="col-sm-8 mt-3 pt-3 pb-5 ml-2" id="div_check_inline">
         <input type="checkbox" name="p_chevaux" ref={register}
          className="form-check-input"/>
             <ErrorMessage errors={errors} name="p_chevaux" as="p" />
             <label className="form-check-label">Feu de bouillard</label>
     </div>
-</div>
+</div><br/>
 <label><h6>Protection anti-vol</h6></label>
    <div className="row h-100" >
     <div className="col-sm-3  my-auto" id="div_check_inline">
@@ -214,7 +226,7 @@ return (
     </div>
   </div>
   <div className="col-sm-9 my-auto" id="div_check_inline">
-    <div className="form-check  my-auto">
+    <div className="form-check my-auto">
         <input className="form-check-input"  type="checkbox" name="protection_antivol" ref={register}/>
         <label className="form-check-label">Immobilisateur de moteur</label>
     </div>
@@ -223,6 +235,308 @@ return (
 </section>
 {/*END SECTION SECURITE */}
 
+
+{/*SECTION CONFORT */}
+<section className="confort">
+    <div className="row" id="div-title">
+      <div className="col-12 col-sm-6"><h5>CONFORT</h5></div>
+    </div>
+    <label><h6>Controle de climat</h6></label>
+    <div className="row flex-nowrap" >
+    <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3" id="div_range">
+             <select className="form-control "  name="airbags" ref={register}>
+            <option>Climatisation automatique</option>            
+           </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
+     </div>
+   
+    <div className="col-sm-2 mt-3 pt-3 pb-5 ml-2" id="div_check_inline">
+        <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
+            <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+            <label className="form-check-label">Chaufage auxiliaire </label>
+            </div>
+    <div className="col-sm-2 mt-3 pt-3 pb-5 " id="div_check_inline">
+            <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
+                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+                <label className="form-check-label">Phare brise chauffant</label>
+    </div>
+    <div className="col-sm-4 mt-3 pt-3 pb-5" id="div_check_inline">
+            <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
+                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+                <label className="form-check-label">Volant chauffant</label>
+    </div>
+</div>{/*end div row controle de climat */}
+<br/>
+<div className="row">
+        <div className="col-sm-4"><label><h6>Capteur de stationnement</h6></label></div>
+        <div className="col-sm-4"><label><h6>Assistance de stationnement acoustique</h6></label></div>
+        <div className="col-sm-4"><label><h6>Assistance de stationnement visuel</h6></label></div>
+</div>
+<div className="row flex-nowrap">
+        <div className="col-sm-4  mt-3 pt-3 pb-5 mr-2" id="div_check_inline">
+          <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
+                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+                <label className="form-check-label">Systéme de pilotage automatique</label>
+        </div>
+        <div className="col-sm-2  mt-3 pt-3 pb-5" id="div_check_inline">
+          <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
+                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+                <label className="form-check-label">De face</label>
+        </div>
+        <div className="col-sm-2  mt-3 pt-3 pb-5 mr-2" id="div_check_inline">
+          <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
+                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+                <label className="form-check-label">Arriére</label>
+        </div>
+        <div className="col-sm-2  mt-3 pt-3 pb-5" id="div_check_inline">
+          <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
+                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+                <label className="form-check-label">Caméras</label>
+        </div>
+        <div className="col-sm-2  mt-3 pt-3 pb-5" id="div_check_inline">
+          <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
+                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+                <label className="form-check-label">Caméras 360°</label>
+        </div>
+</div>{/*end row capteur de stationemnent */}
+<br/>
+<label><h6>Les places</h6></label><br/><br/>
+<div className="row">
+        <div className="col-sm-4"><label><h6>Siége chauffant éléctriques</h6></label></div>
+        <div className="col-sm-4"><label><h6>Siége reglables éléctriques</h6></label></div>
+       
+</div>
+<div className="row flex-nowrap">
+    <div className="col-sm-2  mt-3 pt-3 pb-5" id="div_check_inline">
+        <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
+          <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <label className="form-check-label">De face</label>
+    </div>
+    <div className="col-sm-2  mt-3 pt-3 pb-5 mr-2" id="div_check_inline">
+      <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
+            <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+            <label className="form-check-label">Arriére</label>
+    </div>
+    <div className="col-sm-2  mt-3 pt-3 pb-5" id="div_check_inline">
+      <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
+            <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+            <label className="form-check-label">De face</label>
+    </div>
+    <div className="col-sm-2  mt-3 pt-3 pb-5" id="div_check_inline">
+      <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
+            <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+            <label className="form-check-label">Arriére</label>
+    </div>
+</div>{/*end row les places */}
+<br/>
+<label><h6>Autre caractérique</h6></label>
+        
+        <div className="row" id="div_range">
+            {autre_caractérique.map((option,i) => (
+                    <div className="col-sm-2">
+                    <div className="form-check ">
+                        <input className="form-check-input" 
+                        type="checkbox" 
+                        name={`options[${i}]`}
+                        value={option}
+                        ref={register}
+                         />
+                        <label className="form-check-label">{option}</label>
+                    </div>
+  
+                </div>
+            ))}
+    </div>
+    <br/>
+    <label><h6>Autre Equipement de confort</h6></label>
+        
+        <div className="row" id="div_range">
+            {autre_equipement.map((option,i) => (
+                    <div className="col-sm-3">
+                    <div className="form-check ">
+                        <input className="form-check-input" 
+                        type="checkbox" 
+                        name={`options[${i}]`}
+                        value={option}
+                        ref={register}
+                         />
+                        <label className="form-check-label">{option}</label>
+                    </div>
+  
+                </div>
+            ))}
+    </div>
+</section>
+{/*END SECTION CONFORT */}
+
+{/*SECTION INFOS DIVERS */}
+<section className="infodivers">
+    <div className="row" id="div-title">
+      <div className="col-12 col-sm-6"><h5>INFOS DIVERS</h5></div>
+    </div>
+    <label><h6>Multimedia</h6></label>
+        
+        <div className="row" id="div_range">
+            {multimedia.map((option,i) => (
+                    <div className="col-sm-3">
+                    <div className="form-check ">
+                        <input className="form-check-input" 
+                        type="checkbox" 
+                        name={`options[${i}]`}
+                        value={option}
+                        ref={register}
+                         />
+                        <label className="form-check-label">{option}</label>
+                    </div>
+  
+                </div>
+            ))}
+    </div>
+    <br/>
+    <label><h6>Manipulation et Controle</h6></label>
+        
+        <div className="row" id="div_range">
+            {manipul_control.map((option,i) => (
+                    <div className="col-sm-3">
+                    <div className="form-check ">
+                        <input className="form-check-input" 
+                        type="checkbox" 
+                        name={`options[${i}]`}
+                        value={option}
+                        ref={register}
+                         />
+                        <label className="form-check-label">{option}</label>
+                    </div>
+  
+                </div>
+            ))}
+    </div>
+    <br/>
+    <label><h6>Connectivité et Interfaces</h6></label>
+        
+        <div className="row" id="div_range">
+            {connectivité_interfaces.map((option,i) => (
+                    <div className="col-sm-3">
+                    <div className="form-check ">
+                        <input className="form-check-input" 
+                        type="checkbox" 
+                        name={`options[${i}]`}
+                        value={option}
+                        ref={register}
+                         />
+                        <label className="form-check-label">{option}</label>
+                    </div>
+  
+                </div>
+            ))}
+    </div>
+    <br/>
+
+<label><h6>Affichage du cockpit</h6></label>
+   <div className="row h-100" >
+    <div className="col-sm-3  my-auto" id="div_check_inline">
+    <div className="form-check my-auto">
+        <input className="form-check-input"  type="checkbox" name="protection_antivol" ref={register}/>
+        <label className="form-check-label">Ordinateur de bord</label>
+    </div>
+  </div>
+  <div className="col-sm-3 my-auto" id="div_check_inline">
+    <div className="form-check my-auto">
+        <input className="form-check-input"  type="checkbox" name="protection_antivol" ref={register}/>
+        <label className="form-check-label">Cockpit numerique</label>
+    </div>
+  </div>
+  <div className="col-sm-6 my-auto" id="div_check_inline">
+    <div className="form-check my-auto">
+        <input className="form-check-input"  type="checkbox" name="protection_antivol" ref={register}/>
+        <label className="form-check-label">Affichage tète haute</label>
+    </div>
+  </div>
+</div>
+</section>
+{/*END SECTION INFOS DIVERS */}
+
+{/*SECTION SUPLEMENTS */}
+<section className="infodivers">
+    <div className="row" id="div-title">
+      <div className="col-12 col-sm-6"><h5>SUPLEMENTS</h5></div>
+    </div>
+    <label><h6>Pneus</h6></label>
+    <div className="row d-flex justify-content-around flex-nowrap" id="div_range">
+            {pneus.map((option,i) => (
+                    <div >
+                    <div className="form-check ">
+                        <input className="form-check-input" 
+                        type="checkbox" 
+                        name={`options[${i}]`}
+                        value={option}
+                        ref={register}
+                         />
+                        <label className="form-check-label">{option}</label>
+                    </div>
+  
+                </div>
+            ))}
+    </div>
+    <br/>
+  
+
+    <div className="row flex-nowrap">
+        <div className="col-sm-8"><label><h6>Service de dépannage</h6></label></div>
+        <div className="col-sm-4"><label><h6>Jantes</h6></label></div>
+    </div>
+    <div className="row flex-nowrap">
+      <div className ="d-flex justify-content-around mr-2" id="div_check_inline">
+    <div className="form-check-inline ">
+      <input type="checkbox" name="p_chevaux" ref={register}
+        className="form-check-input"/>
+          <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <label className="form-check-label">Pneu de rechange</label>
+    </div>
+    <div className="form-check-inline">
+      <input type="checkbox" name="p_chevaux" ref={register}
+        className="form-check-input"/>
+          <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <label className="form-check-label">Pneu d'urgence</label>
+    </div>
+    <div className="form-check-inline ">
+      <input type="checkbox" name="p_chevaux" ref={register}
+        className="form-check-input"/>
+          <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <label className="form-check-label">Kit de réparation de pneus d'urgence </label>
+    </div>
+    </div>
+  
+    <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3 mt-0"  id="div_range">
+       <select className="form-control "  name="airbags" ref={register}>
+        <option>Veuillez sélectionner</option>            
+        </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
+  
+     </div>
+        </div>{/*End services de depanage */}
+        <br/>
+<label><h6>Particularité </h6></label>
+    <div className="row" id="div_range">
+            {particularité.map((option,i) => (
+                         <div className="col-sm-3">
+                    <div className="form-check ">
+                        <input className="form-check-input" 
+                        type="checkbox" 
+                        name={`options[${i}]`}
+                        value={option}
+                        ref={register}
+                         />
+                        <label className="form-check-label">{option}</label>
+                    </div>
+  
+                </div>
+            ))}
+    </div>{/*END particularité */}
+    
+    <br/>
+
+
+</section>
+{/*END SECTION SUPLEMENTS */}
 
 <hr/>
       <div className="row">

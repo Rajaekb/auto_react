@@ -148,7 +148,9 @@ input[type="submit"] {
     height: auto;
     width: 100% !important;
     border:none;
-    padding:4%;
+    padding:3px;
+    margin-top:0px !important;
+    
 }
 #div_range select,#div_range input {
  border-radius: 0%;
@@ -239,6 +241,7 @@ input[type="submit"] {
   align-items: center;
   justify-content: center;
   background-color:#F8F8F8;
+  margin-top:0px !important;
  height: 40px;
  width: 100% !important;
   border:none;
@@ -246,4 +249,7 @@ input[type="submit"] {
   
 
  
-}         
+}  
+label,h6 {
+  margin-bottom: 0px !important;
+}       
