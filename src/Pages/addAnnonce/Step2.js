@@ -241,24 +241,24 @@ return (
     <label><h6>Controle de climat</h6></label>
     <div className="row flex-nowrap" >
     <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3" id="div_range">
-             <select className="form-control "  name="airbags" ref={register}>
+             <select className="form-control "  name="control_climat" ref={register}>
             <option>Climatisation automatique</option>            
-           </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
+           </select> <ErrorMessage errors={errors} name="control_climat" as="p" />
      </div>
    
     <div className="col-sm-2 mt-3 pt-3 pb-5 ml-2" id="div_check_inline">
-        <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
-            <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+        <input type="checkbox" name="control_climat" ref={register} className="form-check-input"/>
+            <ErrorMessage errors={errors} name="control_climat" as="p" />
             <label className="form-check-label">Chaufage auxiliaire </label>
             </div>
     <div className="col-sm-2 mt-3 pt-3 pb-5 " id="div_check_inline">
-            <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
-                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+            <input type="checkbox" name="control_climat" ref={register} className="form-check-input"/>
+                <ErrorMessage errors={errors} name="control_climat" as="p" />
                 <label className="form-check-label">Phare brise chauffant</label>
     </div>
     <div className="col-sm-4 mt-3 pt-3 pb-5" id="div_check_inline">
-            <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
-                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+            <input type="checkbox" name="control_climat" ref={register} className="form-check-input"/>
+                <ErrorMessage errors={errors} name="control_climat" as="p" />
                 <label className="form-check-label">Volant chauffant</label>
     </div>
 </div>{/*end div row controle de climat */}
@@ -270,28 +270,28 @@ return (
 </div>
 <div className="row flex-nowrap">
         <div className="col-sm-4  mt-3 pt-3 pb-5 mr-2" id="div_check_inline">
-          <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
-                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <input type="checkbox" name="capteur_stationnement" ref={register} className="form-check-input"/>
+                <ErrorMessage errors={errors} name="capteur_stationnement" as="p" />
                 <label className="form-check-label">Systéme de pilotage automatique</label>
         </div>
         <div className="col-sm-2  mt-3 pt-3 pb-5" id="div_check_inline">
-          <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
-                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <input type="checkbox" name="assistance_stationnement_acoustique" ref={register} className="form-check-input"/>
+                <ErrorMessage errors={errors} name="assistance_stationnement_acoustique" as="p" />
                 <label className="form-check-label">De face</label>
         </div>
         <div className="col-sm-2  mt-3 pt-3 pb-5 mr-2" id="div_check_inline">
-          <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
-                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <input type="checkbox" name="assistance_stationnement_acoustique" ref={register} className="form-check-input"/>
+                <ErrorMessage errors={errors} name="assistance_stationnement_acoustique" as="p" />
                 <label className="form-check-label">Arriére</label>
         </div>
         <div className="col-sm-2  mt-3 pt-3 pb-5" id="div_check_inline">
-          <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
-                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <input type="checkbox" name="assistance_stationnement_visuel" ref={register} className="form-check-input"/>
+                <ErrorMessage errors={errors} name="assistance_stationnement_visuel" as="p" />
                 <label className="form-check-label">Caméras</label>
         </div>
         <div className="col-sm-2  mt-3 pt-3 pb-5" id="div_check_inline">
-          <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
-                <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <input type="checkbox" name="assistance_stationnement_visuel" ref={register} className="form-check-input"/>
+                <ErrorMessage errors={errors} name="assistance_stationnement_visuel" as="p" />
                 <label className="form-check-label">Caméras 360°</label>
         </div>
 </div>{/*end row capteur de stationemnent */}
@@ -304,23 +304,23 @@ return (
 </div>
 <div className="row flex-nowrap">
     <div className="col-sm-2  mt-3 pt-3 pb-5" id="div_check_inline">
-        <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
-          <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+        <input type="checkbox" name="siege_chauffants_electriques" ref={register} className="form-check-input"/>
+          <ErrorMessage errors={errors} name="siege_chauffants_electriques" as="p" />
           <label className="form-check-label">De face</label>
     </div>
     <div className="col-sm-2  mt-3 pt-3 pb-5 mr-2" id="div_check_inline">
-      <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
-            <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+      <input type="checkbox" name="siege_chauffants_electriques" ref={register} className="form-check-input"/>
+            <ErrorMessage errors={errors} name="siege_chauffants_electriques" as="p" />
             <label className="form-check-label">Arriére</label>
     </div>
     <div className="col-sm-2  mt-3 pt-3 pb-5" id="div_check_inline">
-      <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
-            <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+      <input type="checkbox" name="siege_reglables_electriques" ref={register} className="form-check-input"/>
+            <ErrorMessage errors={errors} name="siege_reglables_electriques" as="p" />
             <label className="form-check-label">De face</label>
     </div>
     <div className="col-sm-2  mt-3 pt-3 pb-5" id="div_check_inline">
-      <input type="checkbox" name="p_chevaux" ref={register} className="form-check-input"/>
-            <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+      <input type="checkbox" name="siege_reglables_electriques" ref={register} className="form-check-input"/>
+            <ErrorMessage errors={errors} name="siege_reglables_electriques" as="p" />
             <label className="form-check-label">Arriére</label>
     </div>
 </div>{/*end row les places */}
@@ -432,19 +432,19 @@ return (
    <div className="row h-100" >
     <div className="col-sm-3  my-auto" id="div_check_inline">
     <div className="form-check my-auto">
-        <input className="form-check-input"  type="checkbox" name="protection_antivol" ref={register}/>
+        <input className="form-check-input"  type="checkbox" name="affichage_du_cockpit" ref={register}/>
         <label className="form-check-label">Ordinateur de bord</label>
     </div>
   </div>
   <div className="col-sm-3 my-auto" id="div_check_inline">
     <div className="form-check my-auto">
-        <input className="form-check-input"  type="checkbox" name="protection_antivol" ref={register}/>
+        <input className="form-check-input"  type="checkbox" name="affichage_du_cockpit" ref={register}/>
         <label className="form-check-label">Cockpit numerique</label>
     </div>
   </div>
   <div className="col-sm-6 my-auto" id="div_check_inline">
     <div className="form-check my-auto">
-        <input className="form-check-input"  type="checkbox" name="protection_antivol" ref={register}/>
+        <input className="form-check-input"  type="checkbox" name="affichage_du_cockpit" ref={register}/>
         <label className="form-check-label">Affichage tète haute</label>
     </div>
   </div>
@@ -484,21 +484,21 @@ return (
     <div className="row flex-nowrap">
       <div className ="d-flex justify-content-around mr-2" id="div_check_inline">
     <div className="form-check-inline ">
-      <input type="checkbox" name="p_chevaux" ref={register}
+      <input type="checkbox" name="service_de_depannage" ref={register}
         className="form-check-input"/>
-          <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <ErrorMessage errors={errors} name="service_de_depannage" as="p" />
           <label className="form-check-label">Pneu de rechange</label>
     </div>
     <div className="form-check-inline">
-      <input type="checkbox" name="p_chevaux" ref={register}
+      <input type="checkbox" name="service_de_depannage" ref={register}
         className="form-check-input"/>
-          <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <ErrorMessage errors={errors} name="service_de_depannage" as="p" />
           <label className="form-check-label">Pneu d'urgence</label>
     </div>
     <div className="form-check-inline ">
-      <input type="checkbox" name="p_chevaux" ref={register}
+      <input type="checkbox" name="service_de_depannage" ref={register}
         className="form-check-input"/>
-          <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <ErrorMessage errors={errors} name="service_de_depannage" as="p" />
           <label className="form-check-label">Kit de réparation de pneus d'urgence </label>
     </div>
     </div>
@@ -532,7 +532,7 @@ return (
 <label><h6>Attelage de remorque  </h6></label>
 <div className="row">
 <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3 mt-0"  id="div_range">
-       <select className="form-control "  name="airbags" ref={register}>
+       <select className="form-control "  name="attelage_remorque" ref={register}>
         <option>Veuillez sélectionner</option>            
         </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
   
@@ -546,27 +546,27 @@ return (
     <div className="row flex-nowrap">
       <div className ="d-flex justify-content-around mr-2" id="div_check_inline">
     <div className="form-check-inline ">
-      <input type="checkbox" name="p_chevaux" ref={register}
+      <input type="checkbox" name="historique_vehicule" ref={register}
         className="form-check-input"/>
-          <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <ErrorMessage errors={errors} name="historique_vehicule" as="p" />
           <label className="form-check-label">Carnet d'entretien</label>
     </div>
     <div className="form-check-inline">
-      <input type="checkbox" name="p_chevaux" ref={register}
+      <input type="checkbox" name="historique_vehicule" ref={register}
         className="form-check-input"/>
-          <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <ErrorMessage errors={errors} name="historique_vehicule" as="p" />
           <label className="form-check-label">Garantie</label>
     </div>
     <div className="form-check-inline ">
-      <input type="checkbox" name="p_chevaux" ref={register}
+      <input type="checkbox" name="historique_vehicule" ref={register}
         className="form-check-input"/>
-          <ErrorMessage errors={errors} name="p_chevaux" as="p" />
+          <ErrorMessage errors={errors} name="historique_vehicule" as="p" />
           <label className="form-check-label">Véhicule non-fumeur </label>
     </div>
     </div>
   
     <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3 mt-0"  id="div_range">
-       <select className="form-control "  name="airbags" ref={register}>
+       <select className="form-control "  name="historique_vehicule" ref={register}>
         <option>Nombre d'anciens propriétaire</option>            
         </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
   
@@ -576,10 +576,10 @@ return (
 <label><h6>TVA </h6></label>
 <div className="row">
 <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3 mt-0"  id="div_range">
-       <select className="form-control "  name="TVA" ref={register}>
+       <select className="form-control "  name="tva" ref={register}>
         <option>Recuperable</option>            
         <option>Non</option>            
-        </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
+        </select> <ErrorMessage errors={errors} name="tva" as="p" />
   
      </div>
         </div>{/*End  TVA */}

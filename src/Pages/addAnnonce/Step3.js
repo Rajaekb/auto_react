@@ -51,9 +51,9 @@ const Step3 = props => {
       <h2>Step 3</h2>
       <div className="row">
         <div className="col-12 col-sm-6 "> 
-        <label>        
-        <div className="row upload_container">
-          <div className="col-12 col-sm-12 form-group">
+          
+        <div className=" upload_container">
+   
          <input
               className="form-control"
               multiple
@@ -63,32 +63,65 @@ const Step3 = props => {
               onChange={fileChangedHandler}
                />
 
-          </div>
+      
         </div>
-        <div className="row d-flex flex-row ">
-        <div className="col-sm-12 ">
-        <div className="row d-flex flex-row ">
-        
-         {files ? 
-            (files.map(file => (
+        <div className="row d-flex flex-row ">    
+         { 
+            files.map(file => (
               <div className="col-sm-3 ">
              <div key={file.name}>
                <img src={file.preview} className="w-100"/>
             </div></div>
-             )))
-
-             :(
-            
-          <div className="col-sm-3 preview ">cvxcbxcbx</div>
-       )
-          }</div>
-          </div>
+             ))
+          }
+      
         </div>  
-     </label>
-      <input type="submit" />
-      </div>
 
-      </div>
+     </div>
+     <div className="col-12 col-sm-6">
+          <div id="div_range">
+            <input type="text" name="lien_youtube"
+            className="form-control" id="inputfo" placeholder="Lien video youtube"
+             ref={register}/>
+             <ErrorMessage errors={errors} name="lien_youtube" as="p" />
+          </div><br/>
+          <div id="div_range" className="d-flex">
+           <div>Titre de vehicule</div>
+            <div><input type="text" name="titre_vehicule"
+            className="form-control" id="inputfo" placeholder="Lien video youtube"
+             ref={register}/>
+             <ErrorMessage errors={errors} name="titre_vehicule" as="p" />
+             </div>
+          </div>
+          <br/>
+          <div id="div_range">
+            <textarea  name="description_vehicule" rows="10"
+            className="form-control"  placeholder="Description de vehicules"
+             ref={register}/>
+             <ErrorMessage errors={errors} name="description_vehicule" as="p" />
+          </div><br/>
+          <div id="div_range">
+            <input type="text" name="prix_vehicule"
+            className="form-control" id="inputfo" placeholder="Prix de vehicule"
+             ref={register}/>
+             <ErrorMessage errors={errors} name="prix_vehicule" as="p" />
+          </div><br/>
+          <div id="div_range">
+          <select className="form-control "  name="prix_fixe" ref={register}>
+        <option>Prix Fixe</option> 
+        <option>Oui</option>               
+        <option>Non</option>               
+        </select> <ErrorMessage errors={errors} name="prix_fixe" as="p" />
+  
+          </div><br/>
+  
+     </div>
+     
+     </div>
+      <input type="submit" />
+      
+
+      
 
        </form>
 

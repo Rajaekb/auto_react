@@ -17,7 +17,8 @@ const Step4 = props => {
   };
 
   const userInfo=localStorage.getItem('USER_INFO');
-  const user=JSON.parse(userInfo);
+  const user=JSON.parse(userInfo);  
+  console.log(user);
   
 
   return (
@@ -50,7 +51,13 @@ const Step4 = props => {
             <input type="text" name="prenom" value={user.prenom} ref={register}
             className="form-control" id="inputfo" placeholder="prenom"/>
          </div>
-      </div>
+      </div>  
+         <div className=" col-12  col-sm-3 form-group">
+  
+            <input type="text" name="user_id" value={user.userId} ref={register}
+            className="form-control" id="inputfo" />
+         </div>
+   
  
 
     </div>

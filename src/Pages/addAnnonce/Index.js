@@ -58,6 +58,7 @@ const Pages = () => {
 
   const user=localStorage.getItem('USER_INFO');
   const u=JSON.parse(user);
+  console.log(u)
   return (
     <>
      

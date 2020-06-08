@@ -48,9 +48,10 @@ const App = ({ user , dispatchLogoutAction }) => {
            <Route path="/login" component={FormConnexion} />
            <Route path="/accueil" component={AccueilPage} />
            <Route path="/mu" component={MultipleUpload} />
-           <Route exact path="/add" component={Add} />
+           {/*<Route exact path="/add" component={Add} />
            <Route path="/step2" component={Step2} />
            <Route path="/step3" component={Step3} />
+           <Route path="/step4" component={Step4} />*/}
       
            { /* <Redirect to="/accueil" />*/}
           </Switch>) :
@@ -61,9 +62,9 @@ const App = ({ user , dispatchLogoutAction }) => {
             <Route exact path="/client" component={Cli_TableauBord} />
             <Route exact path="/add/:annonceId" component={Add} />
             <Route exact path="/dz" component={MyDropZone} />
-            <Route path="/step2" component={Step2} />
+            { /* <Route path="/step2" component={Step2} />
      <Route path="/step3" component={Step3} />
-      <Route path="/step4" component={Step4} />
+      <Route path="/step4" component={Step4} />*/}
             
 
            { /*<Redirect to="/client" />*/}
