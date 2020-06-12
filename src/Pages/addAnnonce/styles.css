@@ -16,7 +16,6 @@ label {
   display: block;
   margin-bottom: 13px;
   margin-top: 20px;
- 
   font-size: 14px;
   font-weight: 200;
 }
@@ -118,7 +117,6 @@ input[type="submit"] {
 #div_box{
   background:#F9F5FF;
   height: 60px;
-
   
 }
 
@@ -129,9 +127,7 @@ input[type="submit"] {
 .custom-control-input:active ~ .custom-control-label::before {
   background-color:#eebb20 !important;
 }
-.custom-radio .custom-control-input:checked ~ .custom-control-label::after{
 
-}
 
 #selector{
   background: transparent !important;
@@ -149,7 +145,6 @@ input[type="submit"] {
     width: 100% !important;
     border:none;
     padding:3px;
-  
     margin-top:0px !important;
     
 }
@@ -177,20 +172,6 @@ input[type="submit"] {
   font-weight: 500;  
 }
 
-.upload_container{
-  border: 2px solid #dddddd;
-  background: #dadada;
-  width: 100%;
-  height: 200px;
-}
-.preview{
-
-  background: #dadada;
-  width: 100%;
-  height: 100px;
-  background: url('../../assets/img/Navbar/open.png') no-repeat ;
-  background-size: cover;
-}
 #Calendar-icon{
   float: right;
   margin-right: 20px;  
@@ -254,4 +235,58 @@ input[type="submit"] {
 }  
 label,h6 {
   margin-bottom: 0px !important;
-}       
+}      
+
+input[type="file"] {
+  opacity: 0;
+}
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+ position: relative;
+  width: 100%;
+  height: 400px;
+  cursor: pointer;
+  background: #F8F8F8  url('../../assets/img/upload_bg.png') no-repeat;
+  background-position: center;
+  background-size: center;
+  text-align: center;
+
+
+}
+.custom-file-upload button{
+    position: absolute;
+    top:80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    background-color: #eebb20;
+    color: #F9F5FF;
+    letter-spacing: 2px;
+    
+      
+}
+.img_upload{
+width: 100%;
+height: 400px;
+object-fit: cover;
+}
+
+.hiddenFileInput > input{
+  height: 100%;
+  width: 100;
+  opacity: 0;
+  cursor: pointer;
+}
+.hiddenFileInput{
+  border: 1px solid #ccc;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  overflow: hidden;
+  
+  /*for the background, optional*/
+  /*background: center center no-repeat;*/
+  background-size: 75% 75%;
+  background: #F8F8F8  url('../../assets/img/upload_bg.png') no-repeat;
+}

@@ -14,8 +14,8 @@ const system_assistance=["4x4","ABS","Alert de franchisement","Antidémarrage",
                         "Assistance au changement de voie","Autom rétroviseur intérieur occultant",
                         "Rennaissances des panneaux de signalisation","Assistance au démarrage en cote",
                         "Systeme de controle de limite de vitesse","Systeme d'avertissement de distance"];
-const autre_caractérique=["Siéges sport","Accoudoir","Support lambaire","Siéges de massage","Ventillation de siége","Siége passager rabattable à plat"]
-const autre_equipement=["Fenétre electrique","Hayon electrique","Verrouillage central sans clé","Capteur de pluie",
+const autres_caractéristiques=["Siéges sport","Accoudoir","Support lambaire","Siéges de massage","Ventillation de siége","Siége passager rabattable à plat"]
+const autres_equipements=["Fenétre electrique","Hayon electrique","Verrouillage central sans clé","Capteur de pluie",
                         "Eclairage ambiant","Rétroviseur latéral electrique","Verrouillage centralisé","Capteur de lumiére",
                         "Direction assistée","Volant en cuir"];
 const multimedia=["Turner / Radio","Radio DAB","Lecteur CD","Télé","Systémes audio","Systéme de navigation"];
@@ -32,8 +32,11 @@ const Step2 = props => {
     defaultValues: {}
   });
   const { push } = useHistory();
-  const onSubmit = (data, e) => {
+  const onSubmit = (data) => {
     console.log(data);
+    //const u=data.system_assistance;
+  //let f =u.filter(Boolean);
+ // console.log(f);
     action(data);
     push("/step3");
   };
@@ -55,7 +58,7 @@ return (
     <label><h6>Couleur extérieure</h6></label>
     
         <div id="div_range">
-        <select className="form-control "  name="couleur_interieur" ref={register}>
+        <select className="form-control "  name="couleurs_exterieure" ref={register}>
             <option className="noir">Noir</option>
             <option className="bege">Bège</option>
             <option className="rouge">Rouge</option>
@@ -70,7 +73,7 @@ return (
             
            </select>
         
-          <ErrorMessage errors={errors} name="couleur_interieur" as="p" />
+          <ErrorMessage errors={errors} name="couleurs_exterieure" as="p" />
         </div>
         </div>
         <div className=" col-12  col-sm-4 form-group">
@@ -92,7 +95,7 @@ return (
             <option>Grix</option>
             <option>Marron</option>
             
-           </select> <ErrorMessage errors={errors} name="cylindree" as="p" />
+           </select> <ErrorMessage errors={errors} name="couleur_interieur" as="p" />
         </div>
         </div>
                 
@@ -119,7 +122,7 @@ return (
                     <div className="form-check ">
                         <input className="form-check-input" 
                         type="checkbox" 
-                        name={`options[${i}]`}
+                        name={`system_assistance[${i}]`}
                         value={option}
                         ref={register}
                          />
@@ -137,6 +140,7 @@ return (
     <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3" id="div_range">
              <select className="form-control "  name="airbags" ref={register}>
             <option>Airbags Conducteur</option>            
+            <option>Autre</option>            
            </select> <ErrorMessage errors={errors} name="airbags" as="p" />
      </div>
    
@@ -161,6 +165,7 @@ return (
     <div className="col-sm-4 form-group pt-1 pb-1 pr-3 pl-3" id="div_range">
         <select className="form-control "  name="type_de_phare" ref={register}>
             <option>Phare laser</option>            
+            <option>Autre</option>            
            </select> <ErrorMessage errors={errors} name="type_de_phare" as="p" />
       </div>
     <div className="col-sm-8 mt-3 pt-3 pb-5 ml-2" id="div_check_inline">
@@ -218,13 +223,13 @@ return (
    <div className="row h-100" >
     <div className="col-sm-3  my-auto" id="div_check_inline">
     <div className="form-check my-auto">
-        <input className="form-check-input"  type="checkbox" name="protection_antivol" ref={register}/>
+        <input className="form-check-input"  type="checkbox" name="protection_anti_vol" ref={register}/>
         <label className="form-check-label">Systéme d'alarme</label>
     </div>
   </div>
   <div className="col-sm-9 my-auto" id="div_check_inline">
     <div className="form-check my-auto">
-        <input className="form-check-input"  type="checkbox" name="protection_antivol" ref={register}/>
+        <input className="form-check-input"  type="checkbox" name="protection_anti_vol" ref={register}/>
         <label className="form-check-label">Immobilisateur de moteur</label>
     </div>
   </div>
@@ -325,15 +330,15 @@ return (
     </div>
 </div>{/*end row les places */}
 <br/>
-<label><h6>Autre caractérique</h6></label>
+<label><h6>Autre caractéristiques</h6></label>
         
         <div className="row" id="div_range">
-            {autre_caractérique.map((option,i) => (
+            {autres_caractéristiques.map((option,i) => (
                     <div className="col-sm-2">
                     <div className="form-check ">
                         <input className="form-check-input" 
                         type="checkbox" 
-                        name={`options[${i}]`}
+                        name={`autres_caractéristiques[${i}]`}
                         value={option}
                         ref={register}
                          />
@@ -347,12 +352,12 @@ return (
     <label><h6>Autre Equipement de confort</h6></label>
         
         <div className="row" id="div_range">
-            {autre_equipement.map((option,i) => (
+            {autres_equipements.map((option,i) => (
                     <div className="col-sm-3">
                     <div className="form-check ">
                         <input className="form-check-input" 
                         type="checkbox" 
-                        name={`options[${i}]`}
+                        name={`autres_equipements[${i}]`}
                         value={option}
                         ref={register}
                          />
@@ -378,7 +383,7 @@ return (
                     <div className="form-check ">
                         <input className="form-check-input" 
                         type="checkbox" 
-                        name={`options[${i}]`}
+                        name={`multimedia[${i}]`}
                         value={option}
                         ref={register}
                          />
@@ -397,7 +402,7 @@ return (
                     <div className="form-check ">
                         <input className="form-check-input" 
                         type="checkbox" 
-                        name={`options[${i}]`}
+                        name={`manipulation_controle[${i}]`}
                         value={option}
                         ref={register}
                          />
@@ -416,7 +421,7 @@ return (
                     <div className="form-check ">
                         <input className="form-check-input" 
                         type="checkbox" 
-                        name={`options[${i}]`}
+                        name={`connectivite_et_interfaces[${i}]`}
                         value={option}
                         ref={register}
                          />
@@ -464,7 +469,7 @@ return (
                     <div className="form-check ">
                         <input className="form-check-input" 
                         type="checkbox" 
-                        name={`options[${i}]`}
+                        name={`pneus[${i}]`}
                         value={option}
                         ref={register}
                          />
@@ -518,7 +523,7 @@ return (
                     <div className="form-check ">
                         <input className="form-check-input" 
                         type="checkbox" 
-                        name={`options[${i}]`}
+                        name={`particularite[${i}]`}
                         value={option}
                         ref={register}
                          />

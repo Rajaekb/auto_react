@@ -21,13 +21,13 @@ import './App.css';
 import Add from './Pages/addAnnonce/Index';
 import AccueilPage from './Pages/AccueilPage';
 import Footer from './Components/Footer';
-import Actualite from './Components/Actualite';
 import Cli_TableauBord from './Pages/Cli_TableauBord';
-import MyDropZone from './Components/MyDropZone';
-import MultipleUpload from './Pages/MultipleUpload';
 import Step2 from './Pages/addAnnonce/Step2';
 import Step3 from './Pages/addAnnonce/Step3';
 import Step4 from './Pages/addAnnonce/Step4';
+
+import RechFilter from './Pages/RechFilter';
+import MyDropZone from './Components/MyDropZone';
 
 
 const App = ({ user , dispatchLogoutAction }) => {
@@ -47,13 +47,15 @@ const App = ({ user , dispatchLogoutAction }) => {
            <Route path="/inscription" component={PageInscription} />
            <Route path="/login" component={FormConnexion} />
            <Route path="/accueil" component={AccueilPage} />
-           <Route path="/mu" component={MultipleUpload} />
+           <Route path="/fil" component={RechFilter} />
+           <Route path="/dz" component={MyDropZone} />
+          
            {/*<Route exact path="/add" component={Add} />
            <Route path="/step2" component={Step2} />
            <Route path="/step3" component={Step3} />
            <Route path="/step4" component={Step4} />*/}
       
-           { /* <Redirect to="/accueil" />*/}
+            <Redirect to="/accueil" />
           </Switch>) :
           (<Switch>
             <Route exact path="/add" component={Add} />
@@ -61,13 +63,13 @@ const App = ({ user , dispatchLogoutAction }) => {
             <Route exact path="/accueil" component={AccueilPage} />
             <Route exact path="/client" component={Cli_TableauBord} />
             <Route exact path="/add/:annonceId" component={Add} />
-            <Route exact path="/dz" component={MyDropZone} />
-            { /* <Route path="/step2" component={Step2} />
-     <Route path="/step3" component={Step3} />
-      <Route path="/step4" component={Step4} />*/}
+           
+             <Route path="/step2" component={Step2} />
+                 <Route path="/step3" component={Step3} />
+                 { /*<Route path="/step4" component={Step4} />*/}
             
 
-           { /*<Redirect to="/client" />*/}
+           <Redirect to="/client" />
 
       
              

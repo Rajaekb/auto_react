@@ -5,21 +5,20 @@ import { createAnnonce } from '../../redux/actions/annoncesActionCreator';
 import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
 
-const Result = ({ props,history, dispatchCreateAnnonceAction })  => {
+const Result = ({ props,history, dispatchCreateAnnonceAction,filter })  => {
   const { state } = useStateMachine(updateAction);
 
   const testsubmit = e =>{
-    console.log(state.yourDetails.images[0].name);
-    console.log(state.yourDetails.images[1].name);
-    console.log(state.yourDetails.images[2].name);
+    e.preventDefault();
+    let s=state.yourDetails.system_assistance;
+    console.log(s);
+  
+    let f =s.filter(Boolean);
+    console.log(f);
+
   }
   const handleOnSubmit = event => {
     event.preventDefault();
-      //  const data = { title, description, type, active ,user_id ,nombre_de_vue};
-      //  const data = { state };
-     
-
-      //const data = (state.yourDetails) ;
       const fd = new FormData();
       fd.append('neuf',state.yourDetails.neuf)
       fd.append('origine',state.yourDetails.origine)
@@ -33,20 +32,10 @@ const Result = ({ props,history, dispatchCreateAnnonceAction })  => {
       fd.append('matricule',state.yourDetails.matricule)
       fd.append('edition_special',state.yourDetails.edition_special)
       fd.append('type_vehicule',state.yourDetails.type_vehicule)
-      /*let files=state.yourDetails.images;
+      let files=state.yourDetails.images;
       for (let i=0 ;i<files.length; i++){
-        fd.append(`images[${i}]`,files[i])
-
-      }*/
-     // fd.append('image',state.yourDetails.images[0].name)
-      //let files=state.yourDetails.images;
-      fd.append('images[]',state.yourDetails.images[0],state.yourDetails.images[0].name)
-      fd.append('images[]',state.yourDetails.images[1],state.yourDetails.images[1].name)
-    fd.append('images[]',state.yourDetails.images[2],state.yourDetails.images[2].name)
-    fd.append('images[]',state.yourDetails.images[3],state.yourDetails.images[3].name)
-    fd.append('images[]',state.yourDetails.images[4],state.yourDetails.images[4].name)
-   
-   
+        fd.append('images[]',files[i],files[i].name)
+      }   
       fd.append('nbr_portes',state.yourDetails.nbr_portes)
       fd.append('nbr_sieges',state.yourDetails.nbr_sieges)
       fd.append('carburant',state.yourDetails.carburant)
@@ -57,17 +46,18 @@ const Result = ({ props,history, dispatchCreateAnnonceAction })  => {
       fd.append('motorisation',state.yourDetails.motorisation)
       fd.append('consomation',state.yourDetails.consomation)
       fd.append('frais_vignette',state.yourDetails.frais_vignette)
-
       fd.append('en_etat_de_marche',state.yourDetails.en_etat_de_marche)
-        fd.append('date_de_vente',state.yourDetails.date_de_vente)
-        fd.append('ville_de_vente',state.yourDetails.ville_de_vente)
-        fd.append('couleurs_exterieure',state.yourDetails.couleurs_exterieure)
-        fd.append('design_interieur',state.yourDetails.design_interieur)
-        fd.append('couleurs_interieur',state.yourDetails.couleurs_interieur)
-        fd.append('metalisee',state.yourDetails.metalisee)
-        fd.append('systemes_assistance',state.yourDetails.systemes_assistance)
-        fd.append('metalisee',state.yourDetails.metalisee)
-        fd.append('airbag',state.yourDetails.airbag)
+      fd.append('date_de_vente',state.yourDetails.date_de_vente)
+      fd.append('ville_de_vente',state.yourDetails.ville_de_vente)
+      fd.append('couleurs_exterieure',state.yourDetails.couleurs_exterieure)
+      fd.append('design_interieur',state.yourDetails.design_interieur)
+      fd.append('couleurs_interieur',state.yourDetails.couleurs_interieur)
+      fd.append('metalisee',state.yourDetails.metalisee)
+
+        let s=state.yourDetails.system_assistance; 
+        let f =s.filter(Boolean);
+        fd.append('system_assistance[]',f)
+        fd.append('airbag',state.yourDetails.airbags)
         fd.append('type_de_phare',state.yourDetails.type_de_phare)
         fd.append('faisceau_complet',state.yourDetails.faisceau_complet)
         fd.append('lumiere_allumees',state.yourDetails.lumiere_allumees)
@@ -79,15 +69,38 @@ const Result = ({ props,history, dispatchCreateAnnonceAction })  => {
         fd.append('assistance_stationnement_visuel',state.yourDetails.assistance_stationnement_visuel)
         fd.append('siege_chauffants_electriques',state.yourDetails.siege_chauffants_electriques)
         fd.append('siege_reglables_electriques',state.yourDetails.siege_reglables_electriques)
-        fd.append('autres_caracteristiques',state.yourDetails.autres_caracteristiques)
-        fd.append('autre_equipement_confort',state.yourDetails.autre_equipement_confort)
-        fd.append('multimedia',state.yourDetails.multimedia)
-        fd.append('manipulation_controle',state.yourDetails.manipulation_controle)
-        fd.append('connectivite_et_interfaces',state.yourDetails.connectivite_et_interfaces)
+        
+        let a=state.yourDetails.autres_caractéristiques; 
+        let af =a.filter(Boolean);
+        fd.append('autres_caracteristiques',af)
+
+        let e=state.yourDetails.autres_equipements; 
+        let ae =e.filter(Boolean);
+        fd.append('autre_equipement_confort',ae)
+
+        let m=state.yourDetails.multimedia; 
+        let am =m.filter(Boolean);
+        fd.append('multimedia',am)
+
+        let mc=state.yourDetails.manipulation_controle; 
+        let amc =mc.filter(Boolean);
+        fd.append('manipulation_controle',amc)
+
+        let ci=state.yourDetails.connectivite_et_interfaces; 
+        let aci =ci.filter(Boolean);        
+        fd.append('connectivite_et_interfaces',aci)
         fd.append('affichage_du_cockpit',state.yourDetails.affichage_du_cockpit)
-        fd.append('pneus',state.yourDetails.pneus)
+
+        let p=state.yourDetails.pneus; 
+        let ap =p.filter(Boolean);
+        fd.append('pneus',ap)
+
         fd.append('service_de_depannage',state.yourDetails.service_de_depannage)
-        fd.append('particularite',state.yourDetails.particularite)
+
+        let par=state.yourDetails.particularite; 
+        let apar =par.filter(Boolean);
+        fd.append('particularite',apar)
+
         fd.append('attelage_remorque',state.yourDetails.attelage_remorque)
         fd.append('historique_vehicule',state.yourDetails.historique_vehicule)
         fd.append('tva',state.yourDetails.tva)
@@ -136,6 +149,7 @@ const Result = ({ props,history, dispatchCreateAnnonceAction })  => {
     <li className="list-group-item">kilometrage: {JSON.stringify(state.yourDetails.kilometrage)} </li>
     <li className="list-group-item">matricule:{JSON.stringify(state.yourDetails.matricule)} </li>
     <li className="list-group-item">edition special:{JSON.stringify(state.yourDetails.edition_special)} </li>
+    <li className="list-group-item">systemes_assistance:{JSON.stringify(state.yourDetails.systemes_assistance)} </li>
     
 
 </ul></div>

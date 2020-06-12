@@ -6,6 +6,8 @@ export default function annoncesReducer(state = [], action) {
             return action.payload;
         case constants.ADD_ANNONCE:
             return state.concat(action.payload);
+        /*case constants.SEARCH_ANNONCE:
+            return state.concat(action.payload);*/
         case constants.REMOVE_ANNONCE:
             return state.filter(item => item._id !== action.payload);
         case constants.UPDATE_ANNONCE:

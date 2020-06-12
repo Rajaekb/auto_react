@@ -9,6 +9,8 @@ import "./styles.css";
 const Step3 = props => {
 
   const [files, setFiles] = useState([]);
+  const [image1, setImage1] = useState(null);
+
   const { state, action } = useStateMachine(updateAction);
   const { handleSubmit, register, errors,setValue} = useForm({
     defaultValues: {}
@@ -24,18 +26,22 @@ const Step3 = props => {
   const fileChangedHandler = event => {
     event.persist();
       const arrfi=Array.from(event.target.files);
+      setImage1(URL.createObjectURL(event.target.files[0]))
       setFiles(arrfi.map(file => Object.assign(file, {
         preview: URL.createObjectURL(file)
       })));
-
     setValue('images',event.target.files);
-
   }
 
   useEffect(() => () => {
   // Make sure to revoke the data uris to avoid memory leaks
   files.forEach(file => URL.revokeObjectURL(file.preview));
 }, [files]);
+
+useEffect(() => () => {
+  // Make sure to revoke the data uris to avoid memory leaks
+URL.revokeObjectURL(image1);
+}, [image1]);
  
   const onSubmit = data => {
     action(data);    
@@ -49,22 +55,23 @@ const Step3 = props => {
     <div className="container">
     <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
       <h2>Step 3</h2>
-      <div className="row">
+      <div className="row ">
         <div className="col-12 col-sm-6 "> 
           
-        <div className=" upload_container">
-   
-         <input
+        <div className="custom-file-upload">
+        <label  for="file">
+        <img src={image1} className="img_upload"/>
+        <input
               className="form-control"
               multiple
               accept="image/*"
               name="images[]"
+              id="file"
               type="file"
               onChange={fileChangedHandler}
-               />
 
-      
-        </div>
+               />
+<button type="button"  className="btn">AJOUTER DES PHOTOS</button>
         <div className="row d-flex flex-row ">    
          { 
             files.map(file => (
@@ -74,9 +81,12 @@ const Step3 = props => {
             </div></div>
              ))
           }
-      
-        </div>  
-
+     
+        </div>
+        
+</label> 
+        
+</div>
      </div>
      <div className="col-12 col-sm-6">
           <div id="div_range">

@@ -46,6 +46,14 @@ yourDetails: {
     motorisation:0,
     consomation:0,
     frais_vignette:0,
+    system_assistance:[],
+    autres_caractéristiques:[],
+    autres_equipements:[],
+    multimedia:[],
+    manipulation_controle:[],
+    pneus:[],
+    particularite:[],
+  
     
   
     user_id: 0

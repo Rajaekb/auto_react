@@ -433,13 +433,13 @@ const Step1 = props => {
         <div className="col-12 col-sm-4 form-group">
         <label><h6>Quand prévoyer-vous vendre ?</h6></label>
         <div id="div_range">
-       <input type="date" className="form-control" name="date_vente" ref={register} placeholder="Selectioner la Date"/>
+       <input type="date" className="form-control" name="date_de_vente" ref={register} placeholder="Selectioner la Date"/>
         </div>
         </div>
         <div className="col-12 col-sm-4 form-group">
         <label><h6>Ou aimer-vous vendre votre voiture</h6></label>
         <div id="div_range">
-            <input type="text" className="form-control" id="inputfo" ref={register} placeholder="Tanger"/>
+            <input type="text" className="form-control" name="ville_de_vente" ref={register} placeholder="Tanger"/>
         </div>
         </div>
 </div>

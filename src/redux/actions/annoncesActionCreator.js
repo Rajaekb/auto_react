@@ -23,6 +23,17 @@ export const createAnnonce = (data, onSuccess, onError) => ({
         postProcessError: onError
     }
 });
+export const searchAnnonce = (data, onSuccess) => ({
+    type: constants.API,
+    payload: {
+        method: 'POST',
+        url: '/api/annonces/search',
+        data,
+        success: (response) => (setAnnonces(response)),
+        postProcessSuccess: onSuccess,
+        
+    }
+});
 
 export const  getAnnonceById=(annonceId,onSuccess)=>({
     type:constants.API,
@@ -62,7 +73,10 @@ const addAnnonce = (annonce) => ({
     type: constants.ADD_ANNONCE,
     payload: annonce
 });
-
+const setAnnonces = (data) => ({
+    type: constants.SEARCH_ANNONCE,
+    payload: data
+});
 const setAllAnnonces = (data) => ({
     type: constants.SET_ALL_ANNONCES,
     payload: data
