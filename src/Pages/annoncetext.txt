@@ -1,0 +1,64 @@
+affichage_du_cockpit: null
+airbag: "undefined"
+année: "2020"
+assistance_stationnement_acoustique: null
+assistance_stationnement_visuel: null
+attelage_remorque: "Veuillez sélectionner"
+autre_equipement_confort: "undefined"
+autres_caracteristiques: "undefined"
+capteur_stationnement: "false"
+carburant: null
+connectivite_et_interfaces: "undefined"
+consomation: null
+control_climat: null
+couleurs_exterieure: "undefined"
+couleurs_interieur: "undefined"
+created_at: "2020-06-08T11:43:20.000000Z"
+cylindree: null
+date_de_vente: "0000-00-00"
+dedouanement: "Dedouanement"
+description_vehicule: null
+design_interieur: null
+eclairage_adaptatif: "false"
+edition_special: 0
+en_etat_de_marche: 0
+faisceau_complet: null
+finition: null
+frais_vignette: null
+historique_vehicule: "Nombre d'anciens propriétaire"
+id: 4
+images: "["1591616600_8.PNG","1591616600_Capturezdz - Copie.PNG","1591616600_Capturezdz.PNG","1591616600_default.PNG","1591616600_fezfz.PNG"]"
+kilometrage: null
+lien_youtube: null
+lumiere_allumees: "Lumiére allumées toute la journée"
+manipulation_controle: "undefined"
+marque: "Peugeot"
+matricule: "Casa"
+metalisee: 0
+modele: "Aston Martin"
+mois: "janv"
+motorisation: null
+multimedia: "undefined"
+nbr_portes: 3
+nbr_sieges: 5
+neuf: null
+origine: "Origine"
+p_chevaux: null
+p_fiscal: null
+particularite: "undefined"
+pneus: "undefined"
+prix_fixe: 0
+prix_vehicule: null
+protection_anti_vol: "undefined"
+service_de_depannage: null
+siege_chauffants_electriques: null
+siege_reglables_electriques: null
+systemes_assistance: "undefined"
+titre_vehicule: null
+transmission: null
+tva: 0
+type_de_phare: "false"
+type_vehicule: "Citadine"
+updated_at: "2020-06-08T11:43:20.000000Z"
+user_id: 1
+ville_de_vente: "undefined"

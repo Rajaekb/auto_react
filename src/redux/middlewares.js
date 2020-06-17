@@ -11,7 +11,7 @@ export const apiMiddleware = ({dispatch, getState }) => next => action => {
     dispatch({ type: constants.TOGGLE_LOADER });
     
     const BASE_URL = 'https://autobackend.devcom-media.com';
-   // const BASE_URL = 'http://localhost:8000';
+    //const BASE_URL = 'http://localhost:8000';
     const AUTH_TOKEN = getState().user.token;
     if (AUTH_TOKEN)
     axios.defaults.headers.common['Authorization'] = `Bearer ${AUTH_TOKEN}`;

@@ -1,0 +1,15 @@
+#header_im{
+background: url('./../assets/img/head_black.svg') no-repeat ;
+background-position: center;
+height: 150px;
+  }
+
+.carousel .thumb{
+width: 130px !important;
+height:100px !important;
+border-radius: 8% !important;
+  }
+.carousel img{
+    object-fit: cover !important;
+    width: 100% !important;
+}

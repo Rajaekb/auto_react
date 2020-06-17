@@ -28,6 +28,7 @@ import Step4 from './Pages/addAnnonce/Step4';
 
 import RechFilter from './Pages/RechFilter';
 import MyDropZone from './Components/MyDropZone';
+import DetailAnnonce from './Pages/DetailAnnonce';
 
 
 const App = ({ user , dispatchLogoutAction }) => {
@@ -49,6 +50,8 @@ const App = ({ user , dispatchLogoutAction }) => {
            <Route path="/accueil" component={AccueilPage} />
            <Route path="/fil" component={RechFilter} />
            <Route path="/dz" component={MyDropZone} />
+           <Route  exact path="/annonces" component={AnnoncesPage} />
+           <Route exact path="/annonces/:id" component={DetailAnnonce}/>
           
            {/*<Route exact path="/add" component={Add} />
            <Route path="/step2" component={Step2} />
@@ -63,6 +66,7 @@ const App = ({ user , dispatchLogoutAction }) => {
             <Route exact path="/accueil" component={AccueilPage} />
             <Route exact path="/client" component={Cli_TableauBord} />
             <Route exact path="/add/:annonceId" component={Add} />
+            <Route exact path="/annonces/:id" component={DetailAnnonce}/>
            
              <Route path="/step2" component={Step2} />
                  <Route path="/step3" component={Step3} />

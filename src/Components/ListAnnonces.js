@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import {Link} from "react-router-dom";
 import d_img from '../assets/img/d_img.png';
 import { connect } from 'react-redux';
@@ -12,6 +12,8 @@ import { deleteAnnonceById } from '../redux/actions/annoncesActionCreator';
     const ListAnnonces = ({ annonces,dispatchDeleteAction }) => { 
 
         const [selectedAnnonce, setSelectedAnnonce] = useState('');
+        const [Annonces, setAnnonces] = useState('');
+        const [img,setImg]=useState([]);
 
         const showConfirmationModal = (event, annonceId) => {
             event.preventDefault();
@@ -23,29 +25,31 @@ import { deleteAnnonceById } from '../redux/actions/annoncesActionCreator';
             dispatchDeleteAction(selectedAnnonce, () => {
                 window.location.reload(true);
                 window.$('#confirmationModal').modal('hide');
-               
-                toast.success('Annonce deleted Successfully!');
-              
-            }, (message) => {
+                toast.success('Annonce supprimée avec succée!');
+              }, (message) => {
                 window.$('#confirmationModal').modal('hide');
                 toast.error(`Error: ${message}`);
             });
         };
-    
+        let t="";
+               
         return (
 
             <React.Fragment>
-                {          
-                   annonces.map(item => (
-                    <div key={item.id} className="row" id="result">
-                    <div className="col-3">
-                    <img src={`http://127.0.0.1:8000${item.image}`}  alt="image"   className="rounded w-100" />
-                    </div>
-                
-                    <div className="col-9">
+                 
+                  { annonces.map(item => (
+                          t=JSON.parse(item.images),
+
+                <div key={item.id} className="row" id="result">
+                <div className="col-3">
+                 <img src={`http://autobackend.devcom-media.com/storage/${t[0]}`}  alt="image"   className="rounded w-100 img-thumbnail" />
+                </div>
+                <div className="col-9">
                     <div className="row">
                         <div className="col-8">
-                        <h5>{item.marque} {item.modele} {item.finition}</h5>         
+                        <Link to={"/annonces/" + item.id}>
+                        <h5>{item.marque} {item.modele} {item.finition}</h5> 
+                         </Link>       
                         </div>
                         <div className="col-4">
                         <h5><span>{item.neuf}</span></h5>

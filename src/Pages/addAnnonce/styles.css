@@ -254,14 +254,14 @@ input[type="file"] {
 
 
 }
-.custom-file-upload button{
+.custom-upload-button{
+   
     position: absolute;
     top:80%;
     left: 50%;
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
-    background-color: #eebb20;
-    color: #F9F5FF;
+    background-color: #eebb20 !important;
     letter-spacing: 2px;
     
       
@@ -272,21 +272,10 @@ height: 400px;
 object-fit: cover;
 }
 
-.hiddenFileInput > input{
-  height: 100%;
-  width: 100;
-  opacity: 0;
-  cursor: pointer;
-}
-.hiddenFileInput{
-  border: 1px solid #ccc;
-  width: 100px;
-  height: 100px;
-  display: inline-block;
-  overflow: hidden;
-  
-  /*for the background, optional*/
-  /*background: center center no-repeat;*/
-  background-size: 75% 75%;
-  background: #F8F8F8  url('../../assets/img/upload_bg.png') no-repeat;
+.img-preview{
+   height: 100px;
+  object-fit: cover;
+  background-position: center;
+  background-size: cover;
+
 }

@@ -9,8 +9,6 @@ import "./styles.css";
 const Step3 = props => {
 
   const [files, setFiles] = useState([]);
-  const [image1, setImage1] = useState(null);
-
   const { state, action } = useStateMachine(updateAction);
   const { handleSubmit, register, errors,setValue} = useForm({
     defaultValues: {}
@@ -26,7 +24,6 @@ const Step3 = props => {
   const fileChangedHandler = event => {
     event.persist();
       const arrfi=Array.from(event.target.files);
-      setImage1(URL.createObjectURL(event.target.files[0]))
       setFiles(arrfi.map(file => Object.assign(file, {
         preview: URL.createObjectURL(file)
       })));
@@ -38,10 +35,7 @@ const Step3 = props => {
   files.forEach(file => URL.revokeObjectURL(file.preview));
 }, [files]);
 
-useEffect(() => () => {
-  // Make sure to revoke the data uris to avoid memory leaks
-URL.revokeObjectURL(image1);
-}, [image1]);
+
  
   const onSubmit = data => {
     action(data);    
@@ -58,9 +52,12 @@ URL.revokeObjectURL(image1);
       <div className="row ">
         <div className="col-12 col-sm-6 "> 
           
-        <div className="custom-file-upload">
-        <label  for="file">
-        <img src={image1} className="img_upload"/>
+        <div className="custom-file-upload" >
+        
+        
+        <label  for="file" className="custom-upload-button btn">
+          AJOUTER DES PHOTOS
+          </label>
         <input
               className="form-control"
               multiple
@@ -71,22 +68,22 @@ URL.revokeObjectURL(image1);
               onChange={fileChangedHandler}
 
                />
-<button type="button"  className="btn">AJOUTER DES PHOTOS</button>
-        <div className="row d-flex flex-row ">    
+        
+        </div>
+        <div className="row  pt-2">    
          { 
             files.map(file => (
-              <div className="col-sm-3 ">
+              <div className="col-sm-3 pt-2 ">
              <div key={file.name}>
-               <img src={file.preview} className="w-100"/>
+               <img src={file.preview} className="w-100 border img-preview"/>
             </div></div>
              ))
           }
      
         </div>
         
-</label> 
-        
-</div>
+
+
      </div>
      <div className="col-12 col-sm-6">
           <div id="div_range">
