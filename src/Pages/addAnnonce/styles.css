@@ -273,9 +273,10 @@ object-fit: cover;
 }
 
 .img-preview{
-   height: 100px;
+  height: 100px;
   object-fit: cover;
   background-position: center;
   background-size: cover;
+
 
 }

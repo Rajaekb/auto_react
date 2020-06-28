@@ -1,40 +1,93 @@
 import React, { useState,useEffect } from "react";
+import { connect } from 'react-redux';
 import { useForm, ErrorMessage,Controller } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
-import {FaCalendarAlt} from 'react-icons/fa';
+import axios from 'axios';
+
+
 
 
 const Step1 = props => {
+  const [marques,setMarques]=useState([]);
+  const [modeles,setModeles]=useState([]);
+
   const { state, action } = useStateMachine(updateAction);
   const { handleSubmit, errors, register,reset,control } = useForm({
     defaultValues: {}
   });
+
+
   const { push } = useHistory();
   const onSubit = data => {
-    console.log(data);
+
     action(data);
     push("/step2");
   };
 
+  useEffect(() => {
+    const CancelToken = axios.CancelToken;
+    const source = CancelToken.source();
+
+    const loadData = () => {
+      try {
+        axios.get('https://autobackend.devcom-media.com/api/marques', { cancelToken: source.token }).then(data => {
+          //console.log(data.data);
+          setMarques([...marques,data.data])
+
+         
+        });
+      } catch (error) {
+        if (axios.isCancel(error)) {
+          console.log("cancelled");
+        } else {
+          throw error;
+        }
+      }
+    };
+
+    loadData();
+    return () => {
+      source.cancel();
+    };
+  }, []);
+  useEffect(() => {
+    const l=[];
+    setModeles([...modeles,l])
+  
+  
+   },[])
+ const selectMarque = (e) => {
+//e.preventDefault();
+
+  
+  const marqueId=e.target.value;
+ axios.get(`https://autobackend.devcom-media.com/api/modeles/show/${marqueId}`)
+  .then(function (response) {
+    setModeles([response.data])
+    
+  })
+ }
+
+
+
+
   return (
     <div className="container">
-    <form novalidate onSubmit={handleSubmit(onSubit)} encType="multipart/form-data">
+    <form noValidate onSubmit={handleSubmit(onSubit)} encType="multipart/form-data">
    
      
   <h5>VOITURES NEUVES OU D'OCCASION</h5>
     <div className="row" id="div_box">
           <div className="custom-control custom-radio custom-control-inline col-sm pl-5 pt-3">
-          <input  ref={register} type="radio" value="Neuf" 
-          id="customRadioInline1" name="neuf" className="custom-control-input "/>
-          <label className="custom-control-label pt-3" for="customRadioInline1">Voiture Neuve</label>
+          <input  ref={register} type="radio" value="Neuf"  id="customRadioInline1" name="neuf" className="custom-control-input "/>
+          <label className="custom-control-label pt-3" htmlFor="customRadioInline1">Voiture Neuve</label>
           <ErrorMessage errors={errors} name="neuf" as="p" />
       </div>
       <div className="custom-control custom-radio custom-control-inline col-sm pt-3">      
-        <input   ref={register} type="radio" value="Occasion" 
-        id="customRadioInline2" name="neuf" className="custom-control-input"/>
-        <label className="custom-control-label pt-3" for="customRadioInline2">Voiture d'occasion</label>
+        <input   ref={register} type="radio" value="Occasion" id="customRadioInline2" name="neuf" className="custom-control-input"/>
+        <label className="custom-control-label pt-3" htmlFor="customRadioInline2">Voiture d'occasion</label>
         <ErrorMessage errors={errors} name="neuf" as="p" />
       </div>
      
@@ -50,11 +103,12 @@ const Step1 = props => {
           <option>Allemagne</option>
           <option>Turquie</option>
         </select>
+        
         <ErrorMessage errors={errors} name="origine" as="p" />
     </div>
     <div className="form-group col-sm">
 
-      <select name="dedouanement" ref={register}id="selector">
+      <select name="dedouanement" ref={register} id="selector">
         <option>Dedouanement</option>
         <option>Oui</option>
         <option>Non</option>
@@ -66,52 +120,39 @@ const Step1 = props => {
 
     <h5>SPECIFICATION VOITURE</h5>
   <div className="row" >
-    <div className="col-12 col-sm-4 form-group">
+    <div className="col-12 col-sm-4 form-group ">
     <label><h6>Marque</h6></label>
         <div id="div_range">
-          <select className="form-control "
-          name="marque"  ref={register}>
-            <option>Peugeot</option>
-            <option>Renault</option>
-            <option>Volkswagen</option>
-            <option>Opel</option>
-            <option>Citroën</option>
-            <option>Mercedes</option>
-            <option>Ford</option>
-            <option>BMW</option>
-      
-           </select>
-           <ErrorMessage errors={errors} name="marque" as="p" />
+        <select className="form-control " name="marque_id"  ref={register} onChange={selectMarque}>
+          {marques.map((option,i)=>(
+              option.map((e,o)=>(
+              <option key={option[o].id} value={option[o].id}>{option[o].libellé}</option>
+              ))
+            
+  ))} </select>
+           <ErrorMessage errors={errors} name="marque_id" as="p" />
+          
         </div>
         </div>
         <div className=" col-12  col-sm-4 form-group">
         <label><h6>Model</h6></label>
         <div id="div_range">
-          <select className="form-control " name="modele"
-          ref={register}>
-              <option>Aston Martin	</option>
-              <option>Cadillac</option>
-              <option>Dacia	</option>
-              <option>Fiat	</option>
-              <option>Audi	</option>
-              <option>Catheram	</option>
-              <option>Daihatsu	</option>
-              <option>Ford	</option>
-              <option>Chrysler	</option>
-              <option>Ferrari	</option>
-              <option>Hyundai	</option>
+          <select className="form-control" name="modele_id"  ref={register}>
+               {modeles.map((option,i)=>(
+              option.map((e,o)=>(
+              <option key={option[o].id} value={option[o].id}>{option[o].libellé}</option>
+              ))
+            
+  ))} 
          
           </select>
-          <ErrorMessage errors={errors} name="modele" as="p" />
+          <ErrorMessage errors={errors} name="modele_id" as="p" />
         </div>
         </div>
         <div className="col-12 col-sm-4 form-group">
         <label><h6>Finition</h6></label>
         <div id="div_range">
-            <input type="text" name="finition"
-            
-             className="form-control" id="inputfo" placeholder="Finition"
-             ref={register}/>
+            <input type="text" name="finition" className="form-control" id="inputfo" placeholder="Finition" ref={register}/>
              <ErrorMessage errors={errors} name="finition" as="p" />
         </div>
         </div>
@@ -122,8 +163,7 @@ const Step1 = props => {
     <div className=" col-12 col-sm-4 form-group">
     <label><h6>Année</h6></label>
         <div id="div_range">
-          <select className="form-control "
-          name="année"  ref={register}>
+          <select className="form-control" name="année"  ref={register}>
             <option>2020</option>
             <option>2019</option>
             <option>2018</option>
@@ -156,8 +196,7 @@ const Step1 = props => {
         <div className="col-12 col-sm-4 form-group">
         <label><h6>Mois</h6></label>
         <div id="div_range">
-          <select className="form-control "
-          name="mois"  ref={register}>
+          <select className="form-control " name="mois"  ref={register}>
               <option>janv</option>
               <option>fevr</option>
               <option>mars</option>
@@ -224,7 +263,7 @@ const Step1 = props => {
         <div className="custom-control custom-switch pt-9">
     <input type="checkbox" className="custom-control-input" id="customSwitch1"
     name="edition_special"  ref={register}/>
-    <label className="custom-control-label" for="customSwitch1"><h6>Edition Spécial</h6></label>
+    <label className="custom-control-label" htmlFor="customSwitch1"><h6>Edition Spécial</h6></label>
     <ErrorMessage errors={errors} name="edition_special" as="p" />
     </div>
     </div>
@@ -239,50 +278,42 @@ const Step1 = props => {
 </div>
 <div className="row">
   <div className="col-sm" >
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-light active">
-        <input type="radio" name="type_vehicule"  value="Citadine"
-        ref={register}
-          checked/> Cabrio/Roadster
+    <div className="btn-group btn-group-toggle" data-toggle="buttons">
+      <label className="btn btn-light active">
+        <input type="radio" name="type_vehicule"  value="Cabrio/Roadster" ref={register} defaultChecked/> Cabrio/Roadster
          <ErrorMessage errors={errors} name="type_vehicule" as="p" />
       </label>
-      <label class="btn btn-light">
-        <input type="radio" name="type_vehicule" value="Berlin"
-        ref={register}
-       /> Petite Voiture
+      <label className="btn btn-light">
+        <input type="radio" name="type_vehicule" value="Petite Voiture" ref={register}/> Petite Voiture
          <ErrorMessage errors={errors} name="type_vehicule" as="p" />
       </label>
       
-      <label class="btn btn-light">
-        <input type="radio" name="type_vehicule" value="Berlin"
-        ref={register}
-       /> Break
+      <label className="btn btn-light">
+        <input type="radio" name="type_vehicule" value="Break" ref={register}/> Break
          <ErrorMessage errors={errors} name="type_vehicule" as="p" />
       </label>
       
-      <label class="btn btn-light">
-        <input type="radio" name="type_vehicule" value="Berlin"
-        ref={register}
-       /> Voiture de Sport
+      <label className="btn btn-light">
+        <input type="radio" name="type_vehicule" value="Voiture de Sport" ref={register}/> Voiture de Sport
          <ErrorMessage errors={errors} name="type_vehicule" as="p" />
       </label>
       
-      <label class="btn btn-light">
-        <input type="radio" name="type_vehicule" value="Berlin"
+      <label className="btn btn-light">
+        <input type="radio" name="type_vehicule" value="SUV/Pick-up"
         ref={register}
        /> SUV/Pick-up
          <ErrorMessage errors={errors} name="type_vehicule" as="p" />
       </label>
       
-      <label class="btn btn-light">
-        <input type="radio" name="type_vehicule" value="Berlin"
+      <label className="btn btn-light">
+        <input type="radio" name="type_vehicule" value="Van/Minibus"
         ref={register}
        /> Van/Minibus
          <ErrorMessage errors={errors} name="type_vehicule" as="p" />
       </label>
       
-      <label class="btn btn-light">
-        <input type="radio" name="type_vehicule" value="Berlin"
+      <label className="btn btn-light">
+        <input type="radio" name="type_vehicule" value="Autre"
         ref={register}
        /> Autre
          <ErrorMessage errors={errors} name="type_vehicule" as="p" />
@@ -301,41 +332,38 @@ const Step1 = props => {
    <div className="col-sm" >
     <div className="btn-group btn-group-toggle" data-toggle="buttons">
      <label className="btn btn-light active">
-       <input type="radio" name="nbr_portes" value="3" id="nbr_portes" 
-       ref={register}
-       autocomplete="off" checked/> 2/3
+       <input type="radio" name="nbr_portes" value="3" id="nbr_portes" ref={register} autoComplete="off" defaultChecked/> 2/3
        <ErrorMessage errors={errors} name="nbr_portes" as="p" />
      </label>
      <label className="btn btn-light">
-       <input type="radio" name="nbr_portes"  value="4"  id="nbr_portes" 
-       ref={register}
-       autocomplete="off"/> 4/5
+       <input type="radio" name="nbr_portes"  value="4"  id="nbr_portes"  ref={register}
+       autoComplete="off"/> 4/5
        <ErrorMessage errors={errors} name="nbr_portes" as="p" />
       </label>
       <label className="btn btn-light">
        <input type="radio" name="nbr_portes"  value="4"  id="nbr_portes" 
        ref={register}
-       autocomplete="off"/> 6/7
+       autoComplete="off"/> 6/7
        <ErrorMessage errors={errors} name="nbr_portes" as="p" />
       </label>
     
     </div>
 </div>
   <div className="col-sm" >
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-     <label class="btn btn-light active">
+    <div className="btn-group btn-group-toggle" data-toggle="buttons">
+     <label className="btn btn-light active">
       <input type="radio" name="nbr_sieges"  value="5" id="nbr_sieges" ref={register}
-       autocomplete="off" checked/> 2/3
+       autoComplete="off" defaultChecked /> 2/3
        <ErrorMessage errors={errors} name="nbr_sieges" as="p" />
     </label>
-     <label class="btn btn-light">
+     <label className="btn btn-light">
      <input type="radio" name="nbr_sieges"  value="4" id="nbr_sieges" ref={register}
-      autocomplete="off"/> 4/5
+      autoComplete="off"/> 4/5
       <ErrorMessage errors={errors} name="nbr_sieges" as="p" />
     </label>
-    <label class="btn btn-light">
+    <label className="btn btn-light">
      <input type="radio" name="nbr_sieges"  value="4" id="nbr_sieges" ref={register}
-      autocomplete="off"/> 6/7
+      autoComplete="off"/> 6/7
       <ErrorMessage errors={errors} name="nbr_sieges" as="p" />
     </label>
   </div>
@@ -349,8 +377,7 @@ const Step1 = props => {
     <label><h6>Carburant</h6></label>
     
         <div id="div_range">
-          <input type="text" name="carburant" ref={register}
-          className="form-control" id="inputfo" placeholder="Diesel"/>
+          <input type="text" name="carburant" ref={register} className="form-control" id="inputfo" placeholder="Diesel"/>
            <ErrorMessage errors={errors} name="carburant" as="p" />
         </div>
         </div>
@@ -423,9 +450,9 @@ const Step1 = props => {
       <div className=" col-12 col-sm-4 form-group">
         <label><h6>En etat de marche</h6></label>
         <div id="div_range">
-          <select className="form-control " ref={register}>
-            <option>Oui</option>
-            <option>Non</option>
+          <select className="form-control " name="en_etat_de_marche" ref={register}>
+            <option value="Oui">Oui</option>
+            <option value="Non">Non</option>
             
            </select>
         </div>
@@ -460,3 +487,4 @@ const Step1 = props => {
 };
 
 export default Step1;
+
