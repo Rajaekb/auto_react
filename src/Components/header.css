@@ -7,6 +7,7 @@
     font-size: 14px;
     padding: 9px 0px; 
     margin-bottom: 0rem;
+    font-weight: 400;
   }
   #header{
     height:100vh;
@@ -54,8 +55,6 @@
 }
 
 .navbar .logo {
-  height: 48px;
-  float: left;
   padding-left: 0px !important;
   margin-left:0px !important;
 }
@@ -90,14 +89,12 @@
 }
 
 .navbar .ul-list {
-  width: 69%;
   font-size: 13px;
   letter-spacing: 2px;
   color: #000000;
-  
   list-style: none;
-  padding-top:15px;
- 
+  display: flex;
+  align-items: center;
 }
 
 .navbar .ul-list .list-item {
@@ -115,12 +112,28 @@
 .navbar .ul-list .list-item a:hover {
 
 }
-.conx{
-  font-size: 13px !important;
+.navbar .ul-list .list-item .conx{
+  font-size: 11px;
   color: #000000;
+  letter-spacing: 1px;
 }
 .conx img{
-  width: 25px !important;
+  width: 30%;
+}
+.autosug_header_after{
+  border-left: 2px solid #eebb20;
+}
+.autosug_header_welcome a.btn{
+  letter-spacing: 3px;
+  font-size: 12px;
+  display: initial;
+  padding: 6px 12px;
+}
+.autosug_header_welcome{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /* Media for Navbar Style */ 
 

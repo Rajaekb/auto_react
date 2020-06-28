@@ -2,9 +2,14 @@
 
 * {
   font-family: 'Montserrat', sans-serif;
-  }
+}
 
-
+.clr-jaune{
+  color: #EEBB20;
+}
+.bg-jaune{
+  background-color: #EEBB20;
+}
 /*body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

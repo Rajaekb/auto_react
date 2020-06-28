@@ -7,31 +7,28 @@ import google from '../assets/img/GooglePlay.png';
 
 const Mobile = () => {
     return (
-        <div id="mobile" >
-            <div >
-            <div className="row container-fluid">
-                <div className="col-sm-1"></div>
-                <div className="col-12 col-sm-6">
-                    <div className="row">
-                        <div className="col-12 col-sm-12 text-center pl-0" >
-                            <h4>Gardez Autosug dans votre poche<br/>avec <span>Autosug App</span></h4>
-
-                </div></div>
-  
-                <div className="row pt-2 justify-content-center">
-                    <div className="col-5 col-sm-4"> <img src={Appstore} alt="Tel" width="150"  /></div>
-                    <div className="col-5 col-sm-4"> <img src={google} alt="Tel" width="170" /></div>
+        <section className="autosug-mobile">
+            <div className="container" id="mobile">
+                <div className="row autosug-mobile-height">
+                    <div className="col-12 col-sm-8 d-flex align-items-center justify-content-center">
+                        <div className="text-center">
+                            <h4 className="mb-4">Gardez Autosug dans votre poche<br/>avec <span>Autosug App</span></h4>
+                            <ul className="pl-0 mb-0">
+                                <li className="mx-2">
+                                    <img src={Appstore} alt="Tel" width="150"  />
+                                </li>
+                                <li className="mx-2">
+                                    <img src={google} alt="Tel" width="170" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="col-sm-4 text-left">
+                        <img src={Tel} alt="Tel" id="tel" class="img-fluid"/>
+                    </div>
                 </div>
-                </div>
-                <div className="col-sm-5 text-left">
-                  <img src={Tel} alt="Tel"  id="tel" />
-                </div>
-
             </div>
-
-            </div>
-            
-        </div>
+        </section>
     )
 }
 

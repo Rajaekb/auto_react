@@ -24,53 +24,55 @@ const Header = ({ userName, isLoggedIn, onLogout }) => {
         <div>
             <div id="topbar">
                 <div className="container">
-                    <div className="row">
+                    <div className="row align-items-center">
                         <div className="col-12 col-sm-6 col-md-6 col-lg-6 ">
                            <p> Annoncer sur le plus grand marché automobile au maroc</p>
                         </div>
-                        <div className="col-12 col-sm-6 col-md-6 col-lg-6 ">
-                            {isLoggedIn &&   
-                            <Link to="/add">
-                                <button type="button" className="btn btn-dark  btn-sm w-80 h-100 float-right text-warning ">
-                                DEPOSER VOTRE ANNONCE
-                                </button>
-                            </Link>
-                            
-                        }  
-                           
-                        {isLoggedIn &&  <h6 className="float-right pr-3 mt-2"> Bienvenu {userName} !</h6> }          
+                        <div className="col-12 col-sm-6 col-md-6 col-lg-6 autosug_header_welcome justify-content-end">
+                            <ul className="pl-0 mb-0 text-right">
+                                <li className="d-inline-block mr-3">{isLoggedIn &&  <h6> Bienvenu {userName} !</h6> } </li>
+                                <li className="d-inline-block">
+                                    {isLoggedIn &&   
+                                        <Link to="/add" className="btn btn-dark text-uppercase btn-sm w-80 text-warning">
+                                            Déposer votre Annonce
+                                        </Link>   
+                                    }
+                                </li>
+                            </ul>
+                                
                         </div>
                     </div>
                 </div>
             </div>
             
            
-        <div className="navbar container">
+        <div className="navbar container px-0">
         
-                <div className="logo">
+                <div className="logo mr-auto">
                 <Link to="/accueil"> <img src={logo} alt="Logo"/></Link>
                 </div>
                 
                 <input type="checkbox" id="nav"/>
                 <label htmlFor="nav"></label>
                 
-                <ul className="ul-list">
+                <ul className="ul-list mb-0 py-2 ml-auto">
                     <li className="list-item"><a href="#">RECHERCHE</a></li>
                     <li className="list-item"><a href="#">VENDRE</a></li>
                     <li className="list-item"><a href="#">ESTIMATION</a></li>
                     <li className="list-item"><a href="#">ACTUALITE</a></li>
                     <li  className="list-item">
-                   <span className="border-left border-dark pl-3">FR</span></li>
+                        <span className="pl-3 autosug_header_after">FR</span>
+                    </li>
               
                         
  
-                            <li className="list-item  text-center">
-                                <button type="button" className="btn conx text-center"><img className="mb-1" src={comparer} alt="comparer"/>
+                            <li className="list-item text-center ml-4">
+                                <button type="button" className="btn conx text-center"><img className="img-fluid mb-1" src={comparer} alt="comparer"/>
                             <br/>COMPARER</button></li>
                         {!isLoggedIn &&  
-                            <li className="list-item  text-center">
+                            <li className="list-item text-center">
                                 <button type="button" onClick={(e)=>setOpenLogin(true)}
-                            className="btn conx text-center"><img className="mb-1"src={connexion} alt="Conx"/>
+                            className="btn conx text-center"><img className="img-fluid mb-1"src={connexion} alt="Conx"/>
                             <br/>CONNEXION</button></li>}
                             {isLoggedIn &&<li className="list-item text-center">
                             <button type="button" onClick={onLogout} className="btn  conx">

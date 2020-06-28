@@ -14,10 +14,10 @@ export default class HeaderRech extends Component {
             <div>
                 <Tabs>
                     <TabList>
-                        <Tab> <img src={Car} alt="Car" /></Tab>
-                        <Tab> <img src={Moto} alt="Moto" /></Tab>
-                        <Tab> <img src={Caravane} alt="Caravane" /></Tab>
-                        <Tab> <img src={Camion} alt="Camion" /></Tab>
+                        <Tab> <img src={Car} alt="Car" className="img-fluid"/></Tab>
+                        <Tab> <img src={Moto} alt="Moto" className="img-fluid"/></Tab>
+                        <Tab> <img src={Caravane} alt="Caravane" className="img-fluid"/></Tab>
+                        <Tab> <img src={Camion} alt="Camion" className="img-fluid"/></Tab>
                  
                     </TabList>
 
