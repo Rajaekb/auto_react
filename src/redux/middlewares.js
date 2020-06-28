@@ -1,6 +1,4 @@
 import axios from 'axios';
-
-
 import * as constants from './constants';
 import { logoutUser } from './actions/authActionCreators';
 
@@ -21,7 +19,7 @@ export const apiMiddleware = ({dispatch, getState }) => next => action => {
     axios({
         method,
         url: BASE_URL + url,
-      //  headers: {'Content-type': 'multipart/form-data'},
+    //  headers: {'Content-type': 'multipart/form-data'},
         data: data ? data : null
     }).then((response) => {
         dispatch({ type: constants.TOGGLE_LOADER });

@@ -1,15 +1,48 @@
 #header_im{
-background: url('./../assets/img/head_black.svg') no-repeat ;
-background-position: center;
-height: 150px;
+  background: url('./../assets/img/head_black.svg') no-repeat ;
+  background-position: center;
+  height: 150px;
+    }
+  
+  .carousel .thumb{
+  width: 130px !important;
+  height:100px !important;
+  border-radius: 8% !important;
+    }
+  .carousel img{
+      object-fit: cover !important;
+      width: 100% !important;
   }
-
-.carousel .thumb{
-width: 130px !important;
-height:100px !important;
-border-radius: 8% !important;
+  .table-striped td{
+      font-weight: normal !important;
+      font-style: normal !important;
+      font-family: "Montserrat" !important; 
+      font-size: 14px !important;
+      line-height: 30px;
   }
-.carousel img{
-    object-fit: cover !important;
-    width: 100% !important;
-}
+  .asidebtns .btn{
+    letter-spacing: 1px !important;
+    font-style: normal;
+  font-weight: normal;
+  font-size: 12.5px;
+  
+  }
+  .asidebtns {
+  
+    padding:2px !important;
+  }
+  .profile_img{
+    padding-top:20px;
+    margin:5px;
+    height: 89px;
+    width: 100px;
+    background-color:#eebb20;
+    border-radius: 50%;
+    text-align: center;
+  
+  } 
+  .ic{
+   margin-top: 3%;
+   margin-right:10px !important;
+   margin-left:0px !important;
+  }

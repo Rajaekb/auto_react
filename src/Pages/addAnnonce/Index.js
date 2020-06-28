@@ -14,16 +14,14 @@ import Step2 from "./Step2";
 import Step3 from "./Step3";
 
 import Result from "./Result";
-import { connect } from 'react-redux';
-
 import "./styles.css";
-import AnnoncesPage from "../AnnoncesPage";
+
 import Step4 from "./Step4";
 
 createStore({
-  //data: {}
-yourDetails: {
-    neuf: 0,
+  data: {}
+/*yourDetails: {
+    neuf: "",
     origine: "",
     dedouanement: "",
     marque: "",
@@ -33,7 +31,7 @@ yourDetails: {
     mois: "",
     kilometrage: 0,
     matricule: "",
-    edition_special:0,
+    edition_special:"",
     type_vehicule: "",
     images :[],
     nbr_portes:0,
@@ -51,14 +49,25 @@ yourDetails: {
     autres_equipements:[],
     multimedia:[],
     manipulation_controle:[],
+    connectivite_et_interfaces:[],
+    affichage_du_cockpit:"",
     pneus:[],
+    service_de_depannage:"",
+    jantes:"",
     particularite:[],
+    attelage_remorque:"",
+    tva:"",
+    lien_youtube:"",
+    titre_vehicule:"",
+    description_vehicule:"",
+    prix_vehicule:"",
+    prix_fixe:"",
   
     
   
     user_id: 0
     
-  }
+  }*/
 });
 
 const Pages = () => {
@@ -66,7 +75,7 @@ const Pages = () => {
 
   const user=localStorage.getItem('USER_INFO');
   const u=JSON.parse(user);
-  console.log(u)
+ // console.log(u)
   return (
     <>
      

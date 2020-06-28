@@ -1,14 +1,16 @@
 import React ,{ useEffect }from 'react';
 import { connect } from 'react-redux';
-import AnnonceCollection from '../Components/annoncesCollection';
+
 import ListAnnonces from '../Components/ListAnnonces';
 import { fetchAllAnnonces } from './../redux/actions/annoncesActionCreator'; 
 import { Link } from 'react-router-dom';
 
   const AnnoncesPage = ({ loading, annonces, dispatchFetchAllAnnoncesAction }) =>{
     
-    useEffect(() => dispatchFetchAllAnnoncesAction(),[dispatchFetchAllAnnoncesAction]
-    
+    useEffect(() => dispatchFetchAllAnnoncesAction()
+ 
+    ,[dispatchFetchAllAnnoncesAction]
+ 
     );
     
     return (

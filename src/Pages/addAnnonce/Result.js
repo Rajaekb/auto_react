@@ -10,11 +10,13 @@ const Result = ({ props,history, dispatchCreateAnnonceAction,filter })  => {
 
   const testsubmit = e =>{
     e.preventDefault();
-    let s=state.yourDetails.system_assistance;
-    console.log(s);
-  
+   
+    let s=state.yourDetails.system_assistance; 
     let f =s.filter(Boolean);
+   // let str=JSON.parse(f);
     console.log(f);
+  
+
 
   }
   const handleOnSubmit = event => {
@@ -23,8 +25,8 @@ const Result = ({ props,history, dispatchCreateAnnonceAction,filter })  => {
       fd.append('neuf',state.yourDetails.neuf)
       fd.append('origine',state.yourDetails.origine)
       fd.append('dedouanement',state.yourDetails.dedouanement)
-      fd.append('marque',state.yourDetails.marque)
-      fd.append('modele',state.yourDetails.modele)
+      fd.append('marque_id',state.yourDetails.marque_id)
+      fd.append('modele_id',state.yourDetails.modele_id)
       fd.append('finition',state.yourDetails.finition)
       fd.append('année',state.yourDetails.année)
       fd.append('mois',state.yourDetails.mois)
@@ -56,6 +58,7 @@ const Result = ({ props,history, dispatchCreateAnnonceAction,filter })  => {
 
         let s=state.yourDetails.system_assistance; 
         let f =s.filter(Boolean);
+        
         fd.append('system_assistance[]',f)
         fd.append('airbag',state.yourDetails.airbags)
         fd.append('type_de_phare',state.yourDetails.type_de_phare)
@@ -96,6 +99,7 @@ const Result = ({ props,history, dispatchCreateAnnonceAction,filter })  => {
         fd.append('pneus',ap)
 
         fd.append('service_de_depannage',state.yourDetails.service_de_depannage)
+        fd.append('jantes',state.yourDetails.jantes)
 
         let par=state.yourDetails.particularite; 
         let apar =par.filter(Boolean);
@@ -116,7 +120,7 @@ const Result = ({ props,history, dispatchCreateAnnonceAction,filter })  => {
       fd.append('titre_civilité',state.yourDetails.titre_civilité)
       fd.append('tel',state.yourDetails.tel)
       fd.append('adresse',state.yourDetails.adresse)
-      fd.append('ville',state.yourDetails.code_postal)
+      fd.append('code_postal',state.yourDetails.code_postal)
       fd.append('ville',state.yourDetails.ville)
     
     
@@ -127,7 +131,7 @@ const Result = ({ props,history, dispatchCreateAnnonceAction,filter })  => {
             dispatchCreateAnnonceAction(fd, () => {
                 toast.warn('Annonce crée avec succée!');
                 history.replace('/annonces');
-            }, (message) => toast.error(`Error: ${message}`));
+            }, (message) => console.log(`Error: ${message}`));
         }
         //const res=JSON.stringify(state.yourDetails);
   return (
